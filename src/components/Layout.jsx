@@ -1,6 +1,6 @@
 // src/components/Layout.jsx
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from './navbar';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
 import './Layout.css';
