@@ -1,5 +1,10 @@
+// src/pages/Aktivity.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
+import Section from '../components/Section';
+import Grid from '../components/Grid';
+import Card from '../components/Card';
 import LazyImage from '../components/LazyImage';
 import './Aktivity.css';
 
@@ -123,144 +128,132 @@ const Aktivity = () => {
   };
 
   return (
-    <div className="aktivity-page">
-      <div className="page-header">
-        <div className="container">
-          <h1>Aktivity</h1>
+    <Layout title="Aktivity">
+      <Section>
+        <div className="intro-text">
+          <p>
+            V Plameniaky oz organizujeme široké spektrum aktivít zameraných na rozvoj detí a mladých ľudí. 
+            Od pravidelných workshopov, cez letné tábory, až po dlhodobé projekty a komunitné podujatia - 
+            naším cieľom je vytvárať zmysluplné príležitosti pre osobnostný rast, vzdelávanie a zábavu.
+          </p>
         </div>
-      </div>
+      </Section>
       
-      <div className="container">
-        <div className="content-container">
-          <div className="aktivity-intro">
-            <p>
-              V Plameniaky oz organizujeme široké spektrum aktivít zameraných na rozvoj detí a mladých ľudí. 
-              Od pravidelných workshopov, cez letné tábory, až po dlhodobé projekty a komunitné podujatia - 
-              naším cieľom je vytvárať zmysluplné príležitosti pre osobnostný rast, vzdelávanie a zábavu.
-            </p>
-          </div>
-          
-          <section className="programs-section">
-            <h2>Naše programy</h2>
-            <div className="programs-grid">
-              {programs.map(program => (
-                <div className="program-card" key={program.id}>
-                  <div className="program-image aspect-16-9">
-                    <LazyImage 
-                      src={program.image} 
-                      alt={program.title} 
-                    />
-                  </div>
-                  <div className="program-content">
-                    <h3>{program.title}</h3>
-                    <p>{program.description}</p>
-                    <div className="program-details">
-                      <div className="program-detail">
-                        <i className="fas fa-child"></i>
-                        <span>{program.details.age}</span>
-                      </div>
-                      <div className="program-detail">
-                        <i className="far fa-calendar-alt"></i>
-                        <span>{program.details.schedule}</span>
-                      </div>
-                      <div className="program-detail">
-                        <i className="fas fa-map-marker-alt"></i>
-                        <span>{program.details.location}</span>
-                      </div>
-                    </div>
-                    <Link to="/kontakt" className="btn">Mám záujem</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-          
-          <section className="events-section">
-            <h2>Pripravované podujatia</h2>
-            <div className="events-timeline">
-              {events.map(event => (
-                <div className="event-card" key={event.id}>
-                  <div className="event-date">
-                    <div className="event-month">{event.date.month}</div>
-                    <div className="event-day">{event.date.day}</div>
-                    <div className="event-year">{event.date.year}</div>
-                  </div>
-                  <div className="event-info">
-                    <h3>{event.title}</h3>
-                    <div className="event-location">
-                      <i className="fas fa-map-marker-alt"></i>
-                      <span>{event.location}</span>
-                    </div>
-                    <p>{event.description}</p>
-                    <Link to="/kontakt" className="btn">Prihlásiť sa</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-          
-          <section className="projects-section">
-            <h2>Naše projekty</h2>
-            <div className="projects-list">
-              {projects.map(project => (
-                <div className="project-item" key={project.id}>
-                  <div className="project-image aspect-16-9">
-                    <LazyImage 
-                      src={project.image} 
-                      alt={project.title} 
-                    />
-                  </div>
-                  <div className="project-content">
-                    <h3>{project.title}</h3>
-                    <div className={`project-status ${project.status}`}>
-                      {project.status === 'ongoing' ? 'Prebiehajúci' : 
-                      project.status === 'completed' ? 'Ukončený' : 'Pripravovaný'}
-                    </div>
-                    <p>{project.description}</p>
-                    <Link to="/kontakt" className="btn">Viac informácií</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-          
-          <section className="gallery-section">
-            <h2>Fotogaléria</h2>
-            <div className="gallery-grid">
-              {galleryImages.map((image, index) => (
-                <div 
-                  className="gallery-item aspect-1-1" 
-                  key={index}
-                  onClick={() => openLightbox(image, `Aktivita ${index + 1}`)}
-                >
-                  <LazyImage 
-                    src={image} 
-                    alt={`Aktivita ${index + 1}`} 
-                    className="gallery-image"
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-          
-          {/* Lightbox */}
-          {lightbox.isOpen && (
-            <div className="lightbox" onClick={closeLightbox}>
-              <button className="close-button" onClick={closeLightbox} aria-label="Zatvoriť">
-                &times;
-              </button>
-              <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                <img 
-                  src={lightbox.currentImage} 
-                  alt={lightbox.alt} 
-                  className="lightbox-image"
+      <Section title="Naše programy">
+        <Grid columns="auto">
+          {programs.map(program => (
+            <div className="program-card" key={program.id}>
+              <div className="program-image aspect-16-9">
+                <LazyImage 
+                  src={program.image} 
+                  alt={program.title} 
                 />
               </div>
+              <div className="program-content">
+                <h3>{program.title}</h3>
+                <p>{program.description}</p>
+                <div className="program-details">
+                  <div className="program-detail">
+                    <i className="fas fa-child"></i>
+                    <span>{program.details.age}</span>
+                  </div>
+                  <div className="program-detail">
+                    <i className="far fa-calendar-alt"></i>
+                    <span>{program.details.schedule}</span>
+                  </div>
+                  <div className="program-detail">
+                    <i className="fas fa-map-marker-alt"></i>
+                    <span>{program.details.location}</span>
+                  </div>
+                </div>
+                <Link to="/kontakt" className="btn">Mám záujem</Link>
+              </div>
             </div>
-          )}
+          ))}
+        </Grid>
+      </Section>
+      
+      <Section title="Pripravované podujatia" background="alt">
+        <div className="events-timeline">
+          {events.map(event => (
+            <div className="event-card" key={event.id}>
+              <div className="event-date">
+                <div className="event-month">{event.date.month}</div>
+                <div className="event-day">{event.date.day}</div>
+                <div className="event-year">{event.date.year}</div>
+              </div>
+              <div className="event-info">
+                <h3>{event.title}</h3>
+                <div className="event-location">
+                  <i className="fas fa-map-marker-alt"></i>
+                  <span>{event.location}</span>
+                </div>
+                <p>{event.description}</p>
+                <Link to="/kontakt" className="btn">Prihlásiť sa</Link>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
+      </Section>
+      
+      <Section title="Naše projekty">
+        <div className="projects-list">
+          {projects.map(project => (
+            <div className="project-item" key={project.id}>
+              <div className="project-image aspect-16-9">
+                <LazyImage 
+                  src={project.image} 
+                  alt={project.title} 
+                />
+              </div>
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <div className={`project-status ${project.status}`}>
+                  {project.status === 'ongoing' ? 'Prebiehajúci' : 
+                  project.status === 'completed' ? 'Ukončený' : 'Pripravovaný'}
+                </div>
+                <p>{project.description}</p>
+                <Link to="/kontakt" className="btn">Viac informácií</Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+      
+      <Section title="Fotogaléria" background="alt">
+        <Grid columns={4} className="gallery-grid">
+          {galleryImages.map((image, index) => (
+            <div 
+              className="gallery-item aspect-1-1" 
+              key={index}
+              onClick={() => openLightbox(image, `Aktivita ${index + 1}`)}
+            >
+              <LazyImage 
+                src={image} 
+                alt={`Aktivita ${index + 1}`} 
+                className="gallery-image"
+              />
+            </div>
+          ))}
+        </Grid>
+      </Section>
+      
+      {/* Lightbox */}
+      {lightbox.isOpen && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <button className="close-button" onClick={closeLightbox} aria-label="Zatvoriť">
+            &times;
+          </button>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={lightbox.currentImage} 
+              alt={lightbox.alt} 
+              className="lightbox-image"
+            />
+          </div>
+        </div>
+      )}
+    </Layout>
   );
 };
 

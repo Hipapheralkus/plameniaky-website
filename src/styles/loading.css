@@ -1,0 +1,148 @@
+/* src/styles/loading.css */
+
+/* Image loading animations and styles */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Lazy loading container */
+.lazy-image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-background-alt);
+  transition: background-color var(--transition-base);
+}
+
+.lazy-image-container.loaded {
+  background-color: transparent;
+}
+
+/* Lazy loading image */
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.lazy-image.hidden {
+  opacity: 0;
+}
+
+.lazy-image.visible {
+  opacity: 1;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Loading placeholder */
+.loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-alt);
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(var(--color-primary-rgb), 0.3);
+  border-radius: 50%;
+  border-top-color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+/* Aspect ratio containers */
+.aspect-16-9 {
+  aspect-ratio: 16/9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.aspect-1-1 {
+  aspect-ratio: 1/1;
+}
+
+/* For browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1/1) {
+  .aspect-16-9::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+  }
+  
+  .aspect-4-3::before {
+    content: '';
+    display: block;
+    padding-top: 75%; /* 4:3 aspect ratio */
+  }
+  
+  .aspect-1-1::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* 1:1 aspect ratio */
+  }
+  
+  .lazy-image-container {
+    position: relative;
+  }
+  
+  .lazy-image-container > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Responsive image sizes */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Used with srcset */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus states for accessibility */
+.lazy-image:focus,
+.img-fluid:focus,
+.responsive-img:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .loading-spinner {
+    width: 24px;
+    height: 24px;
+  }
+}

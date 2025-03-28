@@ -1,8 +1,14 @@
+// src/pages/ONas.jsx
 import React from 'react';
+import Layout from '../components/Layout';
+import Section from '../components/Section';
+import Grid from '../components/Grid';
+import Card from '../components/Card';
 import LazyImage from '../components/LazyImage';
 import './ONas.css';
 
 const ONas = () => {
+  // Sample data for team members
   const teamMembers = [
     {
       id: 1,
@@ -39,6 +45,7 @@ const ONas = () => {
     }
   ];
 
+  // Sample data for values
   const values = [
     {
       id: 1,
@@ -67,160 +74,153 @@ const ONas = () => {
   ];
 
   return (
-    <div className="onas-page">
-      <div className="page-header">
-        <div className="container">
-          <h1>O nás</h1>
+    <Layout title="O nás">
+      {/* Mission section */}
+      <Section>
+        <div className="mission-section">
+          <div className="mission-image aspect-4-3">
+            <LazyImage 
+              src="/images/about/mission.jpg" 
+              alt="Naša misia" 
+            />
+          </div>
+          <div className="mission-text">
+            <h2>Naša misia</h2>
+            <p>
+              Občianske združenie Plameniaky vzniklo v roku 2018 s cieľom vytvárať zmysluplné príležitosti 
+              pre deti a mladých ľudí. Naším poslaním je podporovať ich osobnostný rozvoj, kreativitu a 
+              vytvárať bezpečný priestor pre zmysluplné trávenie voľného času.
+            </p>
+            <p>
+              Prostredníctvom rôznorodých aktivít, vzdelávacích programov a komunitných projektov sa 
+              snažíme reagovať na aktuálne potreby detí a mládeže. Veríme, že každé dieťa si zaslúži 
+              šancu rozvinúť svoj potenciál a stať sa sebavedomým a zodpovedným človekom.
+            </p>
+            <p>
+              Naše združenie tvorí tím oddaných profesionálov a dobrovoľníkov, ktorí majú bohaté 
+              skúsenosti s prácou s deťmi a mládežou. Spoločne sa snažíme vytvárať podnetné 
+              prostredie, v ktorom môžu mladí ľudia objavovať svoje silné stránky, budovať 
+              sebadôveru a získavať dôležité životné zručnosti.
+            </p>
+          </div>
         </div>
-      </div>
+      </Section>
       
-      <div className="container">
-        <div className="content-container">
-          <section className="mission-section">
-            <div className="mission-image aspect-4-3">
-              <LazyImage 
-                src="/images/about/mission.jpg" 
-                alt="Naša misia" 
-              />
+      {/* Values section */}
+      <Section title="Naše hodnoty" background="alt">
+        <Grid columns={4}>
+          {values.map(value => (
+            <div className="value-card" key={value.id}>
+              <div className="value-icon">
+                <i className={`fas fa-${value.icon}`}></i>
+              </div>
+              <h3>{value.title}</h3>
+              <p>{value.description}</p>
             </div>
-            <div className="mission-text">
-              <h2>Naša misia</h2>
+          ))}
+        </Grid>
+      </Section>
+      
+      {/* Team section */}
+      <Section title="Náš tím">
+        <Grid columns={3}>
+          {teamMembers.map(member => (
+            <div className="team-member" key={member.id}>
+              <div className="member-photo aspect-1-1">
+                <LazyImage 
+                  src={member.photo} 
+                  alt={member.name} 
+                />
+              </div>
+              <div className="member-info">
+                <h3>{member.name}</h3>
+                <p className="member-position">{member.position}</p>
+                <p className="member-bio">{member.bio}</p>
+                <div className="member-social">
+                  {member.social.map((platform, index) => (
+                    <a 
+                      href={platform.url} 
+                      key={index}
+                      target={platform.icon !== 'envelope' ? '_blank' : ''}
+                      rel={platform.icon !== 'envelope' ? 'noopener noreferrer' : ''}
+                      aria-label={`${platform.icon === 'envelope' ? 'Email' : platform.icon.charAt(0).toUpperCase() + platform.icon.slice(1)} profil - ${member.name}`}
+                    >
+                      <i className={`fa${platform.icon === 'envelope' ? 'r' : 'b'} fa-${platform.icon}`}></i>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </Grid>
+      </Section>
+      
+      {/* History section */}
+      <Section title="Naša história" titleAlignment="left">
+        <div className="history-timeline">
+          <div className="timeline-item">
+            <div className="timeline-year">2018</div>
+            <div className="timeline-content">
+              <h3>Založenie združenia</h3>
               <p>
-                Občianske združenie Plameniaky vzniklo v roku 2018 s cieľom vytvárať zmysluplné príležitosti 
-                pre deti a mladých ľudí. Naším poslaním je podporovať ich osobnostný rozvoj, kreativitu a 
-                vytvárať bezpečný priestor pre zmysluplné trávenie voľného času.
+                Občianske združenie Plameniaky bolo oficiálne zaregistrované na Ministerstve vnútra SR. 
+                Začali sme s malým tímom dobrovoľníkov, ktorí mali spoločnú víziu - vytvárať zmysluplné 
+                príležitosti pre deti a mládež.
               </p>
+            </div>
+          </div>
+          
+          <div className="timeline-item">
+            <div className="timeline-year">2019</div>
+            <div className="timeline-content">
+              <h3>Prvé projekty</h3>
               <p>
-                Prostredníctvom rôznorodých aktivít, vzdelávacích programov a komunitných projektov sa 
-                snažíme reagovať na aktuálne potreby detí a mládeže. Veríme, že každé dieťa si zaslúži 
-                šancu rozvinúť svoj potenciál a stať sa sebavedomým a zodpovedným človekom.
+                Spustili sme naše prvé vzdelávacie aktivity a komunitné projekty. V tomto roku sme 
+                nadviazali spoluprácu s miestnymi školami a zorganizovali sme prvé letné tábory 
+                pre deti zo sociálne znevýhodneného prostredia.
               </p>
+            </div>
+          </div>
+          
+          <div className="timeline-item">
+            <div className="timeline-year">2020</div>
+            <div className="timeline-content">
+              <h3>Prispôsobenie sa pandémii</h3>
               <p>
-                Naše združenie tvorí tím oddaných profesionálov a dobrovoľníkov, ktorí majú bohaté 
-                skúsenosti s prácou s deťmi a mládežou. Spoločne sa snažíme vytvárať podnetné 
-                prostredie, v ktorom môžu mladí ľudia objavovať svoje silné stránky, budovať 
-                sebadôveru a získavať dôležité životné zručnosti.
+                V reakcii na pandémiu COVID-19 sme prispôsobili naše aktivity online prostrediu. 
+                Vytvorili sme sériu online workshopov a webinárov zameraných na duševné zdravie 
+                a podporu detí a mladých ľudí počas pandémie.
               </p>
             </div>
-          </section>
+          </div>
           
-          <section className="values-section">
-            <h2>Naše hodnoty</h2>
-            <div className="values-grid">
-              {values.map(value => (
-                <div className="value-card" key={value.id}>
-                  <div className="value-icon">
-                    <i className={`fas fa-${value.icon}`}></i>
-                  </div>
-                  <h3>{value.title}</h3>
-                  <p>{value.description}</p>
-                </div>
-              ))}
+          <div className="timeline-item">
+            <div className="timeline-year">2022</div>
+            <div className="timeline-content">
+              <h3>Rozšírenie aktivít</h3>
+              <p>
+                S rastúcou podporou sme rozšírili naše aktivity a pôsobenie. Začali sme organizovať 
+                pravidelné víkendové workshopy, mentorské programy a komunitné podujatia. Zapojili 
+                sme sa tiež do medzinárodných projektov zameraných na výmenu skúseností a dobrých 
+                praktík v práci s mládežou.
+              </p>
             </div>
-          </section>
+          </div>
           
-          <section className="team-section">
-            <h2>Náš tím</h2>
-            <div className="team-grid">
-              {teamMembers.map(member => (
-                <div className="team-member" key={member.id}>
-                  <div className="member-photo aspect-1-1">
-                    <LazyImage 
-                      src={member.photo} 
-                      alt={member.name} 
-                    />
-                  </div>
-                  <div className="member-info">
-                    <h3>{member.name}</h3>
-                    <p className="member-position">{member.position}</p>
-                    <p className="member-bio">{member.bio}</p>
-                    <div className="member-social">
-                      {member.social.map((platform, index) => (
-                        <a 
-                          href={platform.url} 
-                          key={index}
-                          target={platform.icon !== 'envelope' ? '_blank' : ''}
-                          rel={platform.icon !== 'envelope' ? 'noopener noreferrer' : ''}
-                          aria-label={`${platform.icon === 'envelope' ? 'Email' : platform.icon.charAt(0).toUpperCase() + platform.icon.slice(1)} profil - ${member.name}`}
-                        >
-                          <i className={`fa${platform.icon === 'envelope' ? 'r' : 'b'} fa-${platform.icon}`}></i>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <div className="timeline-item">
+            <div className="timeline-year">2024</div>
+            <div className="timeline-content">
+              <h3>Súčasnosť</h3>
+              <p>
+                Dnes je OZ Plameniaky etablovanou organizáciou s profesionálnym tímom a širokým 
+                spektrom aktivít. Pokračujeme v našom poslaní vytvárať príležitosti pre deti a 
+                mládež, a teší nás vidieť pozitívny vplyv našej práce na životy mladých ľudí.
+              </p>
             </div>
-          </section>
-          
-          <section className="history-section">
-            <h2>Naša história</h2>
-            <div className="history-timeline">
-              <div className="timeline-item">
-                <div className="timeline-year">2018</div>
-                <div className="timeline-content">
-                  <h3>Založenie združenia</h3>
-                  <p>
-                    Občianske združenie Plameniaky bolo oficiálne zaregistrované na Ministerstve vnútra SR. 
-                    Začali sme s malým tímom dobrovoľníkov, ktorí mali spoločnú víziu - vytvárať zmysluplné 
-                    príležitosti pre deti a mládež.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="timeline-item">
-                <div className="timeline-year">2019</div>
-                <div className="timeline-content">
-                  <h3>Prvé projekty</h3>
-                  <p>
-                    Spustili sme naše prvé vzdelávacie aktivity a komunitné projekty. V tomto roku sme 
-                    nadviazali spoluprácu s miestnymi školami a zorganizovali sme prvé letné tábory 
-                    pre deti zo sociálne znevýhodneného prostredia.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="timeline-item">
-                <div className="timeline-year">2020</div>
-                <div className="timeline-content">
-                  <h3>Prispôsobenie sa pandémii</h3>
-                  <p>
-                    V reakcii na pandémiu COVID-19 sme prispôsobili naše aktivity online prostrediu. 
-                    Vytvorili sme sériu online workshopov a webinárov zameraných na duševné zdravie 
-                    a podporu detí a mladých ľudí počas pandémie.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="timeline-item">
-                <div className="timeline-year">2022</div>
-                <div className="timeline-content">
-                  <h3>Rozšírenie aktivít</h3>
-                  <p>
-                    S rastúcou podporou sme rozšírili naše aktivity a pôsobenie. Začali sme organizovať 
-                    pravidelné víkendové workshopy, mentorské programy a komunitné podujatia. Zapojili 
-                    sme sa tiež do medzinárodných projektov zameraných na výmenu skúseností a dobrých 
-                    praktík v práci s mládežou.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="timeline-item">
-                <div className="timeline-year">2024</div>
-                <div className="timeline-content">
-                  <h3>Súčasnosť</h3>
-                  <p>
-                    Dnes je OZ Plameniaky etablovanou organizáciou s profesionálnym tímom a širokým 
-                    spektrom aktivít. Pokračujeme v našom poslaní vytvárať príležitosti pre deti a 
-                    mládež, a teší nás vidieť pozitívny vplyv našej práce na životy mladých ľudí.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </div>
-    </div>
+      </Section>
+    </Layout>
   );
 };
 
