@@ -1,0 +1,120 @@
+/* src/pages/ArchivPodujati.css */
+
+.filter-tags-container {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Centrovanie filtrovacích tlačidiel */
+  }
+  
+  .filter-tags-container .tag-button { /* Použitie existujúcej triedy tag-button */
+    background-color: var(--color-background-alt);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .filter-tags-container .tag-button:hover {
+    background-color: var(--color-primary-light);
+    color: white;
+  }
+  
+  .filter-tags-container .tag-button.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  
+  .archive-list {
+    /* Grid komponent sa postará o layout */
+  }
+  
+  .archive-item {
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-md);
+    border-left: 5px solid var(--color-primary); /* Farebný pásik vľavo */
+  }
+  
+  .archive-item h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .archive-item p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Mini galéria */
+  .archive-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responzívny grid pre fotky */
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .gallery-thumb {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer; /* Naznačenie klikateľnosti pre lightbox */
+    transition: opacity 0.3s ease;
+  }
+  .gallery-thumb:hover {
+      opacity: 0.85;
+  }
+  
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Tagy v archívnom zázname */
+  .archive-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .archive-tags .tag-button { /* Použitie existujúcej triedy tag-button */
+    background-color: var(--color-background-alt);
+    color: var(--color-text-light); /* Jemnejšia farba pre tagy v archíve */
+    border: 1px solid var(--color-border);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer; /* Aby sa dalo kliknúť pre filter */
+  }
+  .archive-tags .tag-button:hover {
+    background-color: var(--color-border);
+    color: var(--color-text-dark);
+  }
+  .archive-tags .tag-button.active { /* Zvýraznenie aktívneho filtra */
+     background-color: var(--color-primary);
+     color: white;
+     border-color: var(--color-primary);
+  }
+  
+  /* Responzivita */
+  @media (max-width: 576px) {
+      .archive-item h3 {
+          font-size: 1.3rem;
+      }
+      .archive-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Menšie náhľady */
+      }
+  }

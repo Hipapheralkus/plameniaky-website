@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
@@ -15,7 +16,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       const navbar = document.querySelector('.navbar-container');
-      if (isOpen && navbar && !navbar.contains(event.target)) {
+      // Check if click is outside the navbar container AND outside the menu icon
+      if (isOpen && navbar && !navbar.contains(event.target) && !event.target.closest('.menu-icon')) {
         setIsOpen(false);
       }
     };
@@ -40,7 +42,7 @@ const Navbar = () => {
     }
     
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto'; // Ensure overflow is reset on component unmount
     };
   }, [isOpen]);
 
@@ -48,11 +50,19 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Helper function to close menu on link click
+  const closeMobileMenu = () => {
+      if (window.innerWidth <= 960) { // Only close if in mobile view
+          setIsOpen(false);
+      }
+  }
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          <img src="/images/logo.png" alt="Plameniaky Logo" />
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          {/* Použite vaše logo */}
+          <img src="/images/logo.png" alt="Plameniaky Logo" /> 
         </Link>
         
         <div 
@@ -60,6 +70,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           role="button"
           aria-label={isOpen ? "Zatvoriť menu" : "Otvoriť menu"}
+          aria-expanded={isOpen}
           tabIndex={0}
         >
           <span className={isOpen ? 'menu-icon-bar open' : 'menu-icon-bar'}></span>
@@ -67,29 +78,45 @@ const Navbar = () => {
           <span className={isOpen ? 'menu-icon-bar open' : 'menu-icon-bar'}></span>
         </div>
         
+        {/* Nové položky menu */}
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
+            <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Domov
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`}>
+            <Link to="/ponuka" className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Ponuka
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
               O nás
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/aktivity" className={`nav-link ${location.pathname === '/aktivity' ? 'active' : ''}`}>
-              Aktivity
+            <Link to="/co-nas-caka" className={`nav-link ${location.pathname === '/co-nas-caka' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Čo nás čaká
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/podporte-nas" className={`nav-link ${location.pathname === '/podporte-nas' ? 'active' : ''}`}>
-              Podporte nás
+            <Link to="/archiv-podujati" className={`nav-link ${location.pathname === '/archiv-podujati' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Archív podujatí
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`}>
+            <Link to="/odkazy" className={`nav-link ${location.pathname === '/odkazy' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Odkazy
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/podporte-nas" className={`nav-link ${location.pathname === '/podporte-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Podporte nás 
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Kontakt
             </Link>
           </li>

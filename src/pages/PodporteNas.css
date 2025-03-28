@@ -1,51 +1,79 @@
 /* src/pages/PodporteNas.css */
 
-/* Card title customization */
-.support-option-card h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: white;
-  background-color: var(--color-primary);
-  padding: 15px;
-  margin: -25px -25px 20px;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+/* Style for the Card component itself (assuming .card class) */
+.support-option-card {
+  background-color: white; /* Ensure background is white */
+  box-shadow: var(--shadow-md); /* Use medium shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Helps align content */
+  flex-direction: column;
+  border-radius: var(--radius-md); /* Apply border radius */
+  padding: var(--spacing-md); /* Add padding inside the card */
 }
 
-/* Support options */
+.support-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Add styling for icons */
+.support-option-card .card-icon {
+  font-size: 2.5rem; /* Adjust icon size */
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  text-align: center; /* Center the icon */
+}
+
+/* Adjust card title styling if needed (now inside the card) */
+.support-option-card .card-title {
+  text-align: center; /* Center the title */
+  font-size: 1.4rem; /* Adjust title size */
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Style for the intro paragraph above the cards */
+.support-intro-text {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg); /* Center and add bottom margin */
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+
+/* Support options list inside card */
 .support-option-list {
   list-style-type: none;
-  padding: 0;
-  margin-bottom: 30px;
+  padding: 0 0 0 25px; /* Adjusted padding */
+  margin-bottom: var(--spacing-md); /* Space before button */
+  flex-grow: 1; /* Allow list to take available space */
 }
 
 .support-option-list li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 15px;
+  padding-left: 0; /* Remove double padding */
+  margin-bottom: 10px; /* Smaller margin */
   color: var(--color-text);
+  font-size: 0.95rem;
 }
 
 .support-option-list li:before {
   content: '✓';
   color: var(--color-primary);
   position: absolute;
-  left: 0;
+  left: -25px; /* Position checkmark relative to list padding */
+  font-weight: 600;
 }
 
 .support-option-card .btn {
   width: 100%;
   text-align: center;
+  margin-top: auto; /* Push button to bottom */
 }
 
-/* Section intro text */
-.section-intro {
-  max-width: 800px;
-  margin: 0 auto 40px;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--color-text);
-  line-height: 1.8;
-}
+/* --- KEEP OTHER STYLES (Bank details, Tax info, etc.) --- */
 
 /* Bank details */
 .bank-details {

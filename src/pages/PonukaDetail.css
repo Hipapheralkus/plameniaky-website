@@ -1,0 +1,75 @@
+/* src/pages/PonukaDetail.css */
+
+.ponuka-detail-grid {
+  /* Grid sa automaticky prispôsobuje vďaka type="fluid" */
+}
+
+.aktivita-card {
+  background-color: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Pre lepšie zarovnanie obsahu, ak je výška variabilná */
+  flex-direction: column;
+}
+
+.aktivita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.aktivita-image {
+  width: 100%;
+  height: 200px; /* Fixná výška alebo použiť aspect-ratio triedu */
+  object-fit: cover;
+}
+
+.aktivita-content {
+  padding: 15px 20px;
+  flex-grow: 1; /* Aby obsah vyplnil zvyšný priestor */
+  display: flex;
+  flex-direction: column;
+}
+
+.aktivita-content h4 {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.aktivita-tags {
+  margin-top: auto; /* Posunie tagy na spodok karty */
+  padding-top: 10px; /* Malý odstup nad tagmi */
+  display: flex;
+  flex-wrap: wrap; /* Zalomenie tagov na viac riadkov */
+  gap: 5px; /* Medzera medzi tagmi */
+}
+
+.tag-button {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-light);
+  padding: 3px 10px;
+  border-radius: 15px; /* Oválne tlačidlá */
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tag-button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Responzivita */
+@media (max-width: 576px) {
+    .aktivita-content h4 {
+        font-size: 1.1rem;
+    }
+    .tag-button {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+    }
+}

@@ -4,10 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-/* Variables first, then reset, then components */
 @import './variables.css';
 @import './reset.css';
+@import '../components/Layout.css'; 
 @import './buttons.css';
-@import './loading.css';
+@import './grid.css'; 
+@import './loading.css'; 
+@import '../components/Hashtag.css'; /* <-- Add this line */
 
-/* Import all components CSS after (layout components handles by their own imports) */
+/* Page/component-specific styles are imported via their respective JS/JSX files */

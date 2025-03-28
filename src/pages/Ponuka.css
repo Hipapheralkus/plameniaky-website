@@ -1,0 +1,90 @@
+/* src/pages/Ponuka.css */
+
+.ponuka-grid {
+  /* Grid už má responzivitu z komponentu Grid a Layout.css */
+}
+
+.ponuka-tile {
+  display: block; /* Aby Link zaberal celý priestor */
+  text-decoration: none;
+  color: inherit; /* Dedenie farby textu */
+  background-color: var(--color-background-alt); /* Jemné pozadie */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ponuka-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ponuka-image-container {
+  position: relative; /* Pre absolútne pozicovanie overlay */
+  overflow: hidden; /* Skryje časti obrázka/overlay presahujúce kontajner */
+}
+
+.ponuka-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* Odstráni medzeru pod obrázkom */
+  transition: transform 0.4s ease;
+}
+
+.ponuka-tile:hover .ponuka-image {
+  transform: scale(1.05); /* Jemné priblíženie obrázka pri hoveri */
+}
+
+/* Overlay s popisom */
+.ponuka-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Tmavé prekrytie */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  opacity: 0; /* Skryté v predvolenom stave */
+  transition: opacity 0.4s ease;
+}
+
+.ponuka-tile:hover .ponuka-overlay {
+  opacity: 1; /* Zobrazenie overlay pri hoveri */
+}
+
+.ponuka-overlay p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Nadpis dlaždice */
+.ponuka-title {
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  padding: 15px 20px;
+  margin: 0;
+  text-align: center;
+  background-color: white; /* Biele pozadie pre nadpis */
+}
+
+/* Responzivita pre dlaždice */
+@media screen and (max-width: 768px) {
+  .ponuka-grid {
+      grid-template-columns: 1fr; /* Jeden stĺpec na mobiloch */
+  }
+  .ponuka-title {
+      font-size: 1.2rem;
+      padding: 12px 15px;
+  }
+  .ponuka-overlay p {
+      font-size: 0.9rem;
+  }
+}

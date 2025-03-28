@@ -1,132 +1,91 @@
 // src/pages/ONas.jsx
 import React from 'react';
-import Layout from '../components/Layout';
+import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Grid from '../components/Grid';
-import Card from '../components/Card';
 import LazyImage from '../components/LazyImage';
-import './ONas.css';
+import './ONas.css'; // Zachovať existujúce alebo aktualizovať štýly
 
 const ONas = () => {
-  // Sample data for team members
+  // Vzorové dáta pre členov tímu - nahraďte reálnymi
   const teamMembers = [
     {
       id: 1,
-      name: 'Jana Nováková',
-      position: 'Predsedníčka združenia',
-      photo: '/images/team/member1.jpg',
-      bio: 'Jana má dlhoročné skúsenosti s prácou s deťmi a mládežou. Vyštudovala psychológiu a má na starosti koordináciu všetkých aktivít združenia.',
+      name: 'Michal "Mišo" Novák',
+      position: 'Zakladateľ a hlavný lektor',
+      photo: '/images/team/miso.jpg', // Použite reálne cesty k fotkám
+      bio: 'Mišo je dušou Plameniakov. S rokmi skúseností v cirkusovom umení a pedagogike vedie väčšinu workshopov a vystúpení. Jeho vášeň pre oheň a pohyb je nákazlivá.',
       social: [
-        { icon: 'linkedin', url: '#' },
-        { icon: 'envelope', url: 'mailto:jana@plameniaky.sk' }
+        { icon: 'envelope', url: 'mailto:miso@plameniaky.sk' }
       ]
     },
     {
       id: 2,
-      name: 'Peter Horváth',
-      position: 'Projektový manažér',
-      photo: '/images/team/member2.jpg',
-      bio: 'Peter sa venuje písaniu a manažovaniu projektov, vďaka ktorým môže naše združenie realizovať rôzne aktivity na podporu detí a mládeže.',
-      social: [
-        { icon: 'linkedin', url: '#' },
-        { icon: 'envelope', url: 'mailto:peter@plameniaky.sk' }
+      name: 'Eva "Evka" Kováčová',
+      position: 'Lektorka hudby a muzikoterapie',
+      photo: '/images/team/eva.jpg',
+      bio: 'Evka prináša do tímu harmóniu a pokoj. Špecializuje sa na muzikoterapiu, hru na etnické nástroje a vedenie relaxačných workshopov pre deti aj dospelých.',
+       social: [
+        { icon: 'envelope', url: 'mailto:eva@plameniaky.sk' }
       ]
     },
     {
       id: 3,
-      name: 'Mária Kováčová',
-      position: 'Lektorka aktivít',
-      photo: '/images/team/member3.jpg',
-      bio: 'Mária sa špecializuje na kreatívne workshopy a vzdelávacie aktivity. Je učiteľkou na základnej škole a vo voľnom čase sa venuje práci v našom združení.',
-      social: [
-        { icon: 'linkedin', url: '#' },
-        { icon: 'envelope', url: 'mailto:maria@plameniaky.sk' }
+      name: 'Jakub "Kubo" Procházka',
+      position: 'Lektor akrobacie a žonglovania',
+      photo: '/images/team/kubo.jpg',
+      bio: 'Kubo je náš expert na akrobaciu, ľudské pyramídy a pokročilé žonglérske techniky. Jeho energia a precíznosť inšpirujú mladých aj starších.',
+       social: [
+        { icon: 'linkedin', url: '#' }, // Príklad odkazu
+        { icon: 'instagram', url: '#' } // Príklad odkazu
       ]
-    }
-  ];
-
-  // Sample data for values
-  const values = [
-    {
-      id: 1,
-      icon: 'heart',
-      title: 'Rešpekt a dôvera',
-      description: 'Vytvárame prostredie založené na vzájomnom rešpekte a dôvere, kde sa každé dieťa cíti bezpečne a prijímané.'
     },
-    {
-      id: 2,
-      icon: 'users',
-      title: 'Spolupráca',
-      description: 'Veríme v silu spolupráce a komunitného prístupu pri riešení výziev, ktorým deti a mladí ľudia čelia.'
-    },
-    {
-      id: 3,
-      icon: 'bullseye',
-      title: 'Profesionalita',
-      description: 'Naše aktivity sú zabezpečované odborníkmi s príslušnou kvalifikáciou a skúsenosťami v práci s deťmi a mládežou.'
-    },
-    {
+     {
       id: 4,
-      icon: 'lightbulb',
-      title: 'Inovácia',
-      description: 'Neustále hľadáme nové prístupy a metódy, ktoré pomáhajú deťom a mladým ľuďom rozvíjať svoj potenciál.'
+      name: 'Lenka Malá',
+      position: 'Koordinátorka podujatí',
+      photo: '/images/team/lenka.jpg',
+      bio: 'Lenka sa stará o to, aby všetky naše podujatia, workshopy a tábory prebehli hladko. Komunikuje s klientmi a zabezpečuje organizáciu.',
+       social: [
+         { icon: 'envelope', url: 'mailto:lenka@plameniaky.sk' }
+      ]
     }
+    // Pridajte ďalších členov tímu
   ];
 
   return (
-    <Layout title="O nás">
-      {/* Mission section */}
+    <PageLayout title="O nás">
+      {/* História a Poslanie */}
       <Section>
-        <div className="mission-section">
-          <div className="mission-image aspect-4-3">
-            <LazyImage 
-              src="/images/about/mission.jpg" 
-              alt="Naša misia" 
-            />
-          </div>
+        <div className="mission-section"> {/* Môžete použiť existujúci štýl */}
           <div className="mission-text">
-            <h2>Naša misia</h2>
+            <h2>Kto sme?</h2>
             <p>
-              Občianske združenie Plameniaky vzniklo v roku 2018 s cieľom vytvárať zmysluplné príležitosti 
-              pre deti a mladých ľudí. Naším poslaním je podporovať ich osobnostný rozvoj, kreativitu a 
-              vytvárať bezpečný priestor pre zmysluplné trávenie voľného času.
+              Plameniaky sú skupina nadšencov, umelcov a lektorov, ktorých spája láska k novému cirkusu, hudbe a práci s ľuďmi. Od roku [doplňte rok založenia] prinášame radosť z pohybu, kreativity a spoločných zážitkov deťom, mladým aj dospelým.
             </p>
             <p>
-              Prostredníctvom rôznorodých aktivít, vzdelávacích programov a komunitných projektov sa 
-              snažíme reagovať na aktuálne potreby detí a mládeže. Veríme, že každé dieťa si zaslúži 
-              šancu rozvinúť svoj potenciál a stať sa sebavedomým a zodpovedným človekom.
+              Našou filozofiou je vytvárať bezpečný a podporujúci priestor, kde môže každý objaviť a rozvíjať svoj skrytý potenciál, či už ide o žonglovanie, akrobaciu, hudbu alebo jednoducho radosť zo spoločného tvorenia. Veríme v silu zážitku a neformálneho vzdelávania.
             </p>
             <p>
-              Naše združenie tvorí tím oddaných profesionálov a dobrovoľníkov, ktorí majú bohaté 
-              skúsenosti s prácou s deťmi a mládežou. Spoločne sa snažíme vytvárať podnetné 
-              prostredie, v ktorom môžu mladí ľudia objavovať svoje silné stránky, budovať 
-              sebadôveru a získavať dôležité životné zručnosti.
+              Naším poslaním je šíriť pozitívnu energiu, podporovať kreativitu, fyzické a duševné zdravie prostredníctvom umenia a hry. Chceme byť miestom, kde sa ľudia stretávajú, učia sa nové veci a spoločne rastú.
             </p>
+          </div>
+          <div className="mission-image aspect-4-3">
+            {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
+            <LazyImage 
+              src="/images/about/tim_spolu.jpg" 
+              alt="Tím Plameniakov v akcii" 
+            />
           </div>
         </div>
       </Section>
       
-      {/* Values section */}
-      <Section title="Naše hodnoty" background="alt">
-        <Grid columns={4}>
-          {values.map(value => (
-            <div className="value-card" key={value.id}>
-              <div className="value-icon">
-                <i className={`fas fa-${value.icon}`}></i>
-              </div>
-              <h3>{value.title}</h3>
-              <p>{value.description}</p>
-            </div>
-          ))}
-        </Grid>
-      </Section>
-      
-      {/* Team section */}
-      <Section title="Náš tím">
-        <Grid columns={3}>
+      {/* Tím */}
+      <Section title="Náš tím" background="alt" width="wide">
+         <Grid type="fluid" minWidth="280px" gap="medium">
           {teamMembers.map(member => (
-            <div className="team-member" key={member.id}>
-              <div className="member-photo aspect-1-1">
+            <div className="team-member" key={member.id}> {/* Použite existujúci štýl */}
+              <div className="member-photo aspect-1-1"> 
                 <LazyImage 
                   src={member.photo} 
                   alt={member.name} 
@@ -136,91 +95,32 @@ const ONas = () => {
                 <h3>{member.name}</h3>
                 <p className="member-position">{member.position}</p>
                 <p className="member-bio">{member.bio}</p>
-                <div className="member-social">
-                  {member.social.map((platform, index) => (
-                    <a 
-                      href={platform.url} 
-                      key={index}
-                      target={platform.icon !== 'envelope' ? '_blank' : ''}
-                      rel={platform.icon !== 'envelope' ? 'noopener noreferrer' : ''}
-                      aria-label={`${platform.icon === 'envelope' ? 'Email' : platform.icon.charAt(0).toUpperCase() + platform.icon.slice(1)} profil - ${member.name}`}
-                    >
-                      <i className={`fa${platform.icon === 'envelope' ? 'r' : 'b'} fa-${platform.icon}`}></i>
-                    </a>
-                  ))}
-                </div>
+                {/* Odkazy na sociálne siete, ak sú relevantné */}
+                {member.social && member.social.length > 0 && (
+                    <div className="member-social">
+                      {member.social.map((platform, index) => (
+                        <a 
+                          href={platform.url} 
+                          key={index}
+                          target={platform.icon !== 'envelope' ? '_blank' : undefined}
+                          rel={platform.icon !== 'envelope' ? 'noopener noreferrer' : undefined}
+                          aria-label={`${platform.icon === 'envelope' ? 'Email' : platform.icon} - ${member.name}`}
+                        >
+                          {/* Použite Font Awesome ikony */}
+                          <i className={`fa${platform.icon === 'envelope' ? 's' : 'b'} fa-${platform.icon}`}></i> 
+                        </a>
+                      ))}
+                    </div>
+                )}
               </div>
             </div>
           ))}
         </Grid>
       </Section>
-      
-      {/* History section */}
-      <Section title="Naša história" titleAlignment="left">
-        <div className="history-timeline">
-          <div className="timeline-item">
-            <div className="timeline-year">2018</div>
-            <div className="timeline-content">
-              <h3>Založenie združenia</h3>
-              <p>
-                Občianske združenie Plameniaky bolo oficiálne zaregistrované na Ministerstve vnútra SR. 
-                Začali sme s malým tímom dobrovoľníkov, ktorí mali spoločnú víziu - vytvárať zmysluplné 
-                príležitosti pre deti a mládež.
-              </p>
-            </div>
-          </div>
-          
-          <div className="timeline-item">
-            <div className="timeline-year">2019</div>
-            <div className="timeline-content">
-              <h3>Prvé projekty</h3>
-              <p>
-                Spustili sme naše prvé vzdelávacie aktivity a komunitné projekty. V tomto roku sme 
-                nadviazali spoluprácu s miestnymi školami a zorganizovali sme prvé letné tábory 
-                pre deti zo sociálne znevýhodneného prostredia.
-              </p>
-            </div>
-          </div>
-          
-          <div className="timeline-item">
-            <div className="timeline-year">2020</div>
-            <div className="timeline-content">
-              <h3>Prispôsobenie sa pandémii</h3>
-              <p>
-                V reakcii na pandémiu COVID-19 sme prispôsobili naše aktivity online prostrediu. 
-                Vytvorili sme sériu online workshopov a webinárov zameraných na duševné zdravie 
-                a podporu detí a mladých ľudí počas pandémie.
-              </p>
-            </div>
-          </div>
-          
-          <div className="timeline-item">
-            <div className="timeline-year">2022</div>
-            <div className="timeline-content">
-              <h3>Rozšírenie aktivít</h3>
-              <p>
-                S rastúcou podporou sme rozšírili naše aktivity a pôsobenie. Začali sme organizovať 
-                pravidelné víkendové workshopy, mentorské programy a komunitné podujatia. Zapojili 
-                sme sa tiež do medzinárodných projektov zameraných na výmenu skúseností a dobrých 
-                praktík v práci s mládežou.
-              </p>
-            </div>
-          </div>
-          
-          <div className="timeline-item">
-            <div className="timeline-year">2024</div>
-            <div className="timeline-content">
-              <h3>Súčasnosť</h3>
-              <p>
-                Dnes je OZ Plameniaky etablovanou organizáciou s profesionálnym tímom a širokým 
-                spektrom aktivít. Pokračujeme v našom poslaní vytvárať príležitosti pre deti a 
-                mládež, a teší nás vidieť pozitívny vplyv našej práce na životy mladých ľudí.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </Layout>
+
+       {/* Môžete sem pridať ďalšie sekcie, napr. Hodnoty, História (ako bola v predch. verzii) */}
+       
+    </PageLayout>
   );
 };
 

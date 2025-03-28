@@ -1,312 +1,216 @@
 /* src/pages/Kontakt.css */
 
-/* Support option cards - exactly matching Podporte nás */
-.support-options {
+.kontakt-info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr; /* Jeden stĺpec na mobiloch */
+  gap: var(--spacing-lg); /* Väčšia medzera */
 }
 
-.support-option-card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@media (min-width: 992px) {
+  .kontakt-info-grid {
+      grid-template-columns: 1fr 1.5fr; /* Dva stĺpce na desktope, formulár širší */
+      align-items: start; /* Zarovnanie hore */
+  }
 }
 
-.support-option-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+/* Štýly pre ľavý stĺpec s detailami */
+.kontakt-details h3 {
+  font-size: 1.6rem;
+  color: var(--color-text-dark);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+.kontakt-details p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
 }
 
-.support-option-card h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: white;
-  background-color: #e96b38;
-  padding: 15px;
-  margin: -1px -1px 20px;
-  border-radius: 10px 10px 0 0;
-}
-
-.support-option-card p {
-  padding: 0 25px 25px;
-  text-align: center;
-}
-
-.support-option-card p a {
-  color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.support-option-card p a:hover {
-  color: #e96b38;
-}
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 25px 25px;
-}
-
-.social-links a {
+.kontakt-item {
   display: flex;
   align-items: center;
-  color: #555;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.05rem;
+}
+
+.kontakt-item i {
+  color: var(--color-primary);
+  margin-right: 15px;
+  width: 20px; /* Fixná šírka pre ikony */
+  text-align: center;
+}
+
+.kontakt-item a {
+  color: var(--color-text);
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.3s ease;
 }
-
-.social-links a:hover {
-  color: #e96b38;
+.kontakt-item a:hover {
+  color: var(--color-primary);
 }
 
-.social-links a i {
-  margin-right: 15px;
-  font-size: 20px;
-  width: 20px;
-  text-align: center;
+.kontakt-details h4 {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-lg); /* Väčší odstup nad "Sledujte nás" */
 }
 
-/* Intro text - match Podporte nás */
-.intro-text {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
-}
-
-.intro-text p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-/* Contact form */
-.kontakt-form {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.kontakt-social {
+  display: flex;
   gap: 20px;
+}
+.kontakt-social a {
+  color: var(--color-text-dark);
+  font-size: 1.8rem; /* Väčšie ikony sociálnych sietí */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.kontakt-social a:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+/* Štýly pre pravý stĺpec s formulárom */
+.kontakt-form-container h3 {
+  font-size: 1.6rem;
+  color: var(--color-text-dark);
+  margin-top: 0;
+  margin-bottom: var(--spacing-md); /* Väčšia medzera pod nadpisom formulára */
+}
+
+/* Formulár samotný */
+.kontakt-form {
+display: grid;
+grid-template-columns: 1fr; /* Predvolené pre mobil */
+gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .kontakt-form {
+     /* Môžete tu pridať 2 stĺpce pre meno a email, ak chcete */
+     /* grid-template-columns: 1fr 1fr; */
+  }
+  /* Ak použijete 2 stĺpce, správa a submit potrebujú span */
+  /* .form-group-full { grid-column: span 2; } */
 }
 
 .form-group {
-  margin-bottom: 20px;
-}
-
-.form-group:nth-child(3), 
-.form-group:nth-child(4) {
-  grid-column: span 2;
-}
-
-.form-submit {
-  grid-column: span 2;
-  justify-self: end;
+margin-bottom: 0; /* Odstránime margin, spoliehame sa na gap gridu */
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #333;
+display: block;
+margin-bottom: 8px;
+font-weight: 500;
+color: #333;
+font-size: 0.95rem;
 }
 
 .required {
-  color: #e96b38;
-  margin-left: 2px;
+color: var(--color-primary);
+margin-left: 2px;
 }
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-  background-color: white;
-  color: #333;
+width: 100%;
+padding: 14px 18px; /* Väčší padding */
+border: 1px solid var(--color-border);
+border-radius: var(--radius-sm);
+font-size: 1rem;
+font-family: inherit;
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+background-color: white;
+color: var(--color-text);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none;
-  border-color: #e96b38;
-  box-shadow: 0 0 0 3px rgba(233, 107, 56, 0.1);
+outline: none;
+border-color: var(--color-primary);
+box-shadow: 0 0 0 3px rgba(233, 107, 56, 0.15); /* Jemnejší focus shadow */
+}
+
+.form-group textarea {
+  resize: vertical; /* Umožní len vertikálnu zmenu veľkosti */
+  min-height: 120px;
+}
+
+/* Odosielacie tlačidlo */
+.form-submit {
+justify-self: end; /* Zarovnanie tlačidla doprava (v grid kontajneri) */
+}
+.form-submit .btn {
+  min-width: 180px; /* Minimálna šírka tlačidla */
+  display: inline-flex; /* Pre centrovanie spinnera */
+  align-items: center;
+  justify-content: center;
+}
+.form-submit .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Správy o úspechu/chybe */
+.form-success,
+.form-error {
+padding: 15px 20px;
+border-radius: var(--radius-sm);
+text-align: left; /* Text doľava */
+margin-bottom: var(--spacing-md);
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 0.95rem;
 }
 
 .form-success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  margin: 20px auto;
-  max-width: 600px;
+background-color: #e6f4ea; /* Jemnejšia zelená */
+color: #1e4620;
+border: 1px solid #b7d8c0;
+}
+.form-success i {
+  color: #4caf50; /* Zelená ikona */
 }
 
 .form-error {
-  background-color: #ffebee;
-  color: #c62828;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  margin-top: 20px;
-  grid-column: span 2;
+background-color: #fdecea; /* Jemnejšia červená */
+color: #611a15;
+border: 1px solid #f5c6cb;
+}
+.form-error i {
+  color: #f44336; /* Červená ikona */
 }
 
-/* Section styling - match Podporte nás */
-.section {
-  padding: 60px 0;
-  width: 100%;
+/* Spinner pre odosielanie */
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.spinner {
+display: inline-block;
+width: 16px;
+height: 16px;
+border: 2px solid rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+border-top-color: #fff;
+animation: spin 0.8s linear infinite;
+margin-right: 8px;
 }
 
-.section-alt {
-  background-color: #f9f9f9;
-}
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #333;
-  position: relative;
-  text-align: center;
-}
-
-.section-title:after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #e96b38;
-  margin: 15px auto 0;
-}
-
-/* Location card styled consistently */
-.location-card {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.location-info {
-  padding: 30px;
-  text-align: center;
-}
-
-.location-info h3 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.location-info p {
-  color: #555;
-  font-size: 1.1rem;
-}
-
-.location-map {
-  width: 100%;
-  height: 300px;
-}
-
-.location-map iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Button styles */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #e96b38;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(233, 107, 56, 0.3);
-}
-
-.btn:hover {
-  background-color: #d85a29;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(233, 107, 56, 0.4);
-}
-
-/* Media queries for responsiveness */
-@media screen and (max-width: 992px) {
-  .support-options {
-    grid-template-columns: 1fr 1fr;
+/* Responzivita formulára */
+@media (max-width: 576px) {
+  .kontakt-details h3, .kontakt-form-container h3 {
+      font-size: 1.4rem;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .kontakt-form {
-    grid-template-columns: 1fr;
+  .kontakt-item {
+      font-size: 1rem;
   }
-
-  .form-group:nth-child(3), 
-  .form-group:nth-child(4),
-  .form-submit,
-  .form-error {
-    grid-column: span 1;
-  }
-
-  .form-submit {
-    justify-self: center;
-  }
-  
-  .btn {
-    width: 100%;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .support-options {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .location-info {
-    padding: 20px;
-  }
-}
-
-/* 4K optimization */
-@media screen and (min-width: 3840px) {
-  .content-container {
-    max-width: 2000px;
-    width: 85%;
-  }
-  
-  .location-card {
-    max-width: 1500px;
-  }
-  
-  .location-map {
-    height: 500px;
-  }
-  
-  .kontakt-form {
-    max-width: 1200px;
-  }
+   .form-submit {
+      justify-self: stretch; /* Tlačidlo na celú šírku */
+   }
+   .form-submit .btn {
+       width: 100%;
+   }
 }
