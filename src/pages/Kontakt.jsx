@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import { Link } from 'react-router-dom'; // Link nie je potrebný, ak nepridávame extra odkazy
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import './Kontakt.css';
+import './kontakt.css';
 
 const Kontakt = () => {
   const [formData, setFormData] = useState({
