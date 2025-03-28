@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "nodemailer": "latest",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-google-recaptcha": "latest",
     "react-router-dom": "latest"
   },
   "devDependencies": {

@@ -1,22 +1,25 @@
 // src/pages/Kontakt.jsx
-import React, { useState } from 'react';
-// import { Link } from 'react-router-dom'; // Link nie je potrebný, ak nepridávame extra odkazy
+import React, { useState, useRef } from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import './kontakt.css';
+import ReCAPTCHA from "react-google-recaptcha";
+import './kontakt.css'; // Ensure lowercase 'k'
 
 const Kontakt = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '' // Odstránili sme telefón z formulára podľa špecifikácie
+    message: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false,
-    submitting: false // Pridaný stav pre indikáciu odosielania
+    submitting: false,
+    errorMessage: '' // Store potential error messages
   });
+
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,63 +29,84 @@ const Kontakt = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({ ...formStatus, submitting: true, error: false }); // Začať odosielanie
+    setFormStatus({ submitting: true, error: false, submitted: false, errorMessage: '' }); // Reset status on new submission
 
-    // --- Simulácia odosielania ---
-    // V reálnej aplikácii by tu bol fetch request na váš backend alebo službu (napr. Formspree, Netlify Forms)
-    console.log("Odosielané dáta:", formData); 
-    setTimeout(() => {
-       // Nastavte, či simulácia uspeje alebo zlyhá
-      const success = true; // Zmeňte na false pre test chyby
-
-      if (success) {
-           setFormStatus({
-             submitted: true,
-             error: false,
-             submitting: false
-           });
-           // Reset form
-           setFormData({ name: '', email: '', message: '' });
-      } else {
-          setFormStatus({
-             submitted: false, // Alebo true, ak chcete zobraziť správu ale aj chybu
-             error: true,
-             submitting: false
-           });
+    let captchaToken = null;
+    try {
+      if (recaptchaRef.current) {
+        captchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset(); // Reset after getting token
       }
-    }, 1500); // Simulácia 1.5 sekundy
-    // --- Koniec simulácie ---
+      if (!captchaToken) {
+        throw new Error("CAPTCHA token not received.");
+      }
+    } catch (error) {
+      console.error("CAPTCHA Error:", error);
+      setFormStatus({ submitted: false, error: true, submitting: false, errorMessage: "Chyba pri overení CAPTCHA." });
+      return;
+    }
+
+    // --- Actual Fetch to Backend ---
+    try {
+        console.log("Sending to /api/contact:", { ...formData, captchaToken }); // Log before sending
+        const response = await fetch('/api/contact', { // Use relative path for Vercel function
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...formData, captchaToken }) // Send form data and token
+        });
+
+        // Log raw response status
+        console.log("Response Status:", response.status);
+
+        const responseData = await response.json(); // Always try to parse JSON
+
+        // Log parsed response
+        console.log("Response Data:", responseData);
+
+
+        if (!response.ok) {
+             // Use message from backend if available, otherwise provide default
+             throw new Error(responseData.message || `Server error: ${response.status}`);
+        }
+
+        // Handle success
+        setFormStatus({ submitted: true, error: false, submitting: false });
+        setFormData({ name: '', email: '', message: '' }); // Clear form on success
+
+    } catch (error) {
+         console.error("Submit Error:", error);
+         // Display the error message from the catch block
+         setFormStatus({ submitted: false, error: true, submitting: false, errorMessage: error.message || "Nepodarilo sa odoslať formulár." });
+    }
+    // --- End Fetch ---
   };
 
+
   return (
-    <PageLayout 
+    <PageLayout
       type="standard"
       title="Kontaktujte nás"
     >
-      {/* Kontaktné informácie */}
       <Section width="wide">
-        <div className="kontakt-info-grid"> {/* Použitie gridu pre info a formulár */}
-          
-          {/* Ľavý stĺpec: Informácie */}
+        <div className="kontakt-info-grid">
+          {/* Left Column: Info */}
           <div className="kontakt-details">
              <h3>Spojte sa s nami</h3>
              <p>Máte otázky, nápady na spoluprácu alebo si chcete objednať naše služby? Neváhajte nás kontaktovať!</p>
-             
              <div className="kontakt-item">
                 <i className="fas fa-envelope"></i>
                 <a href="mailto:info@plameniaky.sk">info@plameniaky.sk</a>
              </div>
              <div className="kontakt-item">
                  <i className="fas fa-phone-alt"></i>
-                 <a href="tel:+421918488525">+421 918 488 525</a> {/* Podľa pôvodného kódu */}
+                 <a href="tel:+421918488525">+421 918 488 525</a>
              </div>
               <div className="kontakt-item">
                  <i className="fas fa-map-marker-alt"></i>
-                 <span>Bratislava</span> {/* Iba mesto podľa špecifikácie */}
+                 <span>Bratislava</span>
              </div>
-             
              <h4 className="mt-3">Sledujte nás</h4>
              <div className="kontakt-social">
                  <a href="https://www.instagram.com/plameniaky_oz" target="_blank" rel="noopener noreferrer" aria-label="Instagram Plameniaky OZ">
@@ -91,91 +115,65 @@ const Kontakt = () => {
                  <a href="https://www.facebook.com/plameniaky" target="_blank" rel="noopener noreferrer" aria-label="Facebook Plameniaky OZ">
                      <i className="fab fa-facebook"></i>
                  </a>
-                  {/* Pridajte ďalšie ikony podľa potreby */}
              </div>
           </div>
 
-          {/* Pravý stĺpec: Formulár */}
+          {/* Right Column: Form */}
           <div className="kontakt-form-container">
              <h3>Napíšte nám správu</h3>
-             {formStatus.submitted && !formStatus.error && (
+             {/* Display Success Message */}
+             {formStatus.submitted && (
                <div className="form-success">
                  <p><i className="fas fa-check-circle"></i> Ďakujeme za Vašu správu! Čoskoro sa Vám ozveme.</p>
                </div>
              )}
-             
+
+             {/* Display Error Message */}
              {formStatus.error && (
                <div className="form-error">
-                 <p><i className="fas fa-exclamation-triangle"></i> Ups! Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.</p>
+                 <p><i className="fas fa-exclamation-triangle"></i> Ups! {formStatus.errorMessage || 'Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.'}</p>
                </div>
              )}
 
-             {!formStatus.submitted || formStatus.error ? ( // Zobraziť formulár, ak nebol úspešne odoslaný
+             {/* Hide form only on successful submission, keep it visible on error */}
+             {!formStatus.submitted ? (
                <form className="kontakt-form" onSubmit={handleSubmit} noValidate>
                  <div className="form-group">
                    <label htmlFor="name">Meno <span className="required">*</span></label>
-                   <input
-                     type="text"
-                     id="name"
-                     name="name"
-                     value={formData.name}
-                     onChange={handleChange}
-                     required
-                     aria-required="true"
-                     disabled={formStatus.submitting}
-                   />
+                   <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting} />
                  </div>
-                 
                  <div className="form-group">
                    <label htmlFor="email">Email <span className="required">*</span></label>
-                   <input
-                     type="email"
-                     id="email"
-                     name="email"
-                     value={formData.email}
-                     onChange={handleChange}
-                     required
-                     aria-required="true"
-                     disabled={formStatus.submitting}
-                   />
+                   <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting} />
                  </div>
-                                 
                  <div className="form-group form-group-full">
                    <label htmlFor="message">Správa <span className="required">*</span></label>
-                   <textarea
-                     id="message"
-                     name="message"
-                     rows="6" // Zväčšené pole
-                     value={formData.message}
-                     onChange={handleChange}
-                     required
-                     aria-required="true"
-                     disabled={formStatus.submitting}
-                   ></textarea>
+                   <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting}></textarea>
                  </div>
-                 
+
+                 {/* v3 reCAPTCHA Component */}
+                 <ReCAPTCHA
+                    ref={recaptchaRef}
+                    size="invisible"
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LdnEwMrAAAAAIIQtQg3blPvBkaYONQSnb0JsDsP"} // Use Vite env variable or fallback
+                 />
+
                  <div className="form-submit form-group-full">
                    <button type="submit" className="btn" disabled={formStatus.submitting}>
                      {formStatus.submitting ? (
                          <>
-                           <span className="spinner"></span> Odosielam... 
+                           <span className="spinner"></span> Odosielam...
                          </>
                       ) : (
                           'Odoslať správu'
                       )}
                    </button>
                  </div>
-                 
                </form>
              ) : null}
-           </div> {/* Koniec .kontakt-form-container */}
-
-        </div> {/* Koniec .kontakt-info-grid */}
+           </div>
+        </div>
       </Section>
-      
-      {/* Môžete pridať mapu, ak je stále relevantná, aj keď sídlo je len mesto */}
-      {/* <Section title="Kde nás nájdete" background="alt"> ... </Section> */}
-
     </PageLayout>
   );
 };
