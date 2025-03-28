@@ -1,16 +1,19 @@
 // src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Layout from '../components/Layout';
+import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Grid from '../components/Grid';
 import Card from '../components/Card';
 import LazyImage from '../components/LazyImage';
+import './Home.css'; // Keep page-specific styles
 
 const Home = () => {
   return (
-    <Layout noHeader={true}>
-      {/* Hero Section */}
+    <PageLayout 
+      type="hero" // Use hero layout which removes the standard header
+    >
+      {/* Hero Section - Stays outside standard sections */}
       <div className="hero-section">
         <div className="container">
           <div className="content-container">
@@ -28,7 +31,11 @@ const Home = () => {
       </div>
 
       {/* Intro Section */}
-      <Section title="Vitajte na našej stránke">
+      <Section 
+        title="Vitajte na našej stránke"
+        width="normal" // Standard width container
+        padding="large" // More vertical padding
+      >
         <div className="intro-text">
           <p>
             Sme občianske združenie Plameniaky, ktoré sa venuje podpore rozvoja detí a mládeže. 
@@ -44,8 +51,18 @@ const Home = () => {
       </Section>
 
       {/* Activities Section */}
-      <Section title="Naše aktivity" background="alt">
-        <Grid columns={3}>
+      <Section 
+        title="Naše aktivity" 
+        background="alt" // Alternate background color
+        width="wide" // Use a wider container
+        padding="large"
+      >
+        <Grid 
+          type="fixed"
+          columns={3}
+          gap="medium"
+          equalHeight={true}
+        >
           <Card title="Komunitné projekty">
             <div className="activity-icon">
               <i className="fas fa-users"></i>
@@ -76,14 +93,23 @@ const Home = () => {
             </p>
           </Card>
         </Grid>
-        <div className="text-center mt-4">
+        <div className="text-center mt-3"> {/* Use margin utility from variables.css */}
           <Link to="/aktivity" className="btn">Všetky aktivity</Link>
         </div>
       </Section>
 
-      {/* Gallery Section */}
-      <Section title="Z našich aktivít">
-        <Grid columns={4} className="gallery-grid">
+      {/* Gallery Section - Using extra-wide layout for 4K */}
+      <Section 
+        title="Z našich aktivít"
+        width="extra-wide" // Use extra-wide container for gallery on large screens
+        padding="large"
+      >
+        <Grid 
+          type="fixed"
+          columns={4} // Will adapt based on grid CSS media queries
+          gap="medium"
+          className="gallery-grid"
+        >
           <div className="gallery-item aspect-1-1">
             <LazyImage 
               src="/images/gallery/activity1.jpg" 
@@ -115,17 +141,23 @@ const Home = () => {
         </Grid>
       </Section>
 
-      {/* CTA Section */}
-      <div className="cta-section">
-        <div className="container">
-          <div className="content-container">
+      {/* CTA Section - Full width background */}
+      <Section 
+        background="primary" // Primary color background
+        padding="large"
+        width="full" // Ensures background spans full width, content centered via container
+        className="cta-section" // Keep specific class if needed for Home.css styling
+        container={false} // Let the inner container handle centering
+      >
+        <div className="container"> {/* Standard container to center content */}
+          <div className="content-container text-center"> {/* Center text */}
             <h2>Máte otázky? Kontaktujte nás</h2>
             <p>Sme tu pre vás a radi vám pomôžeme s akýmikoľvek otázkami.</p>
             <Link to="/kontakt" className="btn btn-white">Kontaktný formulár</Link>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Section>
+    </PageLayout>
   );
 };
 

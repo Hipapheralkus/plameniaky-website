@@ -1,9 +1,10 @@
 // src/pages/Kontakt.jsx
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
+import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Grid from '../components/Grid';
-import './Kontakt.css';
+import './Kontakt.css'; // Keep page-specific styles
 
 const Kontakt = () => {
   const [formData, setFormData] = useState({
@@ -54,26 +55,47 @@ const Kontakt = () => {
   };
 
   return (
-    <Layout title="Kontaktujte nás">
-      <Section>
-        <Grid columns={3} className="kontakt-methods">
-          <div className="kontakt-method-card">
-            <h2>Email</h2>
+    <PageLayout 
+      type="standard"
+      title="Kontaktujte nás"
+    >
+      {/* Wrap Intro and Grid in one Section */}
+      <Section 
+        width="normal" /* Default, but explicit */
+        padding="normal" 
+      >
+        <div className="intro-text">
+          <p>
+            Radi vám odpovieme na všetky vaše otázky a pomôžeme s akýmikoľvek požiadavkami. 
+            Neváhajte nás kontaktovať prostredníctvom nižšie uvedených kontaktných údajov 
+            alebo vyplnením kontaktného formulára.
+          </p>
+        </div>
+
+        <Grid 
+          type="fixed"
+          columns={3}
+          gap="medium"
+          equalHeight={true}
+          className="kontakt-methods" // Keep specific class if needed for styling inside Kontakt.css
+        >
+          <div className="kontakt-card"> {/* Keep specific class if needed */}
+            <h3>Email</h3>
             <p>
               <a href="mailto:info@plameniaky.sk">info@plameniaky.sk</a>
             </p>
           </div>
 
-          <div className="kontakt-method-card">
-            <h2>Telefón</h2>
+          <div className="kontakt-card"> {/* Keep specific class if needed */}
+            <h3>Telefón</h3>
             <p>
               <a href="tel:+421918488525">+421 918 488 525</a>
             </p>
           </div>
 
-          <div className="kontakt-method-card">
-            <h2>Sociálne siete</h2>
-            <div className="social-links">
+          <div className="kontakt-card"> {/* Keep specific class if needed */}
+            <h3>Sociálne siete</h3>
+            <div className="social-links"> {/* Keep specific class if needed */}
               <a href="https://www.instagram.com/plameniaky_oz" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram"></i> Instagram
               </a>
@@ -85,7 +107,13 @@ const Kontakt = () => {
         </Grid>
       </Section>
       
-      <Section title="Kontaktný formulár" background="alt">
+      {/* Contact Form Section */}
+      <Section 
+        title="Kontaktný formulár" 
+        background="alt" 
+        width="narrow" /* Makes form container narrower for better readability */
+        padding="large" /* Add more padding around the form */
+      >
         {formStatus.submitted ? (
           <div className="form-success">
             <p>Ďakujeme za Vašu správu! Čoskoro Vás budeme kontaktovať.</p>
@@ -155,30 +183,33 @@ const Kontakt = () => {
         )}
       </Section>
       
-      <Section title="Kde nás nájdete">
-        <div className="locations-grid">
-          <div className="location-card">
-            <div className="location-info">
-              <h3>Plameniaky oz</h3>
-              <p>Bratislava, Slovensko</p>
-            </div>
-            <div className="location-map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85329.42344483698!2d17.07231735!3d48.14512985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c89360aca6197%3A0x631f9b82fd884368!2sBratislava!5e0!3m2!1sen!2ssk!4v1711631553874!5m2!1sen!2ssk"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa - Plameniaky oz"
-                aria-label="Mapa zobrazujúca lokalitu organizácie Plameniaky oz v Bratislave"
-              ></iframe>
-            </div>
+      {/* Map Section */}
+      <Section 
+        title="Kde nás nájdete" 
+        width="wide" /* Allow map card to be wider */
+        padding="normal"
+      >
+        <div className="location-card">
+          <div className="location-info">
+            <h3>Plameniaky oz</h3>
+            <p>Bratislava, Slovensko</p>
+          </div>
+          <div className="location-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85329.42344483698!2d17.07231735!3d48.14512985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c89360aca6197%3A0x631f9b82fd884368!2sBratislava!5e0!3m2!1sen!2ssk!4v1711631553874!5m2!1sen!2ssk" /* Assuming this is the correct map URL */
+              width="100%"
+              height="300" /* Adjust height as needed */
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa - Plameniaky oz"
+              aria-label="Mapa zobrazujúca lokalitu organizácie Plameniaky oz v Bratislave"
+            ></iframe>
           </div>
         </div>
       </Section>
-    </Layout>
+    </PageLayout>
   );
 };
 
