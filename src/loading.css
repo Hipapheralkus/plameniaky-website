@@ -1,0 +1,154 @@
+/* Image loading animations and styles */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.lazy-image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.lazy-image-container.loaded {
+  background-color: transparent;
+}
+
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lazy-image.hidden {
+  opacity: 0;
+}
+
+.lazy-image.visible {
+  opacity: 1;
+}
+
+.loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(233, 107, 56, 0.3);
+  border-radius: 50%;
+  border-top-color: #e96b38;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive image sizes */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Used with srcset */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus states for accessibility */
+.lazy-image:focus,
+.img-fluid:focus,
+.responsive-img:focus {
+  outline: 2px solid #e96b38;
+  outline-offset: 2px;
+}
+
+/* Default placeholders before images load */
+.lazy-image-container::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio by default */
+}
+
+.lazy-image-container.square::before {
+  padding-top: 100%; /* 1:1 aspect ratio */
+}
+
+.lazy-image-container.portrait::before {
+  padding-top: 150%; /* 2:3 aspect ratio */
+}
+
+/* Animation for when images enter the viewport */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lazy-image.visible {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Responsive image galleries */
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    gap: 10px;
+  }
+  
+  .lazy-image-container::before {
+    padding-top: 66.67%; /* 3:2 aspect ratio for mobile */
+  }
+}
+
+/* Prevent layout shift with predefined aspect ratios */
+.aspect-16-9 {
+  aspect-ratio: 16/9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.aspect-1-1 {
+  aspect-ratio: 1/1;
+}
+
+/* For browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1/1) {
+  .aspect-16-9::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+  }
+  
+  .aspect-4-3::before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+  }
+  
+  .aspect-1-1::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}

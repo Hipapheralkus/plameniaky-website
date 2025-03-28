@@ -1,0 +1,382 @@
+.onas-page {
+  padding-top: 80px;
+}
+
+.page-header {
+  background-color: #e96b38;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 60px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.onas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.onas-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Mission section */
+.mission-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.mission-image {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mission-text h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.mission-text h2:after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #e96b38;
+  margin-top: 10px;
+}
+
+.mission-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Team section */
+.team-section {
+  margin-top: 60px;
+}
+
+.team-section h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.team-section h2:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #e96b38;
+  margin: 10px auto 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.team-member {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.member-photo {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-photo img {
+  transform: scale(1.05);
+}
+
+.member-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.member-info h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.member-position {
+  color: #e96b38;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.member-bio {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.member-social {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.member-social a {
+  color: #666;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.member-social a:hover {
+  color: #e96b38;
+}
+
+/* Values section */
+.values-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  margin: 60px 0;
+}
+
+.values-section h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.values-section h2:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #e96b38;
+  margin: 10px auto 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+.value-icon {
+  background-color: #fff5f0;
+  color: #e96b38;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.value-icon i {
+  font-size: 28px;
+}
+
+.value-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.value-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* History section */
+.history-section {
+  margin-top: 60px;
+}
+
+.history-section h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.history-section h2:after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #e96b38;
+  margin-top: 10px;
+}
+
+.history-timeline {
+  margin-top: 40px;
+  position: relative;
+}
+
+.history-timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  width: 3px;
+  background-color: #e0e0e0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 100px;
+  margin-bottom: 40px;
+}
+
+.timeline-year {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 40px;
+  background-color: #e96b38;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.timeline-content {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-content h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Media queries */
+@media screen and (max-width: 960px) {
+  .mission-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .mission-image {
+    order: 1;
+  }
+  
+  .mission-text {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .onas-page {
+    padding-top: 60px;
+  }
+
+  .page-header {
+    padding: 40px 20px;
+    margin-bottom: 40px;
+  }
+
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .mission-text h2, .team-section h2, .values-section h2, .history-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .mission-text p {
+    font-size: 1rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .member-photo {
+    height: 250px;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
