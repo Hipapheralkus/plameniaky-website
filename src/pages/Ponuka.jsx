@@ -13,7 +13,7 @@ const Ponuka = () => {
   const ponukaItems = [
     { 
       id: 1, 
-      title: 'Cirkusové umenie', 
+      title: 'Cirkusové umenie123', 
       image: '/images/ponuka/cirkus.jpg', 
       description: 'Žonglovanie, akrobacia, jednokolky, chodúle a oveľa viac pre všetky vekové kategórie.',
       link: '/ponuka/cirkus' // Slug pre detailnú stránku
