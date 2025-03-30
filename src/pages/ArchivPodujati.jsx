@@ -33,7 +33,7 @@ const ArchivPodujati = () => {
         '/images/archive/vianoce2024/ohen1.jpg',
         '/images/archive/vianoce2024/ohen2.jpg',
       ],
-      tags: ['#ohňovky', '#vystúpenie', '#vianoce', '#bratislava', '#fire_show']
+      tags: ['#ohňovky', '#vystúpenie', '#vianoce', '#doln_kubín', '#fire_show']
     },
      {
       id: 3,

@@ -105,7 +105,7 @@ const Kontakt = () => {
              </div>
               <div className="kontakt-item">
                  <i className="fas fa-map-marker-alt"></i>
-                 <span>Bratislava</span>
+                 <span>Dolný Kubín</span>
              </div>
              <h4 className="mt-3">Sledujte nás</h4>
              <div className="kontakt-social">

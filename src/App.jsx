@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from "@vercel/analytics/react"
 
 // Import nových a premenovaných stránok
 import Home from './pages/Home';

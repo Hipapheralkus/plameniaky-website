@@ -1,6 +1,6 @@
 # Plameniaky oz Website
 
-This is the official website for Plameniaky oz, a non-profit organization based in Bratislava, Slovakia.
+This is the official website for Plameniaky oz, a non-profit organization based in Dolný Kubín, Slovakia.
 
 ## Features
 

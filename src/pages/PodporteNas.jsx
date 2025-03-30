@@ -182,7 +182,7 @@ const PodporteNas = () => {
                 <strong>Názov:</strong> Občianske združenie Plameniaky<br />
                 <strong>Právna forma:</strong> Občianske združenie<br />
                 <strong>IČO:</strong> 12345678 {/* Replace with actual IČO */} <br />
-                <strong>Sídlo:</strong> Hlavná 123, 811 01 Bratislava {/* Replace with actual Sídlo */}
+                <strong>Sídlo:</strong> Dolný Kubín {/* Replace with actual Sídlo */}
               </p>
             </div>
           </div>
