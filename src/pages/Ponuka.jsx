@@ -15,7 +15,7 @@ const Ponuka = () => {
   // =======================
   const matrixItems = [
     {
-      id: 'foto1', // Vzdelávanie + Cirkus
+      id: 'cirkus_vzdelavanie.jpg', // Vzdelávanie + Cirkus
       image: '/images/ponuka/matrix/vzdelavanie-cirkus.jpg', // <<< REPLACE
       alt: 'Vzdelávanie - Cirkus',
       description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
