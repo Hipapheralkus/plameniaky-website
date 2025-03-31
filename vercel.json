@@ -1,8 +1,8 @@
 {
-  "rewrites": [
-    {
-      "source": "/((?!api/|_vercel/|.*..*).*)",
-      "destination": "/index.html"
-    }
-  ]
-}
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "/api/$1" },
+      { "source": "/_vercel/(.*)", "destination": "/_vercel/$1" },
+      { "source": "/(.*\\.(js|css|png|jpg|svg|ico|json))", "destination": "/$1" },
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
