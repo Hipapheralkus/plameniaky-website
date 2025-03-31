@@ -1,79 +1,112 @@
 // src/pages/Ponuka.jsx
 import React from 'react';
-import { Link } from 'react-router-dom'; // Link na detail
+import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import Grid from '../components/Grid';
 import LazyImage from '../components/LazyImage';
-import './Ponuka.css'; 
+import './Ponuka.css';
 
 const Ponuka = () => {
 
-  // Vzorové dáta pre dlaždice ponuky
-  const ponukaItems = [
-    { 
-      id: 1, 
-      title: 'Cirkusové umenie123', 
-      image: '/images/ponuka/cirkus.jpg', 
-      description: 'Žonglovanie, akrobacia, jednokolky, chodúle a oveľa viac pre všetky vekové kategórie.',
-      link: '/ponuka/cirkus' // Slug pre detailnú stránku
+  // --- Data for the 3x3 Matrix Grid ---
+  // Links now point to the new combination subpages.
+  // === ACTION REQUIRED: ===
+  // Replace the placeholder image paths below with your actual image files.
+  // =======================
+  const matrixItems = [
+    {
+      id: 'foto1', // Vzdelávanie + Cirkus
+      image: '/images/ponuka/matrix/vzdelavanie-cirkus.jpg', // <<< REPLACE
+      alt: 'Vzdelávanie - Cirkus',
+      description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
+      link: '/ponuka/vzdelavanie-cirkus' // <-- Updated Link
     },
-    { 
-      id: 2, 
-      title: 'Hudba a Muzikoterapia', 
-      image: '/images/ponuka/hudba.jpg', 
-      description: 'Objavte liečivú silu hudby a rytmu prostredníctvom interaktívnych workshopov a relaxácií.',
-      link: '/ponuka/hudba' 
+    {
+      id: 'foto2', // Vzdelávanie + Hudba
+      image: '/images/ponuka/matrix/vzdelavanie-hudba.jpg', // <<< REPLACE
+      alt: 'Vzdelávanie - Hudba',
+      description: 'Objavujeme rytmus a harmóniu v edukačných programoch a muzikoterapii.',
+      link: '/ponuka/vzdelavanie-hudba' // <-- Updated Link
     },
-    { 
-      id: 3, 
-      title: 'Vzdelávanie a Workshopy', 
-      image: '/images/ponuka/vzdelavanie.jpg', 
-      description: 'Ponúkame akreditované kurzy, zážitkové workshopy a teambuildingy pre školy aj firmy.',
-      link: '/ponuka/vzdelavanie' 
+    {
+      id: 'foto3', // Vystúpenia + Cirkus
+      image: '/images/ponuka/matrix/vystupenia-cirkus.jpg', // <<< REPLACE
+      alt: 'Vystúpenia - Cirkus',
+      description: 'Pútavé cirkusové show a žonglérske vystúpenia pre vaše eventy.',
+      link: '/ponuka/vystupenia-cirkus' // <-- Updated Link
     },
-    { 
-      id: 4, 
-      title: 'Vystúpenia a Show', 
-      image: '/images/ponuka/vystupenia.jpg', 
-      description: 'Profesionálne ohňové, LED a cirkusové vystúpenia pre vaše podujatia, oslavy a festivaly.',
-      link: '/ponuka/vystupenia' 
-    },
+    {
+      id: 'foto4', // Vystúpenia + Hudba
+      image: '/images/ponuka/matrix/vystupenia-hudba.jpg', // <<< REPLACE
+      alt: 'Vystúpenia - Hudba',
+      description: 'Atmosférické hudobné performance a ohňové show s live hudbou.',
+      link: '/ponuka/vystupenia-hudba' // <-- Updated Link
+    }
   ];
+
+  // Helper to find matrix item by ID
+  const getMatrixItem = (id) => matrixItems.find(item => item.id === id);
 
   return (
     <PageLayout title="Čo ponúkame">
       <Section>
-        <div className="intro-text">
-          <p>
-            Preskúmajte našu pestrú ponuku aktivít, workshopov a vystúpení. 
-            Kliknite na dlaždicu pre viac informácií o konkrétnej kategórii.
-          </p>
-        </div>
+         <div className="intro-text text-center" style={{ maxWidth: '800px', margin: '0 auto 30px auto' }}>
+           <p>
+             Naša ponuka kombinuje rôzne oblasti. Pozrite si príklady prepojenia našich hlavných zameraní. Kliknite na obrázok pre viac detailov.
+           </p>
+         </div>
 
-        <Grid type="fixed" columns={2} gap="medium" className="ponuka-grid">
-          {ponukaItems.map(item => (
-            <Link to={item.link} key={item.id} className="ponuka-tile">
-              <div className="ponuka-image-container aspect-16-9">
-                <LazyImage src={item.image} alt={item.title} className="ponuka-image" />
-                <div className="ponuka-overlay">
-                  <p>{item.description}</p>
-                </div>
+        {/* --- The 3x3 Matrix Grid --- */}
+        <div className="ponuka-matrix-grid">
+          {/* Row 1: Headers */}
+          <div className="matrix-cell matrix-header empty"></div> {/* A1 */}
+          <div className="matrix-cell matrix-header col-header">Cirkus</div> {/* B1 */}
+          <div className="matrix-cell matrix-header col-header">Hudba</div> {/* C1 */}
+
+          {/* Row 2: Vzdelavanie */}
+          <div className="matrix-cell matrix-header row-header">Vzdelávanie</div> {/* A2 */}
+          <div className="matrix-cell matrix-image"> {/* B2 - Foto 1 */}
+            {/* Use updated link */}
+            <Link to={getMatrixItem('foto1').link} className="matrix-image-link">
+              <LazyImage src={getMatrixItem('foto1').image} alt={getMatrixItem('foto1').alt} className="aspect-1-1 matrix-actual-image"/>
+              <div className="matrix-image-overlay">
+                <p>{getMatrixItem('foto1').description}</p>
               </div>
-              <h3 className="ponuka-title">{item.title}</h3>
             </Link>
-          ))}
-        </Grid>
+          </div>
+          <div className="matrix-cell matrix-image"> {/* C2 - Foto 2 */}
+             {/* Use updated link */}
+            <Link to={getMatrixItem('foto2').link} className="matrix-image-link">
+              <LazyImage src={getMatrixItem('foto2').image} alt={getMatrixItem('foto2').alt} className="aspect-1-1 matrix-actual-image"/>
+              <div className="matrix-image-overlay">
+                 <p>{getMatrixItem('foto2').description}</p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Row 3: Vystupenia */}
+          <div className="matrix-cell matrix-header row-header">Vystúpenia</div> {/* A3 */}
+           <div className="matrix-cell matrix-image"> {/* B3 - Foto 3 */}
+              {/* Use updated link */}
+             <Link to={getMatrixItem('foto3').link} className="matrix-image-link">
+               <LazyImage src={getMatrixItem('foto3').image} alt={getMatrixItem('foto3').alt} className="aspect-1-1 matrix-actual-image"/>
+               <div className="matrix-image-overlay">
+                 <p>{getMatrixItem('foto3').description}</p>
+               </div>
+            </Link>
+          </div>
+          <div className="matrix-cell matrix-image"> {/* C3 - Foto 4 */}
+              {/* Use updated link */}
+             <Link to={getMatrixItem('foto4').link} className="matrix-image-link">
+               <LazyImage src={getMatrixItem('foto4').image} alt={getMatrixItem('foto4').alt} className="aspect-1-1 matrix-actual-image"/>
+               <div className="matrix-image-overlay">
+                  <p>{getMatrixItem('foto4').description}</p>
+               </div>
+            </Link>
+          </div>
+        </div>
       </Section>
-      
-      {/* Sekcia s odkazom na všetky kategórie (ak máte detailnú stránku) */}
-       <Section padding="small" width="narrow">
-           <div className="text-center">
-               <p>Pre detailný prehľad všetkých našich aktivít navštívte:</p>
-               {/* Toto by mohlo viesť na /ponuka/vsetko alebo špeciálnu stránku */}
-               <Link to="/ponuka/vsetko" className="btn mt-1">Detailná ponuka aktivít</Link> 
-           </div>
-       </Section>
+
     </PageLayout>
   );
 };

@@ -1,90 +1,172 @@
 /* src/pages/Ponuka.css */
 
-.ponuka-grid {
-  /* Grid už má responzivitu z komponentu Grid a Layout.css */
+/* --- Styles for the 3x3 Matrix Grid --- */
+
+.ponuka-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: auto 1fr 1fr;
+  gap: var(--spacing-sm);
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border-light); /* Lighter border */
+  background-color: white;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md); /* Add radius */
 }
 
-.ponuka-tile {
-  display: block; /* Aby Link zaberal celý priestor */
-  text-decoration: none;
-  color: inherit; /* Dedenie farby textu */
-  background-color: var(--color-background-alt); /* Jemné pozadie */
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.matrix-cell {
+  background-color: var(--color-background-alt);
+  padding: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  border-radius: var(--radius-sm); /* Slight radius for cells */
 }
 
-.ponuka-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+/* Style header cells */
+.matrix-header {
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-align: center;
+  background-color: transparent; /* Make headers transparent */
 }
 
-.ponuka-image-container {
-  position: relative; /* Pre absolútne pozicovanie overlay */
-  overflow: hidden; /* Skryje časti obrázka/overlay presahujúce kontajner */
+.matrix-header.col-header {
+  /* background-color: var(--color-primary-bg); */ /* Removed bg color */
+  color: var(--color-primary-dark); /* Darker primary color for text */
+  font-size: 1.1rem;
 }
 
-.ponuka-image {
+.matrix-header.row-header {
+  /* background-color: var(--color-primary-bg); */ /* Removed bg color */
+  color: var(--color-primary-dark); /* Darker primary color for text */
+  font-size: 1.1rem;
+  /* Consider keeping text horizontal for readability */
+}
+
+.matrix-header.empty {
+  background-color: transparent;
+  border: none; /* No border for empty cell */
+}
+
+/* Style image cells */
+.matrix-image {
+  padding: 0;
+  overflow: hidden; /* Important for overlay and image scaling */
+  background-color: white;
+  position: relative; /* Needed for overlay positioning */
+}
+
+/* Style the link wrapping the image */
+.matrix-image-link {
+  display: block; /* Make link fill the cell */
   width: 100%;
   height: 100%;
+  text-decoration: none;
+  position: relative; /* Ensure link itself can position overlay */
+  overflow: hidden; /* Match cell overflow */
+  border-radius: var(--radius-sm); /* Match cell radius */
+}
+
+/* Ensure LazyImage component fills the cell */
+.matrix-image .lazy-image-container {
+  width: 100%;
+  height: 100%;
+  display: block; /* Ensure it behaves like a block */
+}
+
+.matrix-image .lazy-image {
   object-fit: cover;
-  display: block; /* Odstráni medzeru pod obrázkom */
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease; /* Add scaling effect on hover */
 }
 
-.ponuka-tile:hover .ponuka-image {
-  transform: scale(1.05); /* Jemné priblíženie obrázka pri hoveri */
-}
-
-/* Overlay s popisom */
-.ponuka-overlay {
+/* --- NEW Overlay Styles (similar to old .ponuka-overlay) --- */
+.matrix-image-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Tmavé prekrytie */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  opacity: 0; /* Skryté v predvolenom stave */
+  padding: 15px; /* Adjust padding */
+  opacity: 0; /* Hidden by default */
   transition: opacity 0.4s ease;
+  z-index: 3; /* Above image */
+  border-radius: var(--radius-sm); /* Match cell radius */
 }
 
-.ponuka-tile:hover .ponuka-overlay {
-  opacity: 1; /* Zobrazenie overlay pri hoveri */
+.matrix-image-link:hover .matrix-image-overlay,
+.matrix-image-link:focus .matrix-image-overlay { /* Show on focus too */
+  opacity: 1; /* Show overlay on hover/focus */
 }
 
-.ponuka-overlay p {
+.matrix-image-link:hover .matrix-actual-image .lazy-image, /* Target inner img */
+.matrix-image-link:focus .matrix-actual-image .lazy-image {
+  transform: scale(1.05); /* Scale image on hover/focus */
+}
+
+
+.matrix-image-overlay p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Slightly smaller text */
   line-height: 1.5;
 }
 
-/* Nadpis dlaždice */
-.ponuka-title {
-  font-size: 1.4rem;
-  color: var(--color-text-dark);
-  padding: 15px 20px;
-  margin: 0;
-  text-align: center;
-  background-color: white; /* Biele pozadie pre nadpis */
+/* Use aspect-1-1 for square images within the cell */
+.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@supports not (aspect-ratio: 1/1) {
+  .aspect-1-1 { position: relative; }
+  .aspect-1-1::before {
+     content: ''; display: block; padding-top: 100%;
+  }
+  .aspect-1-1 > * { /* Ensure content fills fallback */
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
 }
 
-/* Responzivita pre dlaždice */
+/* --- Responsive adjustments for the matrix grid --- */
 @media screen and (max-width: 768px) {
-  .ponuka-grid {
-      grid-template-columns: 1fr; /* Jeden stĺpec na mobiloch */
+  .ponuka-matrix-grid {
+     grid-template-columns: 1fr 1.5fr 1.5fr; /* Adjust column ratios slightly */
+     max-width: 95%; /* Allow more width */
   }
-  .ponuka-title {
-      font-size: 1.2rem;
-      padding: 12px 15px;
+  .matrix-header {
+      font-size: 0.9rem; /* Smaller headers */
   }
-  .ponuka-overlay p {
-      font-size: 0.9rem;
+}
+@media screen and (max-width: 576px) {
+  .ponuka-matrix-grid {
+     grid-template-columns: 1fr; /* Stack everything */
+     max-width: 350px;
+     padding: var(--spacing-sm);
+     gap: var(--spacing-sm);
+  }
+  .matrix-header.col-header,
+  .matrix-header.empty {
+      display: none; /* Hide column headers and empty cell */
+   }
+   .matrix-header.row-header {
+       min-height: auto; /* Allow row header height to shrink */
+       padding: var(--spacing-xs) var(--spacing-sm);
+       margin-bottom: -5px; /* Pull images closer */
+       background-color: transparent;
+   }
+   .matrix-image {
+       min-height: 200px; /* Give images some minimum height */
+   }
+    .matrix-image-overlay p {
+      font-size: 0.8rem;
   }
 }
