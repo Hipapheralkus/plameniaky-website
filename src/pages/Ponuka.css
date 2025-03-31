@@ -12,110 +12,111 @@
   border: 1px solid var(--color-border-light); /* Lighter border */
   background-color: white;
   padding: var(--spacing-sm);
-  border-radius: var(--radius-md); /* Add radius */
+  border-radius: var(--radius-md);
 }
 
 .matrix-cell {
   background-color: var(--color-background-alt);
-  padding: var(--spacing-sm);
+  /* Increased padding slightly for headers */
+  padding: var(--spacing-md);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 60px;
-  border-radius: var(--radius-sm); /* Slight radius for cells */
+  border-radius: var(--radius-sm);
 }
 
 /* Style header cells */
 .matrix-header {
   font-weight: 600;
-  color: var(--color-text-dark);
+  color: var(--color-text-dark); /* Default if not overridden */
   text-align: center;
-  background-color: transparent; /* Make headers transparent */
+  /* background-color: transparent; */ /* Removed: Let specific headers set background */
 }
 
 .matrix-header.col-header {
-  /* background-color: var(--color-primary-bg); */ /* Removed bg color */
-  color: var(--color-primary-dark); /* Darker primary color for text */
+  background-color: var(--color-primary-bg); /* Light purple background */
+  color: var(--color-primary-dark); /* Dark purple text */
   font-size: 1.1rem;
 }
 
 .matrix-header.row-header {
-  /* background-color: var(--color-primary-bg); */ /* Removed bg color */
-  color: var(--color-primary-dark); /* Darker primary color for text */
+  background-color: var(--color-primary-bg); /* Light purple background */
+  color: var(--color-primary-dark); /* Dark purple text */
   font-size: 1.1rem;
-  /* Consider keeping text horizontal for readability */
 }
 
+/* Style the empty top-left cell */
 .matrix-header.empty {
   background-color: transparent;
-  border: none; /* No border for empty cell */
+  border: none;
 }
 
 /* Style image cells */
 .matrix-image {
   padding: 0;
-  overflow: hidden; /* Important for overlay and image scaling */
+  overflow: hidden;
   background-color: white;
   position: relative; /* Needed for overlay positioning */
 }
 
 /* Style the link wrapping the image */
 .matrix-image-link {
-  display: block; /* Make link fill the cell */
+  display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;
-  position: relative; /* Ensure link itself can position overlay */
-  overflow: hidden; /* Match cell overflow */
-  border-radius: var(--radius-sm); /* Match cell radius */
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
 }
 
 /* Ensure LazyImage component fills the cell */
 .matrix-image .lazy-image-container {
   width: 100%;
   height: 100%;
-  display: block; /* Ensure it behaves like a block */
+  display: block;
 }
 
 .matrix-image .lazy-image {
   object-fit: cover;
-  transition: transform 0.4s ease; /* Add scaling effect on hover */
+  transition: transform 0.4s ease;
 }
 
-/* --- NEW Overlay Styles (similar to old .ponuka-overlay) --- */
+/* --- Overlay Styles --- */
 .matrix-image-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 15px; /* Adjust padding */
-  opacity: 0; /* Hidden by default */
+  padding: 15px;
+  opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 3; /* Above image */
-  border-radius: var(--radius-sm); /* Match cell radius */
+  z-index: 3;
+  border-radius: var(--radius-sm);
 }
 
 .matrix-image-link:hover .matrix-image-overlay,
-.matrix-image-link:focus .matrix-image-overlay { /* Show on focus too */
-  opacity: 1; /* Show overlay on hover/focus */
+.matrix-image-link:focus .matrix-image-overlay {
+  opacity: 1;
 }
 
-.matrix-image-link:hover .matrix-actual-image .lazy-image, /* Target inner img */
+.matrix-image-link:hover .matrix-actual-image .lazy-image,
 .matrix-image-link:focus .matrix-actual-image .lazy-image {
-  transform: scale(1.05); /* Scale image on hover/focus */
+  transform: scale(1.05);
 }
 
 
 .matrix-image-overlay p {
   margin: 0;
-  font-size: 0.9rem; /* Slightly smaller text */
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
@@ -131,7 +132,7 @@
   .aspect-1-1::before {
      content: ''; display: block; padding-top: 100%;
   }
-  .aspect-1-1 > * { /* Ensure content fills fallback */
+  .aspect-1-1 > * {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   }
 }
@@ -139,11 +140,14 @@
 /* --- Responsive adjustments for the matrix grid --- */
 @media screen and (max-width: 768px) {
   .ponuka-matrix-grid {
-     grid-template-columns: 1fr 1.5fr 1.5fr; /* Adjust column ratios slightly */
-     max-width: 95%; /* Allow more width */
+     grid-template-columns: 1fr 1.5fr 1.5fr;
+     max-width: 95%;
+  }
+  .matrix-cell {
+      padding: var(--spacing-sm); /* Adjust padding */
   }
   .matrix-header {
-      font-size: 0.9rem; /* Smaller headers */
+      font-size: 1rem; /* Slightly adjust font size */
   }
 }
 @media screen and (max-width: 576px) {
@@ -158,13 +162,14 @@
       display: none; /* Hide column headers and empty cell */
    }
    .matrix-header.row-header {
-       min-height: auto; /* Allow row header height to shrink */
+       min-height: auto;
        padding: var(--spacing-xs) var(--spacing-sm);
-       margin-bottom: -5px; /* Pull images closer */
-       background-color: transparent;
+       margin-bottom: -5px;
+       background-color: var(--color-primary-bg); /* Keep background on mobile */
+       color: var(--color-primary-dark);
    }
    .matrix-image {
-       min-height: 200px; /* Give images some minimum height */
+       min-height: 200px;
    }
     .matrix-image-overlay p {
       font-size: 0.8rem;
