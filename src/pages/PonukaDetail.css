@@ -1,9 +1,5 @@
 /* src/pages/PonukaDetail.css */
 
-.ponuka-detail-grid {
-  /* Grid sa automaticky prispôsobuje vďaka type="fluid" */
-}
-
 .aktivita-card {
   background-color: white;
   border-radius: var(--radius-md);

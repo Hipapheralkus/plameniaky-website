@@ -1,9 +1,5 @@
 /* src/pages/CoNasCaka.css */
 
-.event-list {
-  /* Grid komponent sa postará o layout */
-}
-
 .event-tile {
 background-color: white;
 border-radius: var(--radius-lg); /* Väčší rádius */

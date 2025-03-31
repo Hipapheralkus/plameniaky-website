@@ -1,10 +1,5 @@
 /* src/pages/Odkazy.css */
 
-/* Partneri */
-.partners-grid {
-  /* Grid sa prispôsobí */
-}
-
 .partner-logo-link {
   display: flex; /* Centrovanie loga vnútri odkazu */
   justify-content: center;

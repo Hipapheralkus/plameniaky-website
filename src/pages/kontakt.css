@@ -85,15 +85,6 @@ grid-template-columns: 1fr; /* Predvolené pre mobil */
 gap: var(--spacing-md);
 }
 
-@media (min-width: 768px) {
-  .kontakt-form {
-     /* Môžete tu pridať 2 stĺpce pre meno a email, ak chcete */
-     /* grid-template-columns: 1fr 1fr; */
-  }
-  /* Ak použijete 2 stĺpce, správa a submit potrebujú span */
-  /* .form-group-full { grid-column: span 2; } */
-}
-
 .form-group {
 margin-bottom: 0; /* Odstránime margin, spoliehame sa na gap gridu */
 }
