@@ -34,7 +34,7 @@
 }
 
 .kontakt-item i {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
   margin-right: 15px;
   width: 20px; /* Fixná šírka pre ikony */
   text-align: center;
@@ -46,7 +46,7 @@
   transition: color 0.3s ease;
 }
 .kontakt-item a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
 }
 
 .kontakt-details h4 {
@@ -66,7 +66,7 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .kontakt-social a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
   transform: scale(1.1);
 }
 
@@ -107,7 +107,7 @@ font-size: 0.95rem;
 }
 
 .required {
-color: var(--color-primary);
+color: var(--color-primary); /* Use variable */
 margin-left: 2px;
 }
 
@@ -124,11 +124,12 @@ background-color: white;
 color: var(--color-text);
 }
 
+/* Updated focus style */
 .form-group input:focus,
 .form-group textarea:focus {
 outline: none;
 border-color: var(--color-primary);
-box-shadow: 0 0 0 3px rgba(233, 107, 56, 0.15); /* Jemnejší focus shadow */
+box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15); /* Jemnejší focus shadow */
 }
 
 .form-group textarea {

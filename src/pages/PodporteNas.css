@@ -16,10 +16,10 @@
     box-shadow: var(--shadow-lg);
 }
 
-/* Add styling for icons */
+/* Add styling for icons - Updated */
 .support-option-card .card-icon {
   font-size: 2.5rem; /* Adjust icon size */
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
   margin-bottom: var(--spacing-sm);
   text-align: center; /* Center the icon */
 }
@@ -43,7 +43,7 @@
 }
 
 
-/* Support options list inside card */
+/* Support options list inside card - Updated checkmark color */
 .support-option-list {
   list-style-type: none;
   padding: 0 0 0 25px; /* Adjusted padding */
@@ -61,7 +61,7 @@
 
 .support-option-list li:before {
   content: '✓';
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
   position: absolute;
   left: -25px; /* Position checkmark relative to list padding */
   font-weight: 600;
@@ -123,7 +123,7 @@
   background-color: var(--color-border);
 }
 
-/* Tax info steps */
+/* Tax info steps - Updated step number background */
 .tax-info-steps {
   margin-top: 40px;
   max-width: 800px;
@@ -137,7 +137,7 @@
 }
 
 .tax-step-number {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Use variable */
   color: white;
   width: 40px;
   height: 40px;
@@ -203,15 +203,15 @@
   .support-options {
     grid-template-columns: 1fr !important;
   }
-  
+
   .tax-step {
     flex-direction: column;
   }
-  
+
   .tax-step-number {
     margin-bottom: 15px;
   }
-  
+
   .sponsors-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
@@ -222,12 +222,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .bank-detail .copy-btn {
     margin-top: 10px;
     width: 100%;
   }
-  
+
   .sponsors-grid {
     grid-template-columns: 1fr !important;
   }

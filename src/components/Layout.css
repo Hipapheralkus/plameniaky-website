@@ -15,28 +15,32 @@
     flex-direction: column;
 }
 
-/* Consistent page header with better scaling for large screens */
+/* Consistent page header with better scaling for large screens - Updated */
 .page-header {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: var(--color-primary); /* Use variable */
+    color: white; /* Default text color for header */
     padding: clamp(40px, 5vh, 100px) 0; /* Responsive padding */
     margin-bottom: clamp(40px, 5vh, 100px); /* Responsive margin */
     width: 100%;
     text-align: center;
 }
 
+/* Explicitly set H1 color and adjust shadow for better contrast */
 .page-header h1 {
     font-size: var(--font-size-h1); /* Use responsive font size from variables */
     font-weight: 700;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: white; /* Ensure H1 is white */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Slightly enhanced shadow */
 }
 
+/* Explicitly set H2 color and adjust shadow for better contrast */
 .page-header h2 {
     font-size: var(--font-size-h3); /* Use responsive font size from variables */
     font-weight: 400;
     margin-top: 0.5rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    color: white; /* Ensure H2 is white */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Slightly enhanced shadow */
     opacity: 0.9;
 }
 
@@ -68,21 +72,36 @@
     background-color: var(--color-background-alt);
 }
 
+/* Ensure text is white in primary sections */
 .section-primary {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); /* Use variable */
     color: white;
 }
 .section-primary .section-title { /* Ensure title is visible on primary bg */
     color: white;
 }
 .section-primary .section-title:after { /* Ensure underline is visible */
-    background-color: white; 
+    background-color: white;
 }
 .section-primary .section-subtitle { /* Ensure subtitle is visible */
     color: rgba(255, 255, 255, 0.9);
 }
+/* Ensure general text in primary section is white */
+.section-primary p,
+.section-primary li,
+.section-primary span {
+     color: rgba(255, 255, 255, 0.95);
+}
+/* Keep links readable in primary section */
+.section-primary a {
+    color: white;
+    text-decoration: underline; /* Add underline for visibility */
+}
+.section-primary a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
 
-
+/* Ensure text is white in dark sections */
 .section-dark {
     background-color: var(--color-text-dark);
     color: white;
@@ -91,13 +110,27 @@
     color: white;
 }
 .section-dark .section-title:after { /* Ensure underline uses primary color or white */
-    background-color: var(--color-primary); 
+    background-color: var(--color-primary); /* Use variable */
 }
 .section-dark .section-subtitle { /* Ensure subtitle is visible */
     color: rgba(255, 255, 255, 0.8);
 }
+/* Ensure general text in dark section is light */
+.section-dark p,
+.section-dark li,
+.section-dark span {
+     color: rgba(255, 255, 255, 0.9);
+}
+/* Keep links readable in dark section */
+.section-dark a {
+    color: var(--color-primary-light); /* Use light primary for links */
+}
+.section-dark a:hover {
+    color: white;
+}
 
-/* Section title styling */
+
+/* Section title styling - Updated underline color */
 .section-header {
     margin-bottom: clamp(30px, 4vh, 60px); /* Space below title/subtitle block */
 }
@@ -115,7 +148,7 @@
     display: block;
     width: 50px;
     height: 3px;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); /* Use variable */
     margin: 15px auto 0; /* Center underline */
 }
 
@@ -164,7 +197,7 @@
 .container {
     width: 100%;
     /* Use clamp for responsive side padding, matching variable */
-    padding-left: clamp(15px, var(--section-padding-x), 40px); 
+    padding-left: clamp(15px, var(--section-padding-x), 40px);
     padding-right: clamp(15px, var(--section-padding-x), 40px);
     margin-left: auto;
     margin-right: auto;
@@ -275,15 +308,15 @@
 @media screen and (min-width: 2560px) {
      /* Default content stays within a reasonable max-width for readability */
     .content-container {
-      max-width: var(--container-xl); 
+      max-width: var(--container-xl);
     }
     .section-wide .content-container {
       /* Allow wide sections to expand more */
-      max-width: var(--container-2xl); 
+      max-width: var(--container-2xl);
     }
     .section-extra-wide .content-container {
       /* Allow extra-wide to expand even more, e.g., 90% of viewport */
-      max-width: 90%; 
+      max-width: 90%;
     }
     .container {
         padding-left: calc(var(--spacing-md) * 1.5); /* Slightly more padding */

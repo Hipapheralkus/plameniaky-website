@@ -13,7 +13,7 @@ import CoNasCaka from './pages/CoNasCaka';
 import ArchivPodujati from './pages/ArchivPodujati';
 import Odkazy from './pages/Odkazy';
 import Kontakt from './pages/Kontakt';
-import PodporteNas from './pages/PodporteNas';
+//import PodporteNas from './pages/PodporteNas';
 
 import './styles/index.css'; // Hlavný CSS súbor
 
@@ -31,7 +31,7 @@ function App() {
         <Route path="/archiv-podujati" element={<ArchivPodujati />} />
         <Route path="/odkazy" element={<Odkazy />} />
         <Route path="/kontakt" element={<Kontakt />} />
-        <Route path="/podporte-nas" element={<PodporteNas />} />
+          {/*<Route path="/podporte-nas" element={<PodporteNas />} />*/}
         {/* Môžete pridať aj trasu pre 404 Not Found */}
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>

@@ -28,12 +28,13 @@
   display: inline-block;
 }
 
+/* Updated underline color */
 .mission-text h2:after {
   content: '';
   display: block;
   width: 50%;
   height: 3px;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Use variable */
   margin-top: 10px;
 }
 
@@ -58,9 +59,10 @@
   transform: translateY(-5px);
 }
 
+/* Updated value icon colors */
 .value-icon {
-  background-color: var(--color-primary-bg);
-  color: var(--color-primary);
+  background-color: var(--color-primary-bg); /* Use variable */
+  color: var(--color-primary); /* Use variable */
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -125,8 +127,9 @@
   margin-bottom: 10px;
 }
 
+/* Updated member position color */
 .member-position {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 15px;
@@ -151,8 +154,9 @@
   transition: color var(--transition-base);
 }
 
+/* Updated social link hover color */
 .member-social a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
 }
 
 /* History timeline */
@@ -177,13 +181,14 @@
   margin-bottom: 40px;
 }
 
+/* Updated timeline year background */
 .timeline-year {
   position: absolute;
   left: 0;
   top: 0;
   width: 100px;
   height: 40px;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Use variable */
   color: white;
   display: flex;
   justify-content: center;
@@ -215,11 +220,11 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .mission-image {
     order: 1;
   }
-  
+
   .mission-text {
     order: 2;
   }
@@ -233,15 +238,15 @@
   .mission-text p {
     font-size: 1rem;
   }
-  
+
   .member-photo {
     height: 250px;
   }
-  
+
   .timeline-item {
     padding-left: 80px;
   }
-  
+
   .timeline-year {
     width: 80px;
     font-size: 0.9rem;
@@ -252,15 +257,15 @@
   .mission-text h2:after {
     width: 80px;
   }
-  
+
   .history-timeline:before {
     left: 35px;
   }
-  
+
   .timeline-item {
     padding-left: 70px;
   }
-  
+
   .timeline-year {
     width: 70px;
     height: 35px;

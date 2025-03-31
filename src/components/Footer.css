@@ -25,21 +25,22 @@
   max-width: 250px; /* Obmedzenie maximálnej šírky */
 }
 
+/* Updated heading color for readability */
 .footer-column h3 {
-  color: var(--color-primary); /* Oranžová farba pre nadpisy */
+  color: #f9f9f9; /* White color for headings */
   margin-bottom: 15px;
   font-size: 1.1rem;
   position: relative;
   display: inline-block; /* Aby sa :after správne zobrazilo */
 }
 
-/* Voliteľná čiara pod nadpisom */
+/* Underline keeps the primary accent color */
 .footer-column h3:after {
   content: '';
   display: block;
   width: 40px;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Keep primary color for underline */
   margin: 8px auto 0; /* Centrovanie čiary */
 }
 
@@ -53,6 +54,7 @@
   margin-bottom: 10px;
 }
 
+/* Updated link hover color */
 .footer-column ul li a {
   color: #f9f9f9;
   text-decoration: none;
@@ -62,7 +64,7 @@
 }
 
 .footer-column ul li a:hover {
-  color: var(--color-primary); /* Oranžová pri hoveri */
+  color: var(--color-primary-light); /* Use light primary for hover */
 }
 
 /* Štýly pre ikony sociálnych sietí */
@@ -73,6 +75,7 @@
   margin-top: 10px;
 }
 
+/* Updated icon hover color */
 .footer-social-icons a {
   color: #f9f9f9;
   font-size: 1.5rem; /* Veľkosť ikon */
@@ -80,21 +83,21 @@
 }
 
 .footer-social-icons a:hover {
-  color: var(--color-primary); /* Oranžová pri hoveri */
+  color: var(--color-primary-light); /* Use light primary for hover */
 }
 
-/* Spodná časť footera */
+/* Spodná časť footera - Updated color */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 0;
   text-align: center;
   font-size: 0.9rem;
-  color: #aaa; /* Sivá farba pre copyright */
+  color: #ccc; /* Brighter grey color for copyright */
 }
 
-/* Focus štáty pre prístupnosť */
+/* Focus štáty pre prístupnosť - Updated */
 .footer a:focus {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-primary-light); /* Use light primary for focus */
   outline-offset: 2px;
 }
 

@@ -62,7 +62,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           {/* Použite vaše logo */}
-          <img src="/images/logo.png" alt="Plameniaky Logo" /> 
+          <img src="/images/logo.webp" alt="Plameniaky Logo" /> 
         </Link>
         
         <div 
@@ -110,11 +110,13 @@ const Navbar = () => {
               Odkazy
             </Link>
           </li>
+          {/*
           <li className="nav-item">
             <Link to="/podporte-nas" className={`nav-link ${location.pathname === '/podporte-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Podporte nás 
             </Link>
           </li>
+          */}
           <li className="nav-item">
             <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Kontakt

@@ -47,10 +47,11 @@
   gap: 5px; /* Medzera medzi tagmi */
 }
 
+/* Updated tag button colors */
 .tag-button {
-  background-color: var(--color-primary-bg);
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary-light);
+  background-color: var(--color-primary-bg); /* Use variable */
+  color: var(--color-primary); /* Use variable */
+  border: 1px solid var(--color-primary-light); /* Use variable */
   padding: 3px 10px;
   border-radius: 15px; /* Oválne tlačidlá */
   font-size: 0.8rem;
@@ -59,7 +60,7 @@
 }
 
 .tag-button:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Use variable */
   color: white;
 }
 

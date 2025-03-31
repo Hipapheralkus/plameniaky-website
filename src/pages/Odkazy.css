@@ -53,9 +53,10 @@
     border-bottom: none;
 }
 
+/* Updated link type colors */
 .link-type {
-  background-color: var(--color-primary-bg);
-  color: var(--color-primary);
+  background-color: var(--color-primary-bg); /* Use variable */
+  color: var(--color-primary); /* Use variable */
   padding: 3px 8px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
@@ -70,8 +71,9 @@
   transition: color 0.3s ease;
 }
 
+/* Updated link title hover color */
 .link-title:hover {
-  color: var(--color-primary);
+  color: var(--color-primary); /* Use variable */
 }
 
 .external-link-icon {
