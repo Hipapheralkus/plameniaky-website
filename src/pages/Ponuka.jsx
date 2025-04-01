@@ -16,7 +16,7 @@ const Ponuka = () => {
   const matrixItems = [
     {
       id: 'foto1', // Vzdelávanie + Cirkus
-      image: '/images/Tiles/cirkus_vzdelavanie.webp', // <<< REPLACE
+      image: '/images/tiles/cirkus_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Cirkus',
       description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
       link: '/ponuka/vzdelavanie-cirkus' // <-- Updated Link
