@@ -16,28 +16,28 @@ const Ponuka = () => {
   const matrixItems = [
     {
       id: 'foto1', // Vzdelávanie + Cirkus
-      image: '/images/tiles/cirkus_vzdelavanie.jpg', // <<< REPLACE
+      image: '/images/Tiles/cirkus_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Cirkus',
       description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
       link: '/ponuka/vzdelavanie-cirkus' // <-- Updated Link
     },
     {
       id: 'foto2', // Vzdelávanie + Hudba
-      image: '/images/tiles/hudba_vzdelavanie.jpg', // <<< REPLACE
+      image: '/images/tiles/hudba_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Hudba',
       description: 'Objavujeme rytmus a harmóniu v edukačných programoch a muzikoterapii.',
       link: '/ponuka/vzdelavanie-hudba' // <-- Updated Link
     },
     {
       id: 'foto3', // Vystúpenia + Cirkus
-      image: '/images/tiles/cirkus_vystupka.jpg', // <<< REPLACE
+      image: '/images/tiles/cirkus_vystupka.webp', // <<< REPLACE
       alt: 'Vystúpenia - Cirkus',
       description: 'Pútavé cirkusové show a žonglérske vystúpenia pre vaše eventy.',
       link: '/ponuka/vystupenia-cirkus' // <-- Updated Link
     },
     {
       id: 'foto4', // Vystúpenia + Hudba
-      image: '/images/tiles/hudba_vystupka.jpg', // <<< REPLACE
+      image: '/images/tiles/hudba_vystupka.webp', // <<< REPLACE
       alt: 'Vystúpenia - Hudba',
       description: 'Atmosférické hudobné performance a ohňové show s live hudbou.',
       link: '/ponuka/vystupenia-hudba' // <-- Updated Link
