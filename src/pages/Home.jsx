@@ -26,11 +26,11 @@ const Home = () => {
         width="narrow" // Užší kontajner pre text
       >
          <div className="intro-text text-center"> {/* Centrovaný text */}
-           <h2>Vitajte v Plameniakoch!</h2>
+           <h2>Vitajte medzi Plameniakmi!</h2>
            <p className="slogan" style={{fontSize: '1.3rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
-              Objavte s nami čaro pohybu a kreativity!
+              Zažite s nami čaro pohybu a kreativity!
            </p>
            <Link to="/ponuka" className="btn mt-2">
                Objavte našu ponuku

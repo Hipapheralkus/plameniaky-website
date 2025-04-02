@@ -66,7 +66,7 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
    const allTags = [...new Set(archivData.flatMap(item => item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)))]; // Clean tags for HashtagGroup
 
   return (
-    <PageLayout title="Čo máme za sebou" subtitle="Spomienky na naše minulé akcie"> {/* <-- Zmena titulku */}
+    <PageLayout title="Čo máme za sebou" subtitle="archív zorganizovaných podujatí"> {/* <-- Zmena titulku */}
       {/* --- Pridaná nová kachlička --- */}
       <Section width="narrow" padding="small"> {/* Úzka sekcia pre centrovanie */}
         <div className="dialog-tile">

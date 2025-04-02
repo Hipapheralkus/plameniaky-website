@@ -48,7 +48,7 @@ const CoNasCaka = () => {
   ];
 
   return (
-    <PageLayout title="Čo nás čaká" subtitle="Prehľad nadchádzajúcich akcií a podujatí">
+    <PageLayout title="Čo nás čaká" subtitle="prehľad plánovaných podujatí">
       <Section width="wide">
          {nadchadzajuceAkcie.length > 0 ? (
              <Grid type="fixed" columns={1} gap="large" className="event-list"> 
