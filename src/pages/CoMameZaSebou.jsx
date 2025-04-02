@@ -72,7 +72,7 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
         <div className="dialog-tile">
           <a href="https://dialog.plameniaky.sk/" target="_blank" rel="noopener noreferrer">
              <LazyImage src="/images/dialog_1.webp" alt="Dialóg Plameniaky" className="dialog-tile-image aspect-16-9"/>
-             <span className="dialog-tile-text">Vyskúšajte náš Dialóg!</span>
+             <span className="dialog-tile-text">Rozbehli sme arménsky Dialóg!</span>
           </a>
         </div>
       </Section>
