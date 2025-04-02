@@ -40,7 +40,7 @@ const Navbar = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto'; // Ensure overflow is reset on component unmount
     };
@@ -62,11 +62,11 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           {/* Použite vaše logo */}
-          <img src="/images/logo.webp" alt="Plameniaky Logo" /> 
+          <img src="/images/logo.webp" alt="Plameniaky Logo" />
         </Link>
-        
-        <div 
-          className="menu-icon" 
+
+        <div
+          className="menu-icon"
           onClick={toggleMenu}
           role="button"
           aria-label={isOpen ? "Zatvoriť menu" : "Otvoriť menu"}
@@ -77,7 +77,7 @@ const Navbar = () => {
           <span className={isOpen ? 'menu-icon-bar open' : 'menu-icon-bar'}></span>
           <span className={isOpen ? 'menu-icon-bar open' : 'menu-icon-bar'}></span>
         </div>
-        
+
         {/* Nové položky menu */}
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
@@ -101,8 +101,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/archiv-podujati" className={`nav-link ${location.pathname === '/archiv-podujati' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Archív podujatí
+            <Link to="/co-mame-za-sebou" className={`nav-link ${location.pathname === '/co-mame-za-sebou' ? 'active' : ''}`} onClick={closeMobileMenu}> {/* <-- Zmena cesty a textu */}
+              Čo máme za sebou
             </Link>
           </li>
           <li className="nav-item">
@@ -113,7 +113,7 @@ const Navbar = () => {
           {/*
           <li className="nav-item">
             <Link to="/podporte-nas" className={`nav-link ${location.pathname === '/podporte-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Podporte nás 
+              Podporte nás
             </Link>
           </li>
           */}

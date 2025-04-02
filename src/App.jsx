@@ -10,7 +10,7 @@ import Ponuka from './pages/Ponuka';
 import PonukaDetail from './pages/PonukaDetail'; // Detail for main categories like /ponuka/cirkus
 import ONas from './pages/ONas';
 import CoNasCaka from './pages/CoNasCaka';
-import ArchivPodujati from './pages/ArchivPodujati';
+import CoMameZaSebou from './pages/CoMameZaSebou'; // <-- Zmena importu (ak si premenoval súbor)
 import Odkazy from './pages/Odkazy';
 import Kontakt from './pages/Kontakt';
 // import PodporteNas from './pages/PodporteNas'; // Still commented out
@@ -34,7 +34,7 @@ function App() {
         <Route path="/ponuka" element={<Ponuka />} />
         <Route path="/o-nas" element={<ONas />} />
         <Route path="/co-nas-caka" element={<CoNasCaka />} />
-        <Route path="/archiv-podujati" element={<ArchivPodujati />} />
+        <Route path="/co-mame-za-sebou" element={<CoMameZaSebou />} /> {/* <-- Zmena cesty a elementu */}
         <Route path="/odkazy" element={<Odkazy />} />
         <Route path="/kontakt" element={<Kontakt />} />
         {/* <Route path="/podporte-nas" element={<PodporteNas />} /> */}

@@ -1,5 +1,5 @@
 // src/components/Layout.jsx
-import React from 'react';
+import React, { useEffect } from 'react'; // <-- Importuj useEffect
 import Navbar from './navbar';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import './Layout.css';
 /**
  * Enhanced layout component that provides consistent structure for all pages
  * with support for different widths and content containers
- * 
+ *
  * @param {Object} props - Component props
  * @param {React.ReactNode} props.children - Page content
  * @param {string} props.title - Page title for the header
@@ -19,9 +19,9 @@ import './Layout.css';
  * @param {string} props.spacing - Spacing between sections: 'normal', 'small', 'large'
  * @param {boolean} props.fluid - Whether to use fluid container instead of fixed width
  */
-const Layout = ({ 
-  children, 
-  title, 
+const Layout = ({
+  children,
+  title,
   subtitle,
   noHeader = false,
   headerBgClass = '',
@@ -29,9 +29,17 @@ const Layout = ({
   spacing = 'normal',
   fluid = false
 }) => {
+
+  // --- Nastavenie titulku stránky ---
+  useEffect(() => {
+    document.title = "Plameniaky | Rozvíjame radosťou";
+  }, []); // Prázdne pole znamená, že sa spustí len raz po načítaní komponentu
+  // --- Koniec nastavenia titulku ---
+
+
   // Determine the content container class based on width prop
   let contentContainerClass = 'content-container';
-  
+
   if (width === 'wide') {
     contentContainerClass += ' section-wide';
   } else if (width === 'extra-wide') {
@@ -41,12 +49,12 @@ const Layout = ({
   } else if (width === 'narrow') {
     contentContainerClass += ' section-narrow';
   }
-  
+
   // Add fluid class if needed
   if (fluid) {
     contentContainerClass += ' container-fluid';
   }
-  
+
   // Determine spacing class
   let spacingClass = '';
   if (spacing === 'small') {
@@ -60,7 +68,7 @@ const Layout = ({
   return (
     <div className="page">
       <Navbar />
-      
+
       {!noHeader && (
         <header className={`page-header ${headerBgClass}`}>
           <div className="container">
@@ -71,14 +79,14 @@ const Layout = ({
           </div>
         </header>
       )}
-      
+
       <main className={`page-content ${spacingClass}`}>
         {React.Children.map(children, child => {
           // If the child is a Section component, don't wrap it
           if (React.isValidElement(child) && (child.type.name === 'Section' || child.type.displayName === 'Section')) {
             return child;
           }
-          
+
           // Otherwise, wrap in a container for consistent styling
           return (
             <div className="container">
@@ -89,7 +97,7 @@ const Layout = ({
           );
         })}
       </main>
-      
+
       <Footer />
     </div>
   );

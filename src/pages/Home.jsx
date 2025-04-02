@@ -10,27 +10,26 @@ const Home = () => {
 
   // Vzorové obrázky pre slideshow
   const slideshowImages = [
-    { url: '/images/hero/deti.jpg', alt: 'Deti na workshope', caption: 'Rozvíjame kreativitu detí' },
-    { url: '/images/hero/dospeli.jpg', alt: 'Dospelí žonglujúci', caption: 'Kurzy pre dospelých' },
-    { url: '/images/hero/ohen.jpg', alt: 'Ohňová show', caption: 'Nechajte sa očariť ohňom' },
-    { url: '/images/hero/led.jpg', alt: 'LED show artistka', caption: 'Moderné LED vystúpenia' },
-    { url: '/images/hero/historia.jpg', alt: 'Historická fotka vystúpenia', caption: 'Roky skúseností' },
+    { url: '/images/carousel_1.webp', alt: 'Deti na workshope', caption: 'Rozvíjame kreativitu detí' },
+    { url: '/images/carousel_2.webp', alt: 'Dospelí žonglujúci', caption: 'Kurzy pre dospelých' },
+    { url: '/images/carousel_3.webp', alt: 'Ohňová show', caption: 'Nechajte sa očariť ohňom' },
   ];
 
   return (
-    <PageLayout type="hero"> 
+    <PageLayout type="hero">
       {/* Slideshow namiesto statického hero obrázku */}
-      <Slideshow images={slideshowImages} interval={4000} /> 
-      
+      <Slideshow images={slideshowImages} interval={4000} />
+
       {/* Uvítacia sekcia */}
-      <Section 
-        padding="large" 
+      <Section
+        padding="large"
         width="narrow" // Užší kontajner pre text
       >
          <div className="intro-text text-center"> {/* Centrovaný text */}
            <h2>Vitajte v Plameniakoch!</h2>
+           <p className="slogan" style={{fontSize: '1.3rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
            <p>
-              Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania. 
+              Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Objavte s nami čaro pohybu a kreativity!
            </p>
            <Link to="/ponuka" className="btn mt-2">

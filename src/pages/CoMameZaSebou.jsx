@@ -1,4 +1,4 @@
-// src/pages/ArchivPodujati.jsx
+// src/pages/CoMameZaSebou.jsx
 import React, { useState } from 'react';
 // import { Link } from 'react-router-dom'; // Prípadne pre detail archívu
 import PageLayout from '../components/PageLayout';
@@ -6,9 +6,9 @@ import Section from '../components/Section';
 import Grid from '../components/Grid';
 import LazyImage from '../components/LazyImage';
 import HashtagGroup from '../components/HashtagGroup';
-import './ArchivPodujati.css'; 
+import './CoMameZaSebou.css'; // <-- Zmena importu CSS (ak si premenoval súbor)
 
-const ArchivPodujati = () => {
+const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
 
   // Vzorové dáta pre archív - nahraďte reálnymi dátami, zoradené od najnovšieho
   const archivData = [
@@ -56,24 +56,34 @@ const ArchivPodujati = () => {
 
   const handleTagClick = (tag) => {
       console.log("Kliknutý tag pre filter:", tag);
-      setFilterTag(tag === filterTag ? null : tag); 
+      setFilterTag(tag === filterTag ? null : tag);
   }
 
-  const filteredData = filterTag 
+  const filteredData = filterTag
       ? archivData.filter(item => item.tags.includes(filterTag))
       : archivData;
 
    const allTags = [...new Set(archivData.flatMap(item => item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)))]; // Clean tags for HashtagGroup
 
   return (
-    <PageLayout title="Archív podujatí" subtitle="Spomienky na naše minulé akcie">
+    <PageLayout title="Čo máme za sebou" subtitle="Spomienky na naše minulé akcie"> {/* <-- Zmena titulku */}
+      {/* --- Pridaná nová kachlička --- */}
+      <Section width="narrow" padding="small"> {/* Úzka sekcia pre centrovanie */}
+        <div className="dialog-tile">
+          <a href="https://dialog.plameniaky.sk/" target="_blank" rel="noopener noreferrer">
+             <LazyImage src="/images/dialog_1.webp" alt="Dialóg Plameniaky" className="dialog-tile-image aspect-16-9"/>
+             <span className="dialog-tile-text">Vyskúšajte náš Dialóg!</span>
+          </a>
+        </div>
+      </Section>
+      {/* --- Koniec pridanej kachličky --- */}
       <Section width="wide">
           {/* --- Replace filter buttons with HashtagGroup --- */}
-          <HashtagGroup 
-            tags={allTags} 
-            activeTag={filterTag} 
-            onTagClick={handleTagClick} 
-            showAll={true} 
+          <HashtagGroup
+            tags={allTags}
+            activeTag={filterTag}
+            onTagClick={handleTagClick}
+            showAll={true}
           />
 
           {filteredData.length > 0 ? (
@@ -94,10 +104,10 @@ const ArchivPodujati = () => {
                     )}
 
                     {/* --- Replace archive tags with HashtagGroup --- */}
-                    <HashtagGroup 
+                    <HashtagGroup
                       tags={item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)} // Clean tags
                       activeTag={filterTag} // Highlight if it matches the main filter
-                      onTagClick={handleTagClick} 
+                      onTagClick={handleTagClick}
                       showAll={false} // Don't show "All" button per item
                     />
                   </div>
@@ -113,4 +123,4 @@ const ArchivPodujati = () => {
   );
 };
 
-export default ArchivPodujati;
+export default CoMameZaSebou; // <-- Zmena exportu

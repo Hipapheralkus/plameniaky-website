@@ -1,4 +1,4 @@
-/* src/pages/ArchivPodujati.css */
+/* src/pages/CoMameZaSebou.css */
 
 .filter-tags-container {
   margin-bottom: var(--spacing-lg);
@@ -105,6 +105,54 @@
    color: white;
    border-color: var(--color-primary); /* Use variable */
 }
+
+/* --- Štýly pre novú kachličku Dialóg --- */
+.dialog-tile {
+  display: block; /* Aby zaberala celú šírku narrow sekcie */
+  max-width: 400px; /* Maximálna šírka kachličky */
+  margin: 0 auto var(--spacing-lg); /* Centrovanie a spodný okraj */
+  border-radius: var(--radius-md);
+  overflow: hidden; /* Orezanie obrázka podľa radiusu */
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dialog-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog-tile a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative; /* Pre textový overlay (ak by bol potrebný) */
+}
+
+.dialog-tile-image {
+  width: 100%;
+  height: auto; /* Výška sa prispôsobí aspect-ratio */
+  display: block; /* Odstráni medzeru pod obrázkom */
+}
+
+/* Voliteľný textový popisok nad obrázkom */
+.dialog-tile-text {
+  display: block;
+  text-align: center;
+  padding: var(--spacing-sm);
+  background-color: rgba(255, 255, 255, 0.9); /* Mierne priehľadné biele pozadie */
+  color: var(--color-text-dark);
+  font-weight: 600;
+  /* Ak chcete text PRIAMO NAD obrázkom:
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  */
+}
+/* --- Koniec štýlov pre kachličku --- */
 
 /* Responzivita */
 @media (max-width: 576px) {
