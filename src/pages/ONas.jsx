@@ -11,45 +11,37 @@ const ONas = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Michal "Mišo" Novák',
+      name: 'Janko Šimko',
       position: 'Zakladateľ a hlavný lektor',
-      photo: '/images/team/miso.jpg', // Použite reálne cesty k fotkám
-      bio: 'Mišo je dušou Plameniakov. S rokmi skúseností v cirkusovom umení a pedagogike vedie väčšinu workshopov a vystúpení. Jeho vášeň pre oheň a pohyb je nákazlivá.',
+      photo: '/images/janko_1.jpg',
+      bio: 'Janko je dušou Plameniakov. S rokmi skúseností v hudbe, cirkusovom umení a pedagogike vedie väčšinu kurzov a vystúpení. Hudbe sa venuje od 7 rokov a aktuálne študuje ročný kurz muzikoterapie v Ostrave. Zároveň pôsobil ako lektor v najväčšej cirkusovej škole v Austrálii a svoje nadobudnuté skúsenosti teraz pretavuje do organizovania a učenia mnohých podujatí naprieč Slovenskom. V minulom roku bol menovaný aj za ambasádora Česko-Slovenskej skupiny pre mladý a sociálny cirkus Cirkonet.',
       social: [
-        { icon: 'envelope', url: 'mailto:miso@plameniaky.sk' }
+        { icon: 'envelope', url: 'mailto:info@plameniaky.sk' },
+        { icon: 'instagram', url: 'https://www.instagram.com/janko.showman' },
+        { icon: 'facebook', url: 'https://www.facebook.com/Janko.Showman' }
       ]
     },
     {
       id: 2,
-      name: 'Eva "Evka" Kováčová',
-      position: 'Lektorka hudby a muzikoterapie',
-      photo: '/images/team/eva.jpg',
-      bio: 'Evka prináša do tímu harmóniu a pokoj. Špecializuje sa na muzikoterapiu, hru na etnické nástroje a vedenie relaxačných workshopov pre deti aj dospelých.',
+      name: 'Vsevolod Petrov',
+      position: 'Lektor nového cirkusu a klaun',
+      photo: '/images/seva_4.jpg',
+      bio: 'Slovensko-ukrajinský cirkusový umelec, klaun , mím, hudobník aj technicky smerovaný chlap. Člen Asociácie profesionálnych mímov Slovenska a slovenského Cirkonetu, od roku 2023 pôsobí ako lektor na cirkusovom krúžku v Dolnom Kubine. Od malička sa pohybuje v umení a má za sebou veľa rôznych umeleckých festivalov a podujatí. Je žiakom slovenského míma Miroslava Kasprzyka, Theatru DEREVO a ďalších.',
        social: [
-        { icon: 'envelope', url: 'mailto:eva@plameniaky.sk' }
+        { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' }
       ]
     },
     {
       id: 3,
-      name: 'Jakub "Kubo" Procházka',
-      position: 'Lektor akrobacie a žonglovania',
-      photo: '/images/team/kubo.jpg',
-      bio: 'Kubo je náš expert na akrobaciu, ľudské pyramídy a pokročilé žonglérske techniky. Jeho energia a precíznosť inšpirujú mladých aj starších.',
+      name: 'Nicolette Záhorová',
+      position: 'Asistujúca lektorka a akrobatka',
+      photo: '/images/niki_1.jpg',
+      bio: 'Aj keď cirkusový krúžok navštevuje ako študentka, aktívne sa zapája do učenia workshopov a má za sebou aj niekoľko vystúpení po celom Slovensku.  ',
        social: [
-        { icon: 'linkedin', url: '#' }, // Príklad odkazu
-        { icon: 'instagram', url: '#' } // Príklad odkazu
+         
       ]
     },
-     {
-      id: 4,
-      name: 'Lenka Malá',
-      position: 'Koordinátorka podujatí',
-      photo: '/images/team/lenka.jpg',
-      bio: 'Lenka sa stará o to, aby všetky naše podujatia, workshopy a tábory prebehli hladko. Komunikuje s klientmi a zabezpečuje organizáciu.',
-       social: [
-         { icon: 'envelope', url: 'mailto:lenka@plameniaky.sk' }
-      ]
-    }
+      
     // Pridajte ďalších členov tímu
   ];
 
