@@ -29,7 +29,7 @@ const Ponuka = () => {
       link: '/ponuka/vzdelavanie-hudba' // <-- Updated Link
     },
     {
-      id: 'foto3', // Vystúpenia + Cirkus
+      id: 'foto3', // Vystúpenia + Nový cirkus
       image: '/images/tiles/cirkus_vystupka.webp', // <<< REPLACE
       alt: 'Vystúpenia - Cirkus',
       description: 'Pútavé cirkusové show a žonglérske vystúpenia pre vaše eventy.',
@@ -60,7 +60,7 @@ const Ponuka = () => {
         <div className="ponuka-matrix-grid">
           {/* Row 1: Headers */}
           <div className="matrix-cell matrix-header empty"></div> {/* A1 */}
-          <div className="matrix-cell matrix-header col-header">Cirkus</div> {/* B1 */}
+          <div className="matrix-cell matrix-header col-header">Nový cirkus</div> {/* B1 */}
           <div className="matrix-cell matrix-header col-header">Hudba</div> {/* C1 */}
 
           {/* Row 2: Vzdelavanie */}

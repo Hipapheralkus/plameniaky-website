@@ -93,7 +93,14 @@ const Kontakt = () => {
         <div className="kontakt-info-grid">
           {/* Left Column: Info */}
           <div className="kontakt-details">
-             <h3>Spojte sa s nami</h3>
+           <h3>Fakturačné údaje</h3>
+             <p>Plameniaky, o. z. <br></br>
+              Záborského 5, 080 01 Prešov<br></br>
+              IČO: 53478371<br></br>
+              Nie je platca DPH
+             </p>
+
+           <h3>Spojte sa s nami</h3>
              <p>Máte otázky, nápady na spoluprácu alebo si chcete objednať naše služby? Neváhajte nás kontaktovať!</p>
              <div className="kontakt-item">
                 <i className="fas fa-envelope"></i>

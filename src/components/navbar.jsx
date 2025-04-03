@@ -100,10 +100,10 @@ const Navbar = () => {
                 Ponuka <i className="fas fa-caret-down dropdown-caret"></i> {/* Optional caret icon */}
             </Link>
             <ul className="dropdown-menu">
-                <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie Cirkus</Link></li>
-                <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie Hudba</Link></li>
-                <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Vystúpenia Cirkus</Link></li>
-                <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Vystúpenia Hudba</Link></li>
+                <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie v novom cirkuse</Link></li>
+                <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
+                <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Cirkusové vystúpenia</Link></li>
+                <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Hudobné vystúpenia</Link></li>
                  {/* Optional: Link back to the main Ponuka page */}
                  <li><hr className="dropdown-divider" /></li>
                  <li><Link to="/ponuka" onClick={closeMobileMenu}>Prehľad ponuky</Link></li>

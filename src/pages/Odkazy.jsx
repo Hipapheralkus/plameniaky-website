@@ -28,11 +28,12 @@ const Odkazy = () => {
   ];
 
   return (
-    <PageLayout title="Odkazy a partneri" subtitle="Spolupráce a zaujímavé zdroje">
+    <PageLayout title="Odkazy a partneri" subtitle="Zdroje pre inšpiráciu a fungujúce partnertvá">
       
       {/* Sekcia Partneri */}
       <Section title="Partneri" background="alt" width="wide">
-        <p className="text-center mb-3">Ďakujeme našim partnerom za podporu!</p>
+        <p className="text-center mb-3">Tešíme sa zo spolupráce s týmito subjektami!</p>
+        
         <Grid type="fluid" minWidth="150px" gap="medium" alignment="center" className="partners-grid">
           {partneri.map(partner => (
             <a 

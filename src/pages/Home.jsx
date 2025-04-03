@@ -11,8 +11,8 @@ const Home = () => {
   // Vzorové obrázky pre slideshow
   const slideshowImages = [
     { url: '/images/carousel_1.webp', alt: 'Deti na workshope', caption: 'Rozvíjame kreativitu detí' },
-    { url: '/images/carousel_2.webp', alt: 'Dospelí žonglujúci', caption: 'Kurzy pre dospelých' },
-    { url: '/images/carousel_3.webp', alt: 'Ohňová show', caption: 'Nechajte sa očariť ohňom' },
+    { url: '/images/carousel_2.webp', alt: 'Vystúpenia', caption: 'Prinášame radosť, kde sa dá' },
+    { url: '/images/carousel_3.webp', alt: 'Jednokolky', caption: 'Pracujeme s rovnováhou a koordináciou' },
   ];
 
   return (
@@ -27,7 +27,7 @@ const Home = () => {
       >
          <div className="intro-text text-center"> {/* Centrovaný text */}
            <h2>Vitajte medzi Plameniakmi!</h2>
-           <p className="slogan" style={{fontSize: '1.2rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
+           <p className="slogan" style={{fontSize: '1.8rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Zažite s nami čaro pohybu a kreativity!
