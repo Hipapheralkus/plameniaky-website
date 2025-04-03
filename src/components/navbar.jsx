@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './navbar.css';
+import './navbar.css'; // Ensure CSS is imported
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,18 +16,15 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       const navbar = document.querySelector('.navbar-container');
-      // Check if click is outside the navbar container AND outside the menu icon
       if (isOpen && navbar && !navbar.contains(event.target) && !event.target.closest('.menu-icon')) {
         setIsOpen(false);
       }
     };
 
-    // Add event listener when menu is open
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
-    // Cleanup
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -42,7 +39,7 @@ const Navbar = () => {
     }
 
     return () => {
-      document.body.style.overflow = 'auto'; // Ensure overflow is reset on component unmount
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
@@ -50,9 +47,8 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Helper function to close menu on link click
   const closeMobileMenu = () => {
-      if (window.innerWidth <= 960) { // Only close if in mobile view
+      if (window.innerWidth <= 960) {
           setIsOpen(false);
       }
   }
@@ -61,7 +57,6 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          {/* Použite vaše logo */}
           <img src="/images/logo.webp" alt="Plameniaky Logo" />
         </Link>
 
@@ -78,18 +73,43 @@ const Navbar = () => {
           <span className={isOpen ? 'menu-icon-bar open' : 'menu-icon-bar'}></span>
         </div>
 
-        {/* Nové položky menu */}
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
             <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Domov
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/ponuka" className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Ponuka
+          {/* --- Ponuka Dropdown --- */}
+          <li className="nav-item dropdown"> {/* Added 'dropdown' class */}
+            {/* Link to main /ponuka page for accessibility/fallback */}
+            <Link
+                to="/ponuka"
+                className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`}
+                onClick={(e) => {
+                    // On mobile, allow the main link click to close menu if it's just the base /ponuka
+                    if (location.pathname === '/ponuka') closeMobileMenu();
+                    // On desktop, prevent direct navigation if hovering dropdown is intended
+                    if (window.innerWidth > 960) {
+                        // Optional: if you want ONLY dropdown links to navigate, prevent default here
+                        // e.preventDefault();
+                    }
+                }}
+                // Add aria-haspopup for accessibility
+                aria-haspopup="true"
+            >
+                Ponuka <i className="fas fa-caret-down dropdown-caret"></i> {/* Optional caret icon */}
             </Link>
+            <ul className="dropdown-menu">
+                <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie Cirkus</Link></li>
+                <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie Hudba</Link></li>
+                <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Vystúpenia Cirkus</Link></li>
+                <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Vystúpenia Hudba</Link></li>
+                 {/* Optional: Link back to the main Ponuka page */}
+                 <li><hr className="dropdown-divider" /></li>
+                 <li><Link to="/ponuka" onClick={closeMobileMenu}>Prehľad ponuky</Link></li>
+            </ul>
           </li>
+          {/* --- End Ponuka Dropdown --- */}
           <li className="nav-item">
             <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
               O nás
@@ -101,7 +121,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/co-mame-za-sebou" className={`nav-link ${location.pathname === '/co-mame-za-sebou' ? 'active' : ''}`} onClick={closeMobileMenu}> {/* <-- Zmena cesty a textu */}
+            <Link to="/co-mame-za-sebou" className={`nav-link ${location.pathname === '/co-mame-za-sebou' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Čo máme za sebou
             </Link>
           </li>
@@ -110,13 +130,6 @@ const Navbar = () => {
               Odkazy
             </Link>
           </li>
-          {/*
-          <li className="nav-item">
-            <Link to="/podporte-nas" className={`nav-link ${location.pathname === '/podporte-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Podporte nás
-            </Link>
-          </li>
-          */}
           <li className="nav-item">
             <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Kontakt

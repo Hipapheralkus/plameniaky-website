@@ -67,12 +67,50 @@
   color: var(--color-primary-light); /* Use light primary for hover */
 }
 
+/* Optional: Styling for submenu in the footer */
+.footer-submenu {
+  list-style: none;
+  padding-left: 15px; /* Indent sublinks */
+  margin-top: 5px;
+}
+
+.footer-submenu li a {
+  font-size: 0.9em; /* Smaller font size for sublinks */
+  color: #ccc; /* Lighter color */
+}
+
+.footer-submenu li a:hover {
+  color: var(--color-primary-light);
+}
+
+/* Add styles for contact info in the footer */
+.footer-contact-info p {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+.footer-contact-info i {
+    margin-right: 10px;
+    width: 15px; /* Align icons */
+    text-align: center;
+    color: var(--color-primary-light); /* Use light primary color for icons */
+}
+.footer-contact-info a {
+    color: #f9f9f9; /* Match link color */
+    text-decoration: none; /* Remove underline from contact links if needed */
+}
+.footer-contact-info a:hover {
+    color: var(--color-primary-light); /* Match link hover color */
+}
+
+
 /* Štýly pre ikony sociálnych sietí */
 .footer-social-icons {
   display: flex;
   justify-content: center; /* Centrovanie ikon */
   gap: 20px; /* Medzera medzi ikonami */
-  margin-top: 10px;
+  margin-top: 15px; /* Ensure space from contact info */
 }
 
 /* Updated icon hover color */
@@ -109,11 +147,17 @@
       align-items: flex-start; /* Zarovnanie hore */
       text-align: left; /* Text doľava v stĺpcoch */
   }
+  .footer-column {
+      max-width: 300px; /* Allow columns to be slightly wider */
+  }
   .footer-column h3:after {
       margin-left: 0; /* Čiara doľava */
   }
    .footer-social-icons {
       justify-content: flex-start; /* Ikony doľava */
+   }
+    .footer-contact-info p {
+       justify-content: flex-start; /* Align contact info items left */
    }
 }
 

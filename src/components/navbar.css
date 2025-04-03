@@ -1,3 +1,112 @@
+/* Style for the dropdown container */
+.dropdown {
+  position: relative; /* Needed for absolute positioning of dropdown-menu */
+}
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position below the parent nav item */
+  left: 0;
+  background-color: #ffffff;
+  list-style: none;
+  padding: 10px 0; /* Padding top/bottom */
+  margin: 0;
+  min-width: 200px; /* Minimum width */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm); /* Rounded bottom corners */
+  z-index: 1000;
+}
+
+/* Style for dropdown items */
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px; /* Padding inside links */
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap; /* Prevent wrapping */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: var(--color-primary-bg); /* Light purple background on hover */
+  color: var(--color-primary); /* Primary color text on hover */
+}
+
+/* Optional: Divider style */
+.dropdown-divider {
+    height: 1px;
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: var(--color-border-light);
+    border: none;
+}
+
+/* Show dropdown on hover (Desktop) */
+@media (min-width: 961px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  /* Hide caret on desktop if desired */
+   .dropdown-caret {
+     /* display: none; */
+     margin-left: 5px;
+     font-size: 0.8em;
+     transition: transform 0.3s ease;
+   }
+   .dropdown:hover .dropdown-caret {
+       transform: rotate(180deg);
+   }
+}
+
+
+/* Mobile Dropdown Styles */
+@media screen and (max-width: 960px) {
+  /* Remove absolute positioning for mobile */
+  .dropdown-menu {
+    position: static;
+    display: block; /* Always visible when parent menu is open */
+    background-color: transparent; /* Inherit background */
+    box-shadow: none;
+    padding: 0;
+    min-width: auto;
+    border-radius: 0;
+    margin-top: 10px; /* Space below main "Ponuka" link */
+    margin-left: 20px; /* Indent submenu items */
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 15px; /* Adjust padding for mobile */
+    font-size: 1rem; /* Slightly smaller font for submenu */
+    color: #555; /* Slightly lighter color for submenu */
+  }
+
+   .dropdown-menu li a:hover {
+       background-color: transparent; /* No background hover effect */
+       color: var(--color-primary); /* Primary color on hover */
+   }
+
+   .dropdown-caret {
+       display: inline-block; /* Ensure caret is visible */
+       margin-left: 8px;
+       font-size: 0.9em;
+   }
+   .dropdown-divider {
+       margin: 8px 15px; /* Adjust divider margin */
+   }
+}
+
+/* Add caret icon style if you use Font Awesome */
+/* Ensure Font Awesome is linked in your main HTML or CSS */
+.dropdown-caret {
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
 .navbar {
   background-color: #ffffff;
   height: 80px;

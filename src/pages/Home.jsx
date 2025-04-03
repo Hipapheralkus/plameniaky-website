@@ -27,7 +27,7 @@ const Home = () => {
       >
          <div className="intro-text text-center"> {/* Centrovaný text */}
            <h2>Vitajte medzi Plameniakmi!</h2>
-           <p className="slogan" style={{fontSize: '1.3rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
+           <p className="slogan" style={{fontSize: '1.2rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Zažite s nami čaro pohybu a kreativity!
