@@ -1,75 +1,101 @@
 /* src/pages/CoNasCaka.css */
 
+/* ====== EVENT TILES HORIZONTAL LAYOUT ====== */
+/* Basic grid layout for the event list - more reliable than custom classes */
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Event tile basics */
 .event-tile {
-background-color: white;
-border-radius: var(--radius-lg); /* Väčší rádius */
-box-shadow: var(--shadow-md);
-overflow: hidden;
-display: grid; /* Použitie gridu pre layout dlaždice */
-grid-template-columns: 1fr; /* Predvolené pre mobil */
-margin-bottom: var(--spacing-lg); /* Väčšia medzera medzi dlaždicami */
-transition: box-shadow 0.3s ease;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  flex: 1 1 300px; /* Allow flexible growth but with a 300px base */
+  max-width: 500px; /* Prevent tiles from getting too wide */
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
 }
 
 .event-tile:hover {
   box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 
+/* Image container */
 .event-image-container {
-width: 100%;
-height: 250px; /* Fixná výška pre obrázok */
-overflow: hidden;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .event-image {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
+
 .event-tile:hover .event-image {
   transform: scale(1.03);
 }
 
-
+/* Content section */
 .event-content {
-padding: var(--spacing-md); /* Väčší padding */
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Make content take available space */
 }
 
 .event-content h2 {
-font-size: var(--font-size-h3); /* Väčší nadpis */
-color: var(--color-text-dark);
-margin-top: 0;
-margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-h3);
+  color: var(--color-text-dark);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  /* Handle text wrapping for long titles */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .event-meta {
-display: flex;
-flex-wrap: wrap;
-gap: var(--spacing-md); /* Väčšia medzera */
-color: var(--color-text-light);
-margin-bottom: var(--spacing-md);
-font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
 }
 
 .event-meta span {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .event-meta i {
-margin-right: 8px;
-color: var(--color-primary); /* Updated icon color */
+  margin-right: 8px;
+  color: var(--color-primary);
 }
 
 .event-description {
-color: var(--color-text);
-line-height: 1.7;
-margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
 }
 
+/* Event info sections */
 .event-info-sections {
-  background-color: var(--color-background-alt); /* Jemné pozadie pre info */
+  background-color: var(--color-background-alt);
   padding: var(--spacing-sm);
   border-radius: var(--radius-sm);
   margin-bottom: var(--spacing-md);
@@ -78,6 +104,7 @@ margin-bottom: var(--spacing-md);
 .event-info {
   margin-bottom: var(--spacing-sm);
 }
+
 .event-info:last-child {
   margin-bottom: 0;
 }
@@ -96,40 +123,102 @@ margin-bottom: var(--spacing-md);
   line-height: 1.6;
 }
 
-
+/* Button placement */
 .event-link {
-margin-top: var(--spacing-sm);
-text-align: right; /* Tlačidlo vpravo */
+  margin-top: auto; /* Push button to bottom of card */
+  text-align: center;
+  padding-top: var(--spacing-sm);
 }
 
-/* Responzivita pre dlaždice */
-@media screen and (min-width: 768px) {
-.event-tile {
-  grid-template-columns: 300px 1fr; /* Obrázok vľavo, text vpravo */
-  align-items: start; /* Zarovnanie obsahu hore */
+.event-link .btn {
+  min-width: 180px;
 }
-.event-image-container {
-    height: auto; /* Výška sa prispôsobí obsahu */
-    min-height: 300px; /* Minimálna výška */
-    border-radius: var(--radius-lg) 0 0 var(--radius-lg); /* Zaoblenie len vľavo */
+
+/* ====== RESPONSIVE BREAKPOINTS ====== */
+@media screen and (min-width: 992px) {
+  .section-content {
+    justify-content: center;
+  }
+  
+  .event-tile {
+    flex: 1 1 350px;
+    max-width: 32%; /* Approximately 3 cards per row with gap */
+  }
 }
- .event-content {
-   padding: var(--spacing-lg); /* Ešte väčší padding na desktope */
- }
+
+@media screen and (max-width: 768px) {
+  .event-tile {
+    flex: 1 1 300px;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 576px) {
+  .section-content {
+    gap: var(--spacing-md);
+  }
+  
   .event-content h2 {
-      font-size: 1.5rem; /* Menší nadpis na mobile */
+    font-size: 1.5rem;
   }
+  
   .event-meta {
-      font-size: 0.85rem;
-      gap: var(--spacing-sm);
+    font-size: 0.85rem;
+    gap: var(--spacing-sm);
   }
-  .event-link {
-      text-align: center;
-  }
+  
   .event-link .btn {
-      width: 100%; /* Tlačidlo na celú šírku */
+    width: 100%;
+  }
+}
+
+/* Large screen and 4K optimizations */
+@media screen and (min-width: 1600px) {
+  .section-content {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping on wider screens */
+    justify-content: center;
+    gap: 2rem; /* Slightly wider gap for large screens */
+    max-width: 1800px; /* Allow more width on large screens */
+  }
+  
+  .event-tile {
+    flex: 1 1 0; /* Equal width distribution */
+    min-width: 0; /* Allow flex items to be narrower than content */
+    max-width: 33%; /* Ensure three cards per row */
+  }
+}
+
+/* Ultra-wide screen optimizations */
+@media screen and (min-width: 2560px) {
+  .section-content {
+    max-width: 2200px;
+    gap: 3rem; /* Even wider gap for ultra-wide screens */
+  }
+  
+  .event-tile {
+    max-width: 30%; /* Slightly narrower for better proportions */
+  }
+}
+
+/* Fix for specific flex issues on large screens */
+@media screen and (min-width: 1400px) {
+  /* Ensure text doesn't overflow */
+  .event-content h2 {
+    font-size: 1.7rem;
+    line-height: 1.3;
+  }
+  
+  /* Ensure even distribution */
+  .section-content::after {
+    content: "";
+    flex: 1 1 30%;
+    max-width: 30%;
+    display: none; /* Hidden by default */
+  }
+  
+  /* Only show the pseudo-element when needed to maintain row alignment */
+  .section-content.items-2::after {
+    display: block;
   }
 }

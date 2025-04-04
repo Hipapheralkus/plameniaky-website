@@ -3,12 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import Grid from '../components/Grid';
 import LazyImage from '../components/LazyImage';
 import './CoNasCaka.css';
 
 const CoNasCaka = () => {
-
   // Vzorové dáta pre nadchádzajúce akcie - nahraďte reálnymi dátami
   const nadchadzajuceAkcie = [
     {
@@ -33,7 +31,7 @@ const CoNasCaka = () => {
       infoRodicia: null, // Nie je relevantné
       link: '#' // Príklad linku
     },
-     {
+    {
       id: 3,
       title: 'Ohňová show na festivale Atmosféra',
       date: '3. August 2025, 21:30',
@@ -50,58 +48,59 @@ const CoNasCaka = () => {
   return (
     <PageLayout title="Čo nás čaká" subtitle="prehľad plánovaných podujatí">
       <Section width="wide">
-         {nadchadzajuceAkcie.length > 0 ? (
-             <Grid type="fixed" columns={1} gap="large" className="event-list"> 
-               {nadchadzajuceAkcie.map(akcia => (
-                 <div key={akcia.id} className="event-tile">
-                   <div className="event-image-container aspect-16-9">
-                     <LazyImage src={akcia.image} alt={akcia.title} className="event-image"/>
-                   </div>
-                   <div className="event-content">
-                     <h2>{akcia.title}</h2>
-                     <div className="event-meta">
-                       <span><i className="far fa-calendar-alt"></i> {akcia.date}</span>
-                       <span><i className="fas fa-map-marker-alt"></i> {akcia.location}</span>
-                     </div>
-                     <p className="event-description">{akcia.description}</p>
-                     
-                     {/* Informácie pre účastníkov / rodičov */}
-                     <div className="event-info-sections">
-                         {akcia.infoUcastnici && (
-                             <div className="event-info">
-                                 <h4>Informácie pre účastníkov:</h4>
-                                 <p>{akcia.infoUcastnici}</p>
-                             </div>
-                         )}
-                         {akcia.infoRodicia && (
-                             <div className="event-info">
-                                 <h4>Informácie pre rodičov:</h4>
-                                 <p>{akcia.infoRodicia}</p>
-                             </div>
-                         )}
-                     </div>
+        {nadchadzajuceAkcie.length > 0 ? (
+          // Add a class that indicates how many items are in the grid
+          <div className={`section-content items-${nadchadzajuceAkcie.length}`}>
+            {nadchadzajuceAkcie.map(akcia => (
+              <div key={akcia.id} className="event-tile">
+                <div className="event-image-container aspect-16-9">
+                  <LazyImage src={akcia.image} alt={akcia.title} className="event-image"/>
+                </div>
+                <div className="event-content">
+                  <h2>{akcia.title}</h2>
+                  <div className="event-meta">
+                    <span><i className="far fa-calendar-alt"></i> {akcia.date}</span>
+                    <span><i className="fas fa-map-marker-alt"></i> {akcia.location}</span>
+                  </div>
+                  <p className="event-description">{akcia.description}</p>
+                  
+                  {/* Informácie pre účastníkov / rodičov */}
+                  <div className="event-info-sections">
+                    {akcia.infoUcastnici && (
+                      <div className="event-info">
+                        <h4>Informácie pre účastníkov:</h4>
+                        <p>{akcia.infoUcastnici}</p>
+                      </div>
+                    )}
+                    {akcia.infoRodicia && (
+                      <div className="event-info">
+                        <h4>Informácie pre rodičov:</h4>
+                        <p>{akcia.infoRodicia}</p>
+                      </div>
+                    )}
+                  </div>
 
-                     {/* Odkaz na viac info / registráciu */}
-                     {akcia.link && (
-                         <div className="event-link">
-                           {/* Rozlíšenie interného a externého linku */}
-                           {akcia.link.startsWith('/') ? (
-                               <Link to={akcia.link} className="btn">Viac info / Registrácia</Link>
-                           ) : (
-                               <a href={akcia.link} target="_blank" rel="noopener noreferrer" className="btn">Navštíviť stránku podujatia</a>
-                           )}
-                         </div>
-                     )}
-                   </div>
-                 </div>
-               ))}
-             </Grid>
-         ) : (
-             <div className="text-center">
-                 <p>Momentálne nemáme naplánované žiadne verejné akcie. Sledujte nás pre aktuálne informácie!</p>
-                 <Link to="/kontakt" className="btn mt-2">Kontaktujte nás pre súkromnú akciu</Link>
-             </div>
-         )}
+                  {/* Odkaz na viac info / registráciu */}
+                  {akcia.link && (
+                    <div className="event-link">
+                      {/* Rozlíšenie interného a externého linku */}
+                      {akcia.link.startsWith('/') ? (
+                        <Link to={akcia.link} className="btn">Viac info / Registrácia</Link>
+                      ) : (
+                        <a href={akcia.link} target="_blank" rel="noopener noreferrer" className="btn">Navštíviť stránku podujatia</a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center">
+            <p>Momentálne nemáme naplánované žiadne verejné akcie. Sledujte nás pre aktuálne informácie!</p>
+            <Link to="/kontakt" className="btn mt-2">Kontaktujte nás pre súkromnú akciu</Link>
+          </div>
+        )}
       </Section>
     </PageLayout>
   );
