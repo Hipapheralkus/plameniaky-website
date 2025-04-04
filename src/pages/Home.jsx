@@ -3,31 +3,39 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import Slideshow from '../components/Slideshow'; // Import nového komponentu
-import './Home.css';
+import Slideshow from '../components/Slideshow'; // Import Slideshow component
+import './Home.css'; // Make sure Home.css is imported
 
 const Home = () => {
 
-  // Vzorové obrázky pre slideshow
-  const slideshowImages = [
+  // --- Original Slideshow Images (Keep these) ---
+  const originalSlideshowImages = [
     { url: '/images/carousel_1.webp', alt: 'Deti na workshope', caption: 'Rozvíjame kreativitu detí' },
     { url: '/images/carousel_2.webp', alt: 'Vystúpenia', caption: 'Prinášame radosť, kde sa dá' },
     { url: '/images/carousel_3.webp', alt: 'Jednokolky', caption: 'Pracujeme s rovnováhou a koordináciou' },
   ];
 
+  // --- New Slideshow Images for Cirkusovy Kruzok ---
+  const kruzokSlideshowImages = [
+    { url: '/images/kruzok/cirkusovyKruzok01.webp', alt: 'Cirkusový krúžok - Plagát 1' }, // Captions optional here
+    { url: '/images/kruzok/cirkusovyKruzok02.webp', alt: 'Cirkusový krúžok - Plagát 2' },
+    { url: '/images/kruzok/cirkusovyKruzok03.webp', alt: 'Cirkusový krúžok - Plagát 3' },
+    { url: '/images/kruzok/cirkusovyKruzok04.webp', alt: 'Cirkusový krúžok - Plagát 4' },
+  ];
+
   return (
     <PageLayout type="hero">
-      {/* Slideshow namiesto statického hero obrázku */}
-      <Slideshow images={slideshowImages} interval={4000} />
+      {/* --- Original Slideshow (Top) --- */}
+      <Slideshow images={originalSlideshowImages} interval={4000} />
 
-      {/* Uvítacia sekcia */}
+      {/* --- Uvítacia sekcia --- */}
       <Section
         padding="large"
-        width="narrow" // Užší kontajner pre text
+        width="narrow"
       >
-         <div className="intro-text text-center"> {/* Centrovaný text */}
+         <div className="intro-text text-center">
            <h2>Vitajte medzi Plameniakmi!</h2>
-           <p className="slogan" style={{fontSize: '1.8rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p> {/* <-- Pridaný slogan */}
+           <p className="slogan" style={{fontSize: '1.3rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p>
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Zažite s nami čaro pohybu a kreativity!
@@ -38,10 +46,24 @@ const Home = () => {
          </div>
       </Section>
 
-      {/* Môžete sem pridať ďalšie sekcie podľa potreby, napr.: */}
-      {/* - Sekcia s rýchlym prehľadom ponuky (napr. 3 karty) */}
-      {/* - Sekcia s najbližšou akciou */}
-      {/* - Sekcia s krátkym predstavením O nás */}
+      {/* --- Section for Cirkusovy Kruzok Slideshow Tile --- */}
+      <Section
+        title="Aktuálne: Cirkusový Krúžok"
+        padding="normal"
+        width="normal" // Keep section width normal or narrow
+        background="alt"
+      >
+          {/* --- Add wrapper div for square tile styling --- */}
+          <div className="kruzok-slideshow-tile">
+              <Slideshow images={kruzokSlideshowImages} interval={5000} />
+          </div>
+          {/* --- End wrapper div --- */}
+
+          <div className="text-center mt-3">
+              <Link to="/kontakt" className="btn">Viac informácií</Link>
+          </div>
+      </Section>
+      {/* --- End NEW Section --- */}
 
     </PageLayout>
   );

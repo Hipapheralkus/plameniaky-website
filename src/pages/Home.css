@@ -1,5 +1,57 @@
 /* src/pages/Home.css */
 
+/* Wrapper for the square slideshow tile */
+.kruzok-slideshow-tile {
+  max-width: 450px; /* Adjust maximum size of the square tile */
+  width: 90%; /* Make it responsive within its container */
+  aspect-ratio: 1 / 1; /* Enforce square shape */
+  margin: 0 auto; /* Center the tile horizontally */
+  overflow: hidden; /* Hide anything overflowing the square */
+  position: relative; /* Needed for absolute positioning of slideshow elements */
+  border-radius: var(--radius-md); /* Optional: Add rounded corners */
+  box-shadow: var(--shadow-lg); /* Optional: Add some shadow */
+}
+
+/* Adjust the slideshow container *inside* the tile */
+.kruzok-slideshow-tile .slideshow-container {
+  height: 100%; /* Make slideshow fill the square wrapper height */
+  width: 100%; /* Make slideshow fill the square wrapper width */
+  max-height: none; /* Remove the default max-height limit */
+  position: absolute; /* Position absolutely within the wrapper */
+  top: 0;
+  left: 0;
+  border-radius: inherit; /* Inherit border-radius from wrapper */
+}
+
+/* Optional: Adjust dot/arrow positions for the square tile */
+.kruzok-slideshow-tile .dots-container {
+  bottom: 10px; /* Position dots lower */
+}
+
+.kruzok-slideshow-tile .slide-arrow {
+  top: 50%; /* Keep arrows vertically centered */
+  transform: translateY(-50%) scale(0.9); /* Slightly smaller arrows */
+}
+
+.kruzok-slideshow-tile .prev-arrow {
+  left: 10px;
+}
+
+.kruzok-slideshow-tile .next-arrow {
+  right: 10px;
+}
+
+/* Hide captions on the square tile if they overlay too much */
+.kruzok-slideshow-tile .slide-caption {
+   display: none; /* Or adjust styling */
+}
+
+/* Ensure images within the tile's slideshow cover the area */
+.kruzok-slideshow-tile .slide {
+  background-size: cover;
+  background-position: center;
+}
+
 /* Hero Section */
 .hero-section {
   height: 80vh;
