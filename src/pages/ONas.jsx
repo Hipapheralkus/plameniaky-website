@@ -13,7 +13,7 @@ const ONas = () => {
       id: 1,
       name: 'Janko Šimko',
       position: 'Zakladateľ a hlavný lektor',
-      photo: '/images/janko_1.jpg',
+      photo: '/images/janko_1.webp',
       bio: 'Janko je dušou Plameniakov. S rokmi skúseností v hudbe, cirkusovom umení a pedagogike vedie väčšinu kurzov a vystúpení. Hudbe sa venuje od 7 rokov a aktuálne študuje ročný kurz muzikoterapie v Ostrave. Zároveň pôsobil ako lektor v najväčšej cirkusovej škole v Austrálii a svoje nadobudnuté skúsenosti teraz pretavuje do organizovania a učenia mnohých podujatí naprieč Slovenskom. V minulom roku bol menovaný aj za ambasádora Česko-Slovenskej skupiny pre mladý a sociálny cirkus Cirkonet.',
       social: [
         { icon: 'envelope', url: 'mailto:info@plameniaky.sk' },
@@ -25,7 +25,7 @@ const ONas = () => {
       id: 2,
       name: 'Vsevolod Petrov',
       position: 'Lektor nového cirkusu a klaun',
-      photo: '/images/seva_4.jpg',
+      photo: '/images/seva_4.webp',
       bio: 'Slovensko-ukrajinský cirkusový umelec, klaun , mím, hudobník aj technicky smerovaný chlap. Člen Asociácie profesionálnych mímov Slovenska a slovenského Cirkonetu, od roku 2023 pôsobí ako lektor na cirkusovom krúžku v Dolnom Kubine. Od malička sa pohybuje v umení a má za sebou veľa rôznych umeleckých festivalov a podujatí. Je žiakom slovenského míma Miroslava Kasprzyka, Theatru DEREVO a ďalších.',
        social: [
         { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' }
@@ -35,7 +35,7 @@ const ONas = () => {
       id: 3,
       name: 'Nicolette Záhorová',
       position: 'Asistujúca lektorka a akrobatka',
-      photo: '/images/niki_1.jpg',
+      photo: '/images/niki_1.webp',
       bio: 'Aj keď cirkusový krúžok navštevuje ako študentka, aktívne sa zapája do učenia workshopov a má za sebou aj niekoľko vystúpení po celom Slovensku.  ',
        social: [
          
