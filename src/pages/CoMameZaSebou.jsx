@@ -1,14 +1,12 @@
 // src/pages/CoMameZaSebou.jsx
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom'; // Prípadne pre detail archívu
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-import Grid from '../components/Grid';
 import LazyImage from '../components/LazyImage';
-import HashtagGroup from '../components/HashtagGroup';
-import './CoMameZaSebou.css'; // <-- Zmena importu CSS (ak si premenoval súbor)
+import ArchiveEvent from '../components/ArchiveEvent'; // Import the new component
+import './CoMameZaSebou.css';
 
-const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
+const CoMameZaSebou = () => {
 
   // Vzorové dáta pre archív - nahraďte reálnymi dátami, zoradené od najnovšieho
   const archivData = [
@@ -33,9 +31,9 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
         '/images/archive/vianoce2024/ohen1.jpg',
         '/images/archive/vianoce2024/ohen2.jpg',
       ],
-      tags: ['#ohňovky', '#vystúpenie', '#vianoce', '#doln_kubín', '#fire_show']
+      tags: ['#ohňovky', '#vystúpenie', '#vianoce', '#dolý_kubín', '#fire_show']
     },
-     {
+    {
       id: 3,
       title: 'Letný tábor Cirkus Hravosvet',
       date: 'August 2024',
@@ -51,7 +49,7 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
     // Pridajte ďalšie záznamy z archívu
   ];
 
-  // Stav pre filtrovanie (zatiaľ len ukážka)
+  // Stav pre filtrovanie
   const [filterTag, setFilterTag] = useState(null);
 
   const handleTagClick = (tag) => {
@@ -63,12 +61,13 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
       ? archivData.filter(item => item.tags.includes(filterTag))
       : archivData;
 
-   const allTags = [...new Set(archivData.flatMap(item => item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)))]; // Clean tags for HashtagGroup
+  // Get all unique tags from all archive items
+  const allTags = [...new Set(archivData.flatMap(item => item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)))];
 
   return (
-    <PageLayout title="Čo máme za sebou" subtitle="archív zorganizovaných podujatí"> {/* <-- Zmena titulku */}
+    <PageLayout title="Čo máme za sebou" subtitle="archív zorganizovaných podujatí">
       {/* --- Pridaná nová kachlička --- */}
-      <Section width="narrow" padding="small"> {/* Úzka sekcia pre centrovanie */}
+      <Section width="narrow" padding="small">
         <div className="dialog-tile">
           <a href="https://dialog.plameniaky.sk/" target="_blank" rel="noopener noreferrer">
              <LazyImage src="/images/dialog_1.webp" alt="Dialóg Plameniaky" className="dialog-tile-image aspect-16-9"/>
@@ -76,51 +75,49 @@ const CoMameZaSebou = () => { // <-- Zmena názvu komponentu
           </a>
         </div>
       </Section>
-      {/* --- Koniec pridanej kachličky --- */}
-      <Section width="wide">
-          {/* --- Replace filter buttons with HashtagGroup --- */}
-          <HashtagGroup
-            tags={allTags}
-            activeTag={filterTag}
-            onTagClick={handleTagClick}
-            showAll={true}
-          />
+      
+      <Section width="wide" padding="small">
+        <div className="archive-content">
+          {/* Filter tags placed directly above content */}
+          <div className="filter-tags-container">
+            <button 
+              className={`tag-button ${filterTag === null ? 'active' : ''}`}
+              onClick={() => setFilterTag(null)}
+            >
+              #všetky
+            </button>
+            
+            {allTags.map(tag => (
+              <button
+                key={tag}
+                className={`tag-button ${filterTag === `#${tag}` ? 'active' : ''}`}
+                onClick={() => handleTagClick(`#${tag}`)}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
 
+          {/* Content section using the new ArchiveEvent component */}
           {filteredData.length > 0 ? (
-              <Grid type="fixed" columns={1} gap="large" className="archive-list">
-                {filteredData.map(item => (
-                  <div key={item.id} className="archive-item">
-                    <h3>{item.title} ({item.date})</h3>
-                    <p>{item.description}</p>
-
-                    {item.gallery && item.gallery.length > 0 && (
-                      <div className="archive-gallery">
-                        {item.gallery.map((imgSrc, index) => (
-                          <div key={index} className="gallery-thumb aspect-16-9">
-                            <LazyImage src={imgSrc} alt={`${item.title} - foto ${index + 1}`} />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* --- Replace archive tags with HashtagGroup --- */}
-                    <HashtagGroup
-                      tags={item.tags.map(tag => tag.startsWith('#') ? tag.substring(1) : tag)} // Clean tags
-                      activeTag={filterTag} // Highlight if it matches the main filter
-                      onTagClick={handleTagClick}
-                      showAll={false} // Don't show "All" button per item
-                    />
-                  </div>
-                ))}
-              </Grid>
+            <div className="archive-list">
+              {filteredData.map(event => (
+                <ArchiveEvent 
+                  key={event.id} 
+                  event={event} 
+                  onTagClick={handleTagClick} 
+                />
+              ))}
+            </div>
           ) : (
-               <div className="text-center">
-                   <p>Pre zvolený filter "{filterTag}" sme nenašli žiadne záznamy.</p>
-               </div>
+            <div className="text-center no-results">
+              <p>Pre zvolený filter "{filterTag}" sme nenašli žiadne záznamy.</p>
+            </div>
           )}
+        </div>
       </Section>
     </PageLayout>
   );
 };
 
-export default CoMameZaSebou; // <-- Zmena exportu
+export default CoMameZaSebou;
