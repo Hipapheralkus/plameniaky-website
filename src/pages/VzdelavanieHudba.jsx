@@ -2,6 +2,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
+import RelatedPonukaNav from '../components/RelatedPonukaNav';
 // import './VzdelavanieHudba.css';
 
 const VzdelavanieHudba = () => {
@@ -16,6 +17,7 @@ const VzdelavanieHudba = () => {
         </p>
         {/* Add more specific content, images, details here */}
       </Section>
+      <RelatedPonukaNav currentItemId="vzdelavanie-hudba" />
     </PageLayout>
   );
 };

@@ -1,61 +1,75 @@
 /* src/components/Footer.css */
 .footer {
-  background-color: #333; /* Tmavé pozadie */
-  color: #f9f9f9; /* Svetlý text */
-  padding: 40px 0 0; /* Menší horný padding */
+  background-color: #333;
+  color: #f9f9f9;
+  padding: 40px 0 0;
 }
 
 .footer-container {
   padding: 0 20px;
 }
 
-/* Jednoduchší layout pre footer content */
-.footer-content-simple {
-  display: flex;
-  flex-direction: column; /* Stĺpce pod sebou na malých obrazovkách */
-  justify-content: center; /* Centrovanie obsahu */
-  align-items: center; /* Centrovanie položiek */
-  text-align: center;
-  gap: 30px;
+/* --- Use Grid for Footer Content --- */
+.footer-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 30px; /* Gap between columns */
   margin-bottom: 30px;
+  justify-items: center; /* Center columns if space allows */
+  align-items: start; /* Align content to the top */
+  text-align: center; /* Default text align */
+}
+
+@media screen and (min-width: 768px) {
+   .footer-content-grid {
+       grid-template-columns: 1.5fr 1fr; /* Menu column wider on larger screens */
+       text-align: left; /* Align text left on larger screens */
+       justify-items: start; /* Align columns to the start */
+   }
 }
 
 .footer-column {
-  width: 100%; /* Plná šírka stĺpca */
-  max-width: 250px; /* Obmedzenie maximálnej šírky */
+  width: 100%; /* Column takes full width of its grid area */
+  max-width: none; /* Remove max-width from individual column */
 }
 
-/* Updated heading color for readability */
+
 .footer-column h3 {
-  color: #f9f9f9; /* White color for headings */
+  color: #f9f9f9;
   margin-bottom: 15px;
   font-size: 1.1rem;
   position: relative;
-  display: inline-block; /* Aby sa :after správne zobrazilo */
+  display: inline-block;
 }
 
-/* Underline keeps the primary accent color */
 .footer-column h3:after {
   content: '';
   display: block;
   width: 40px;
   height: 2px;
-  background-color: var(--color-primary); /* Keep primary color for underline */
-  margin: 8px auto 0; /* Centrovanie čiary */
+  background-color: var(--color-primary);
+  margin: 8px auto 0;
 }
 
-.footer-column ul {
+@media screen and (min-width: 768px) {
+    .footer-column h3:after {
+        margin-left: 0; /* Align underline left */
+    }
+}
+
+
+/* --- Styles for Menu Column --- */
+.footer-menu-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-column ul li {
+.footer-menu-column ul li {
   margin-bottom: 10px;
 }
 
-/* Updated link hover color */
-.footer-column ul li a {
+.footer-menu-column ul li a {
   color: #f9f9f9;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -63,102 +77,94 @@
   padding: 3px 0;
 }
 
-.footer-column ul li a:hover {
-  color: var(--color-primary-light); /* Use light primary for hover */
-}
-
-/* Optional: Styling for submenu in the footer */
-.footer-submenu {
-  list-style: none;
-  padding-left: 15px; /* Indent sublinks */
-  margin-top: 5px;
-}
-
-.footer-submenu li a {
-  font-size: 0.9em; /* Smaller font size for sublinks */
-  color: #ccc; /* Lighter color */
-}
-
-.footer-submenu li a:hover {
+.footer-menu-column ul li a:hover {
   color: var(--color-primary-light);
 }
 
-/* Add styles for contact info in the footer */
+/* Grid specifically for the two menu lists */
+.footer-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* One column on mobile */
+    gap: 0 20px; /* Column gap */
+}
+@media screen and (min-width: 480px) { /* Two columns on slightly larger screens */
+    .footer-menu-grid {
+       grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* --- Styles for Contact Column --- */
+
 .footer-contact-info p {
     margin-bottom: 8px;
     display: flex;
     align-items: center;
+    justify-content: center; /* Center items on mobile */
     font-size: 0.95rem;
 }
 .footer-contact-info i {
     margin-right: 10px;
-    width: 15px; /* Align icons */
+    width: 15px;
     text-align: center;
-    color: var(--color-primary-light); /* Use light primary color for icons */
+    color: var(--color-primary-light);
 }
 .footer-contact-info a {
-    color: #f9f9f9; /* Match link color */
-    text-decoration: none; /* Remove underline from contact links if needed */
+    color: #f9f9f9;
+    text-decoration: none;
 }
 .footer-contact-info a:hover {
-    color: var(--color-primary-light); /* Match link hover color */
+    color: var(--color-primary-light);
 }
 
+@media screen and (min-width: 768px) {
+    .footer-contact-info p {
+        justify-content: flex-start; /* Align left on desktop */
+    }
+}
 
-/* Štýly pre ikony sociálnych sietí */
 .footer-social-icons {
   display: flex;
-  justify-content: center; /* Centrovanie ikon */
-  gap: 20px; /* Medzera medzi ikonami */
-  margin-top: 15px; /* Ensure space from contact info */
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+    .footer-social-icons {
+        justify-content: flex-start; /* Align left on desktop */
+    }
 }
 
-/* Updated icon hover color */
 .footer-social-icons a {
   color: #f9f9f9;
-  font-size: 1.5rem; /* Veľkosť ikon */
+  font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .footer-social-icons a:hover {
-  color: var(--color-primary-light); /* Use light primary for hover */
+  color: var(--color-primary-light);
 }
 
-/* Spodná časť footera - Updated color */
+/* --- Footer Bottom --- */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 0;
   text-align: center;
   font-size: 0.9rem;
-  color: #ccc; /* Brighter grey color for copyright */
+  color: #ccc;
 }
 
-/* Focus štáty pre prístupnosť - Updated */
+/* --- Focus States --- */
 .footer a:focus {
-  outline: 2px solid var(--color-primary-light); /* Use light primary for focus */
+  outline: 2px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
-/* Responzivita pre jednoduchší layout */
-@media screen and (min-width: 576px) {
-  .footer-content-simple {
-      flex-direction: row; /* Stĺpce vedľa seba na väčších obrazovkách */
-      justify-content: space-around; /* Rozloženie stĺpcov */
-      align-items: flex-start; /* Zarovnanie hore */
-      text-align: left; /* Text doľava v stĺpcoch */
-  }
-  .footer-column {
-      max-width: 300px; /* Allow columns to be slightly wider */
-  }
-  .footer-column h3:after {
-      margin-left: 0; /* Čiara doľava */
-  }
-   .footer-social-icons {
-      justify-content: flex-start; /* Ikony doľava */
-   }
-    .footer-contact-info p {
-       justify-content: flex-start; /* Align contact info items left */
-   }
+/* --- General Responsive --- */
+@media screen and (max-width: 767px) { /* Adjust breakpoint if needed */
+    .footer-content-grid {
+        gap: 20px; /* Reduce gap on smaller screens */
+    }
 }
 
 @media screen and (max-width: 576px) {

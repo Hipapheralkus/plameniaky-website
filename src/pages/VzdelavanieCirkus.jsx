@@ -2,7 +2,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
-// Optional: Import specific CSS if you create one for this page
+import RelatedPonukaNav from '../components/RelatedPonukaNav';
 // import './VzdelavanieCirkus.css';
 
 const VzdelavanieCirkus = () => {
@@ -17,6 +17,9 @@ const VzdelavanieCirkus = () => {
         </p>
         {/* Add more specific content, images, details here */}
       </Section>
+
+    <RelatedPonukaNav currentItemId="vzdelavanie-cirkus" />
+
     </PageLayout>
   );
 };

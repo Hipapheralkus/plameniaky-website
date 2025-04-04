@@ -1,0 +1,69 @@
+/* src/components/RelatedPonukaNav.css */
+
+.related-ponuka-tile {
+    background-color: white;
+    border-radius: var(--radius-md);
+    overflow: hidden; /* Clip image to border radius */
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-ponuka-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.related-ponuka-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-ponuka-image {
+    width: 100%;
+    height: auto; /* Height determined by aspect-ratio */
+    display: block;
+    object-fit: cover; /* Cover the area */
+    transition: transform 0.4s ease;
+}
+
+.related-ponuka-link:hover .related-ponuka-image {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
+.related-ponuka-title {
+    text-align: center;
+    padding: var(--spacing-sm);
+    font-weight: 500;
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Ensure aspect ratio works (copied from Ponuka.css potentially) */
+.aspect-1-1 {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@supports not (aspect-ratio: 1/1) {
+  .aspect-1-1 { position: relative; }
+  .aspect-1-1::before {
+     content: ''; display: block; padding-top: 100%;
+  }
+  .aspect-1-1 > * {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+    /* Adjust grid columns for related items on smaller screens */
+    .section .grid-3 { /* Assuming Grid component applies grid-3 class */
+         grid-template-columns: 1fr; /* Stack tiles on mobile */
+    }
+     .related-ponuka-title {
+        font-size: 0.9rem;
+     }
+}

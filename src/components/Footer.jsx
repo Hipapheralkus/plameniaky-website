@@ -6,38 +6,46 @@ import './Footer.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // Rozdelenie menu položiek do dvoch zoznamov
+  const menuItems1 = [
+    { path: '/', label: 'Domov' },
+    { path: '/ponuka', label: 'Ponuka' },
+    { path: '/o-nas', label: 'O nás' },
+    { path: '/co-nas-caka', label: 'Čo nás čaká' },
+  ];
+  const menuItems2 = [
+     { path: '/co-mame-za-sebou', label: 'Čo máme za sebou' },
+     { path: '/odkazy', label: 'Odkazy' },
+     { path: '/kontakt', label: 'Kontakt' },
+     // { path: '/podporte-nas', label: 'Podporte nás' }, // Uncomment if needed
+  ];
+
   return (
     <footer className="footer">
       <div className="container footer-container">
-        {/* --- Updated Footer Content --- */}
-        <div className="footer-content-simple">
+        <div className="footer-content-grid"> {/* Changed class for grid layout */}
 
-          <div className="footer-column">
+          {/* --- Menu Column --- */}
+          <div className="footer-column footer-menu-column">
             <h3>Menu</h3>
-            <ul>
-              <li><Link to="/">Domov</Link></li>
-              {/* --- Sublinks for Ponuka (Optional but good practice) --- */}
-              <li>
-                <Link to="/ponuka">Ponuka</Link>
-                <ul className="footer-submenu"> {/* Optional submenu styling */}
-                    <li><Link to="/ponuka/vzdelavanie-cirkus"> - Vzdelávanie Cirkus</Link></li>
-                    <li><Link to="/ponuka/vzdelavanie-hudba"> - Vzdelávanie Hudba</Link></li>
-                    <li><Link to="/ponuka/vystupenia-cirkus"> - Vystúpenia Cirkus</Link></li>
-                    <li><Link to="/ponuka/vystupenia-hudba"> - Vystúpenia Hudba</Link></li>
-                </ul>
-              </li>
-              {/* --- End Sublinks --- */}
-              <li><Link to="/o-nas">O nás</Link></li>
-              <li><Link to="/co-nas-caka">Čo nás čaká</Link></li>
-              <li><Link to="/co-mame-za-sebou">Čo máme za sebou</Link></li>
-              <li><Link to="/odkazy">Odkazy</Link></li>
-              <li><Link to="/kontakt">Kontakt</Link></li>
-              {/* Add Podporte nas if/when uncommented */}
-              {/* <li><Link to="/podporte-nas">Podporte nás</Link></li> */}
-            </ul>
+            <div className="footer-menu-grid"> {/* Grid for two columns */}
+              <ul>
+                {menuItems1.map(item => (
+                  <li key={item.path}><Link to={item.path}>{item.label}</Link></li>
+                ))}
+              </ul>
+              <ul>
+                {menuItems2.map(item => (
+                    <li key={item.path}><Link to={item.path}>{item.label}</Link></li>
+                ))}
+              </ul>
+            </div>
           </div>
+          {/* --- End Menu Column --- */}
 
-          <div className="footer-column">
+
+          {/* --- Contact Column --- */}
+          <div className="footer-column footer-contact-column">
             <h3>Spojte sa s nami</h3>
              <div className="footer-contact-info">
                 <p><i className="fas fa-envelope"></i> <a href="mailto:info@plameniaky.sk">info@plameniaky.sk</a></p>
@@ -53,9 +61,9 @@ const Footer = () => {
                </a>
             </div>
           </div>
+          {/* --- End Contact Column --- */}
 
         </div>
-        {/* --- End Updated Footer Content --- */}
 
         <div className="footer-bottom">
           <p>&copy; {currentYear} Plameniaky.sk. Všetky práva vyhradené.</p>

@@ -10,6 +10,7 @@
 @import './buttons.css';
 @import './grid.css'; 
 @import './loading.css'; 
-@import '../components/Hashtag.css'; /* <-- Add this line */
+@import '../components/Hashtag.css';
+@import '../components/RelatedPonukaNav.css';
 
 /* Page/component-specific styles are imported via their respective JS/JSX files */
