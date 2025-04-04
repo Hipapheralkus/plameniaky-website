@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
  * @param {string} props.minWidth - Minimum width for fluid items (e.g., '200px', '300px')
  * @param {boolean} props.equalHeight - Whether all grid items should have equal height
  * @param {string} props.alignment - Alignment of grid items: 'top', 'center', 'bottom', 'stretch'
+ * @param {boolean} props.centered - Whether to center the grid items horizontally
  */
 const Grid = ({ 
   children, 
@@ -23,7 +24,8 @@ const Grid = ({
   type = 'fixed',
   minWidth = '300px',
   equalHeight = false,
-  alignment = 'stretch'
+  alignment = 'stretch',
+  centered = false
 }) => {
   // Determine the grid class based on columns and type
   let gridClass = 'grid ';
@@ -81,6 +83,11 @@ const Grid = ({
     gridClass += ' grid-equal-height';
   }
   
+  // Add centering class if specified
+  if (centered) {
+    gridClass += ' grid-centered';
+  }
+  
   // Add any additional classes
   if (className) {
     gridClass += ` ${className}`;
@@ -89,7 +96,16 @@ const Grid = ({
   // Create a custom style for fluid grid with specific minWidth
   const gridStyle = {};
   if (type === 'fluid' && !['small', 'medium', 'large', '300px', '400px'].includes(minWidth)) {
-    gridStyle.gridTemplateColumns = `repeat(auto-fill, minmax(${minWidth}, 1fr))`;
+    // IMPORTANT FIX: Use auto-fit instead of auto-fill when centered is true
+    const repeatFunction = centered ? 'auto-fit' : 'auto-fill';
+    // For centered grids, use a maximum size to prevent stretching
+    const maxSize = centered ? '350px' : '1fr';
+    gridStyle.gridTemplateColumns = `repeat(${repeatFunction}, minmax(${minWidth}, ${maxSize}))`;
+    
+    // Add justify-content center for centered grids
+    if (centered) {
+      gridStyle.justifyContent = 'center';
+    }
   }
   
   return (
@@ -110,7 +126,8 @@ Grid.propTypes = {
   type: PropTypes.oneOf(['fixed', 'fluid', 'responsive']),
   minWidth: PropTypes.string,
   equalHeight: PropTypes.bool,
-  alignment: PropTypes.oneOf(['top', 'center', 'bottom', 'stretch'])
+  alignment: PropTypes.oneOf(['top', 'center', 'bottom', 'stretch']),
+  centered: PropTypes.bool
 };
 
 export default Grid;

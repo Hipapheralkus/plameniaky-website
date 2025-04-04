@@ -72,9 +72,9 @@ const ONas = () => {
         </div>
       </Section>
       
-      {/* Tím */}
-      <Section title="Náš tím" background="alt" width="wide">
-         <Grid type="fluid" minWidth="280px" gap="medium">
+{/* Tím */}
+<Section title="Náš tím" background="alt" width="wide">
+         <Grid type="fluid" minWidth="280px" gap="medium" centered={true}>
           {teamMembers.map(member => (
             <div className="team-member" key={member.id}> {/* Použite existujúci štýl */}
               <div className="member-photo aspect-1-1"> 

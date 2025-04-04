@@ -87,12 +87,16 @@
 }
 
 /* Team members */
+/* Team members */
 .team-member {
   background-color: var(--color-background-alt);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base);
+  max-width: 350px; /* Add max-width constraint */
+  width: 100%; /* Take full width up to max-width */
+  margin: 0 auto; /* Center the card when it doesn't fill its grid area */
 }
 
 .team-member:hover {

@@ -52,6 +52,44 @@
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
+/* Centered grids - NEW */
+.grid-centered {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make fluid grids center their items when not enough to fill row */
+.grid-fluid-sm.grid-centered {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  justify-content: center;
+}
+
+.grid-fluid-md.grid-centered {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+  justify-content: center;
+}
+
+.grid-fluid-lg.grid-centered {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 450px));
+  justify-content: center;
+}
+
+.grid-auto.grid-centered {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+  justify-content: center;
+}
+
+/* Ensure proper sizing on very small screens */
+@media (max-width: 576px) {
+  .grid-fluid-sm.grid-centered,
+  .grid-fluid-md.grid-centered,
+  .grid-fluid-lg.grid-centered,
+  .grid-auto.grid-centered {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 /* Responsive grid columns that adapt to different screen sizes */
 .grid-responsive {
   grid-template-columns: repeat(
