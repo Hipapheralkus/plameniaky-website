@@ -31,12 +31,23 @@ const ONas = () => {
         { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' }
       ]
     },
+    
     {
       id: 3,
       name: 'Nicolette Záhorová',
       position: 'Asistujúca lektorka a akrobatka',
       photo: '/images/niki_1.webp',
       bio: 'Aj keď cirkusový krúžok navštevuje ako študentka, aktívne sa zapája do učenia workshopov a má za sebou aj niekoľko vystúpení po celom Slovensku.  ',
+       social: [
+         
+      ]
+    },
+    {
+      id: 4,
+      name: 'Miro Laššák',
+      position: 'Asistent lektora',
+      photo: '/images/miro_1.jpg',
+      bio: 'Prvý a zároveň najvernejší člen kubínskeho cirkusového krúžku. Vo svojich zručnostiach sa zdokonalil tak rýchlo, že už pomáha učiť krúžok v škôlke. ',
        social: [
          
       ]
@@ -53,7 +64,7 @@ const ONas = () => {
           <div className="mission-text">
             <h2>Kto sme?</h2>
             <p>
-              Plameniaky sú skupina nadšencov, umelcov a lektorov, ktorých spája láska k novému cirkusu, hudbe a práci s ľuďmi. Od roku [doplňte rok založenia] prinášame radosť z pohybu, kreativity a spoločných zážitkov deťom, mladým aj dospelým.
+              Plameniaky sú skupina nadšencov, umelcov a organizátorov, ktorých spája láska k novému cirkusu, hudbe a práci s ľuďmi. Od roku 2020 prinášame radosť z pohybu, kreativity a spoločných zážitkov deťom, mladým aj dospelým.
             </p>
             <p>
               Našou filozofiou je vytvárať bezpečný a podporujúci priestor, kde môže každý objaviť a rozvíjať svoj skrytý potenciál, či už ide o žonglovanie, akrobaciu, hudbu alebo jednoducho radosť zo spoločného tvorenia. Veríme v silu zážitku a neformálneho vzdelávania.
@@ -65,7 +76,7 @@ const ONas = () => {
           <div className="mission-image aspect-4-3">
             {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
             <LazyImage 
-              src="/images/about/tim_spolu.jpg" 
+              src="/images/plameniaky.jpg" 
               alt="Tím Plameniakov v akcii" 
             />
           </div>

@@ -11,36 +11,46 @@ const CoNasCaka = () => {
   const nadchadzajuceAkcie = [
     {
       id: 1,
-      title: 'Letný cirkusový tábor pre deti',
-      date: '15. - 19. Júl 2025',
-      location: 'Rekreačné stredisko Jahodník',
-      image: '/images/events/tabor.jpg',
-      description: 'Zažite týždeň plný žonglovania, akrobacie, hier a zábavy v krásnom prostredí Malých Karpát.',
-      infoUcastnici: 'Vek: 8-14 rokov. Trvanie: 5 dní (Po-Pi). Nie sú potrebné predchádzajúce skúsenosti.',
-      infoRodicia: 'Zabezpečená strava 5x denne, pitný režim, ubytovanie a skúsení lektori. Odporúčame pribaliť športové oblečenie a fľašu na vodu.',
-      link: '/registracia/letny-tabor-2025' // Príklad linku
+      title: 'Krúžok nového cirkusu',
+      date: 'každý štvrtok od 14:00 do 16:00',
+      location: 'Obchodná akadémia, Dolný Kubín',
+      image: '/images/kruzok_2.jpg',
+      description: 'Prídťe sa zabaviť a naučiť sa niečo nové!',
+      infoUcastnici: 'Otvorené pre všetkých od 10 rokov vyššie. Žiadne predošlé zručnosti neočakávame.',
+      infoRodicia: 'Prosíme zabezpečiť vhodné oblečenie na pohyb a intertiérovú obuv. Aktivita je bezplatná.',
+      link: null // Príklad linku
     },
     {
       id: 2,
-      title: 'Workshop párovej akrobacie pre dospelých',
-      date: '28. Apríl 2025, 18:00 - 20:00',
-      location: 'Tanečné štúdio Fly, Bratislava',
-      image: '/images/events/parova-akro.jpg',
-      description: 'Príďte si vyskúšať základy párovej akrobacie a posilniť dôveru s partnerom/kamarátom. Vhodné pre začiatočníkov.',
-      infoUcastnici: 'Vek: 18+. Trvanie: 2 hodiny. Vhodné prísť v páre, ale nie je podmienkou.',
-      infoRodicia: null, // Nie je relevantné
-      link: '#' // Príklad linku
+      title: 'Svetový deň cirkusu',
+      date: '11. - 13. apríl 2025',
+      location: 'Bratislava',
+      image: '/images/sdc_2024.jpg',
+      description: 'Komunitný festival nového cirkusu .',
+      infoUcastnici: 'Naši študenti sa chystajú odprezentovať svoje nové vystúpenie, skúsiť si rôzne workshopy a popri tom aj trochu dobrovolníčiť.',
+      infoRodicia: 'Zabezpečená strava, doprava aj ubytovanie.',
+      link: 'https://www.cirkuskus.sk/festival-sdc' // Príklad linku
     },
     {
       id: 3,
-      title: 'Ohňová show na festivale Atmosféra',
-      date: '3. August 2025, 21:30',
-      location: 'Festival Atmosféra, Hontianske Nemce',
-      image: '/images/events/ohen-festival.jpg',
-      description: 'Príďte sa pozrieť na naše veľkolepé ohňové vystúpenie plné tanca, žonglovania a pyrotechnických efektov.',
-      infoUcastnici: 'Vhodné pre všetky vekové kategórie.',
-      infoRodicia: 'Podujatie sa koná vonku vo večerných hodinách.',
-      link: 'https://festivalatmosfera.sk' // Príklad linku na externú stránku
+      title: 'Nehejtujem, dávam lajk',
+      date: '30. apríl 2025',
+      location: 'Mestské kultúrne stredisko Dolný Kubín',
+      image: '/images/nehejt_2024.jpg',
+      description: 'Preventívno-osvetové podujatie pre školy.',
+      infoUcastnici: 'Prezentácia predstavenia Odchod neistý + následný workshop pre divákov.',
+      infoRodicia: null, // Nie je relevantné
+      link: null // Príklad linku
+    },
+    {
+      id: 4,
+      title: 'Míľa pre mamu',
+      date: '10. máj 2025',
+      location: 'Námestovo',
+      image: '/images/mila_2022.jpg',
+      description: 'Zábavné podujatie pre celú rodinu pri príležitosti najväčšej oslavy Dňa matiek na Slovensku.',
+      infoUcastnici: 'Medzi bohatý program podujatia je zaradený aj náš cirkusový workshop.',
+      link: null
     },
     // Pridajte ďalšie akcie
   ];
