@@ -12,15 +12,33 @@ const CoMameZaSebou = () => {
   const archivData = [
     {
       id: 1,
-      title: 'Zimný workshop žonglovania',
-      date: 'Február 2025',
-      description: 'Intenzívny víkendový workshop zameraný na techniky žonglovania s loptičkami a kužeľmi pre mierne pokročilých.',
+      title: 'Pojkový workshop pre Orientalico',
+      date: '1.4.2025',
+      description: 'Intenzívny workshop zameraný na točenie s pojkami pre tanečnú skupinu.',
       gallery: [
-        '/images/archive/zima2025/foto1.jpg',
-        '/images/archive/zima2025/foto2.jpg',
-        '/images/archive/zima2025/foto3.jpg',
+        '/images/eventy/orient_1.jpg',
+        '/images/eventy/orient_2.jpg',
+        '/images/eventy/orient_3.jpg',
+        '/images/eventy/orient_4.jpg',
+        '/images/eventy/orient_5.jpg',
+        '/images/eventy/orient_6.jpg',
+        '/images/eventy/orient_7.jpg',
       ],
-      tags: ['#žonglovanie', '#workshop', '#zima', '#intenzivny']
+      tags: ['#pojky', '#workshop', '#intensive', '#dospelí']
+    },
+    {
+      id: 2,
+      title: 'Eniki beniki',
+      date: '30.3.2025',
+      description: 'Interaktívny program pre deti v regionálnom kole súťaže folklórnych súborov.',
+      gallery: [
+        '/images/eventy/eniki_25_1.jpg',
+        '/images/eventy/eniki_25_2.jpg',
+        '/images/eventy/eniki_25_3.jpg',
+        '/images/eventy/eniki_25_4.jpg',
+        '/images/eventy/eniki_25_5.jpg',
+      ],
+      tags: ['#žonglovanie', '#workshop', '#eventy', '#deti']
     },
     {
       id: 2,
