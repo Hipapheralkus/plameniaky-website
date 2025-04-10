@@ -11,13 +11,14 @@ const Footer = () => {
     { path: '/', label: 'Domov' },
     { path: '/ponuka', label: 'Ponuka' },
     { path: '/o-nas', label: 'O nás' },
-    { path: '/co-nas-caka', label: 'Čo nás čaká' },
+    
   ];
   const menuItems2 = [
-     { path: '/co-mame-za-sebou', label: 'Čo máme za sebou' },
-     { path: '/odkazy', label: 'Odkazy' },
-     { path: '/kontakt', label: 'Kontakt' },
-     // { path: '/podporte-nas', label: 'Podporte nás' }, // Uncomment if needed
+    { path: '/co-nas-caka', label: 'Čo nás čaká' },
+    { path: '/co-mame-za-sebou', label: 'Čo máme za sebou' },
+    // Removed Odkazy from the footer menu
+    { path: '/kontakt', label: 'Kontakt' },
+    // { path: '/podporte-nas', label: 'Podporte nás' }, // Uncomment if needed
   ];
 
   return (

@@ -13,7 +13,7 @@ const Home = () => {
     { url: '/images/carousel_1.webp', alt: 'Deti na workshope', caption: 'Rozvíjame kreativitu detí' },
     { url: '/images/carousel_2.webp', alt: 'Vystúpenia', caption: 'Prinášame radosť, kde sa dá' },
     { url: '/images/carousel_3.webp', alt: 'Jednokolky', caption: 'Pracujeme s rovnováhou a koordináciou' },
-    { url: '/images/carousel_4.jpg', alt: 'Pojky', caption: 'Pohybové programy aj pre dospelých' },
+    { url: '/images/carousel_4.webp', alt: 'Pojky', caption: 'Pohybové programy aj pre dospelých' },
   ];
 
   // --- New Slideshow Images for Cirkusovy Kruzok ---

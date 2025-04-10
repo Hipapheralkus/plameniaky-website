@@ -16,7 +16,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-google-recaptcha": "latest",
-    "react-router-dom": "latest"
+    "react-router-dom": "latest",
+    "sharp": "^0.34.1"
   },
   "devDependencies": {
     "@eslint/js": "latest",

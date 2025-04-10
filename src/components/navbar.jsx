@@ -125,11 +125,7 @@ const Navbar = () => {
               Čo máme za sebou
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/odkazy" className={`nav-link ${location.pathname === '/odkazy' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Odkazy
-            </Link>
-          </li>
+          {/* Removed the "Odkazy" navigation item */}
           <li className="nav-item">
             <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Kontakt

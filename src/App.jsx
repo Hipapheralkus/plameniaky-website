@@ -11,7 +11,7 @@ import PonukaDetail from './pages/PonukaDetail'; // Detail for main categories l
 import ONas from './pages/ONas';
 import CoNasCaka from './pages/CoNasCaka';
 import CoMameZaSebou from './pages/CoMameZaSebou'; // <-- Zmena importu (ak si premenoval súbor)
-import Odkazy from './pages/Odkazy';
+// import Odkazy from './pages/Odkazy'; // Removed import for Odkazy
 import Kontakt from './pages/Kontakt';
 // import PodporteNas from './pages/PodporteNas'; // Still commented out
 
@@ -35,7 +35,7 @@ function App() {
         <Route path="/o-nas" element={<ONas />} />
         <Route path="/co-nas-caka" element={<CoNasCaka />} />
         <Route path="/co-mame-za-sebou" element={<CoMameZaSebou />} /> {/* <-- Zmena cesty a elementu */}
-        <Route path="/odkazy" element={<Odkazy />} />
+        {/* Removed the route for Odkazy */}
         <Route path="/kontakt" element={<Kontakt />} />
         {/* <Route path="/podporte-nas" element={<PodporteNas />} /> */}
 

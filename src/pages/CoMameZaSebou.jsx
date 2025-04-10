@@ -16,13 +16,13 @@ const CoMameZaSebou = () => {
       date: '1.4.2025',
       description: 'Intenzívny workshop zameraný na točenie s pojkami pre tanečnú skupinu.',
       gallery: [
-        '/images/eventy/orient_1.jpg',
-        '/images/eventy/orient_2.jpg',
-        '/images/eventy/orient_3.jpg',
-        '/images/eventy/orient_4.jpg',
-        '/images/eventy/orient_5.jpg',
-        '/images/eventy/orient_6.jpg',
-        '/images/eventy/orient_7.jpg',
+        '/images/eventy/orient_1.webp',
+        '/images/eventy/orient_2.webp',
+        '/images/eventy/orient_3.webp',
+        '/images/eventy/orient_4.webp',
+        '/images/eventy/orient_5.webp',
+        '/images/eventy/orient_6.webp',
+        '/images/eventy/orient_7.webp',
       ],
       tags: ['#pojky', '#workshop', '#intensive', '#dospelí']
     },
@@ -32,11 +32,11 @@ const CoMameZaSebou = () => {
       date: '30.3.2025',
       description: 'Interaktívny program pre deti v regionálnom kole súťaže folklórnych súborov.',
       gallery: [
-        '/images/eventy/eniki_25_1.jpg',
-        '/images/eventy/eniki_25_2.jpg',
-        '/images/eventy/eniki_25_3.jpg',
-        '/images/eventy/eniki_25_4.jpg',
-        '/images/eventy/eniki_25_5.jpg',
+        '/images/eventy/eniki_25_1.webp',
+        '/images/eventy/eniki_25_2.webp',
+        '/images/eventy/eniki_25_3.webp',
+        '/images/eventy/eniki_25_4.webp',
+        '/images/eventy/eniki_25_5.webp',
       ],
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti']
     },
@@ -46,17 +46,17 @@ const CoMameZaSebou = () => {
       date: '25.3.2025',
       description: 'Premiéra nášho nového predstavenia a zároveň interaktívny program pre deti v regionálnom kole divadelnej súťaže.',
       gallery: [
-        '/images/eventy/oj_1.jpg',
-        '/images/eventy/oj_2.jpg',
-        '/images/eventy/oj_3.jpg',
-        '/images/eventy/oj_4.jpg',
-        '/images/eventy/oj_5.jpg',
-        '/images/eventy/oj_6.jpg',
-        '/images/eventy/oj_7.jpg',
-        '/images/eventy/oj_8.jpg',
-        '/images/eventy/oj_9.jpg',
-        '/images/eventy/oj_10.jpg',
-        '/images/eventy/oj_11.jpg',
+        '/images/eventy/oj_1.webp',
+        '/images/eventy/oj_2.webp',
+        '/images/eventy/oj_3.webp',
+        '/images/eventy/oj_4.webp',
+        '/images/eventy/oj_5.webp',
+        '/images/eventy/oj_6.webp',
+        '/images/eventy/oj_7.webp',
+        '/images/eventy/oj_8.webp',
+        '/images/eventy/oj_9.webp',
+        '/images/eventy/oj_10.webp',
+        '/images/eventy/oj_11.webp',
        
       ],
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti', '#showka']
@@ -67,19 +67,19 @@ const CoMameZaSebou = () => {
       date: '13.3.2025',
       description: 'Mládežnícka výmena v Nových Zámkoch, po ktorej nasledovalo neplánované stretnutie s Adriánom Ohrádkom v jeho "rodnom" divadle.',
       gallery: [
-        '/images/eventy/trapiti_1.jpg',
-        '/images/eventy/trapiti_2.jpg',
-        '/images/eventy/trapiti_3.jpg',
-        '/images/eventy/trapiti_4.jpg',
-        '/images/eventy/trapiti_5.jpg',
-        '/images/eventy/trapiti_6.jpg',
-        '/images/eventy/trapiti_7.jpg',
-        '/images/eventy/trapiti_8.jpg',
-        '/images/eventy/trapiti_9.jpg',
-        '/images/eventy/trapiti_10.jpg',
-        '/images/eventy/trapiti_11.jpg',
-        '/images/eventy/trapiti_12.jpg',
-        '/images/eventy/trapiti_13.jpg',
+        '/images/eventy/trapiti_1.webp',
+        '/images/eventy/trapiti_2.webp',
+        '/images/eventy/trapiti_3.webp',
+        '/images/eventy/trapiti_4.webp',
+        '/images/eventy/trapiti_5.webp',
+        '/images/eventy/trapiti_6.webp',
+        '/images/eventy/trapiti_7.webp',
+        '/images/eventy/trapiti_8.webp',
+        '/images/eventy/trapiti_9.webp',
+        '/images/eventy/trapiti_10.webp',
+        '/images/eventy/trapiti_11.webp',
+        '/images/eventy/trapiti_12.webp',
+        '/images/eventy/trapiti_13.webp',
       
       ],
       tags: ['#workshop', '#akrobacia', '#deti', '#výmena', '#zájazd']
@@ -90,10 +90,10 @@ const CoMameZaSebou = () => {
       date: '12.3.2025',
       description: 'Špeciálny tréning s hosťujúcim lektorom Filipom Hajdukom.',
       gallery: [
-        '/images/eventy/kaukliar_1.jpg',
-        '/images/eventy/kaukliar_2.jpg',
-        '/images/eventy/kaukliar_3.jpg',
-        '/images/eventy/kaukliar_4.jpg',
+        '/images/eventy/kaukliar_1.webp',
+        '/images/eventy/kaukliar_2.webp',
+        '/images/eventy/kaukliar_3.webp',
+        '/images/eventy/kaukliar_4.webp',
   
       ],
       tags: ['#workshop', '#žonglovanie', '#deti', '#passing']
@@ -119,16 +119,6 @@ const CoMameZaSebou = () => {
 
   return (
     <PageLayout title="Čo máme za sebou" subtitle="archív zorganizovaných podujatí">
-      {/* --- Pridaná nová kachlička --- */}
-      <Section width="narrow" padding="small">
-        <div className="dialog-tile">
-          <a href="https://dialog.plameniaky.sk/" target="_blank" rel="noopener noreferrer">
-             <LazyImage src="/images/dialog_1.webp" alt="Dialóg Plameniaky" className="dialog-tile-image aspect-16-9"/>
-             <span className="dialog-tile-text">Rozbehli sme arménsky Dialóg!</span>
-          </a>
-        </div>
-      </Section>
-      
       <Section width="wide" padding="small">
         <div className="archive-content">
           {/* Filter tags placed directly above content */}
@@ -167,6 +157,16 @@ const CoMameZaSebou = () => {
               <p>Pre zvolený filter "{filterTag}" sme nenašli žiadne záznamy.</p>
             </div>
           )}
+        </div>
+      </Section>
+      
+      {/* --- Premiestnená kachlička "Dialog" na spodok stránky --- */}
+      <Section width="narrow" padding="small">
+        <div className="dialog-tile">
+          <a href="https://dialog.plameniaky.sk/" target="_blank" rel="noopener noreferrer">
+             <LazyImage src="/images/dialog_1.webp" alt="Dialóg Plameniaky" className="dialog-tile-image aspect-16-9"/>
+             <span className="dialog-tile-text">Rozbehli sme arménsky Dialóg!</span>
+          </a>
         </div>
       </Section>
     </PageLayout>

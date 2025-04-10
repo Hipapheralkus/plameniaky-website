@@ -46,7 +46,7 @@ const ONas = () => {
       id: 4,
       name: 'Miro Laššák',
       position: 'Asistent lektora',
-      photo: '/images/miro_1.jpg',
+      photo: '/images/miro_1.webp',
       bio: 'Prvý a zároveň najvernejší člen kubínskeho cirkusového krúžku. Vo svojich zručnostiach sa zdokonalil tak rýchlo, že už pomáha učiť krúžok v škôlke. ',
        social: [
          
@@ -76,7 +76,7 @@ const ONas = () => {
           <div className="mission-image aspect-4-3">
             {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
             <LazyImage 
-              src="/images/plameniaky.jpg" 
+              src="/images/plameniaky.webp" 
               alt="Tím Plameniakov v akcii" 
             />
           </div>

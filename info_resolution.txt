@@ -1,0 +1,22 @@
+For the event thumbnails:
+	Width: 600px
+		convert image.jpg -resize 600x -quality 85 image.webp
+	Height: 400px (maintaining a 3:2 aspect ratio)
+	Format: WebP
+	Quality: 80-85%
+	File size target: 40-80KB p
+
+For full-size images (prioritizing quality; past events):
+	Width: 1920px for landscape images (height proportional)
+		convert image.jpg -resize 1920x -quality 85 image.webp
+	Width: 1200px for portrait images (height proportional)
+		convert image.jpg -resize 1200x -quality 85 image.webp
+	Quality: 85-90% (WebP is efficient, so you can use higher quality settings)
+	Expected file size: 200-500KB depending on image complexity
+	
+
+For thumbnails (for the gallery grid):
+	Width: 500px (height proportional)
+		convert image.jpg -resize 500x -quality 85 image.webp
+	Quality: 80-85%
+	Expected file size: 30-50KB
