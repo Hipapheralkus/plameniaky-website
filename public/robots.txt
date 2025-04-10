@@ -1,0 +1,6 @@
+# Allow all user agents to crawl all parts of the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://plameniaky.sk/sitemap.xml
