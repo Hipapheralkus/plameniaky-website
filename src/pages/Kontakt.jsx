@@ -1,19 +1,17 @@
 // src/pages/Kontakt.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import ReCAPTCHA from "react-google-recaptcha";
 import './kontakt.css'; // Ensure lowercase 'k'
 
 const Kontakt = () => {
-  // Form data state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  // Form status state
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false,
@@ -21,20 +19,8 @@ const Kontakt = () => {
     errorMessage: '' // Store potential error messages
   });
 
-  // Reference to reCAPTCHA
   const recaptchaRef = useRef(null);
-  
-  // Track if component is mounted (for async operations)
-  const isMounted = useRef(true);
-  
-  // cleanup on unmount
-  useEffect(() => {
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
 
-  // Form input change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -43,87 +29,105 @@ const Kontakt = () => {
     }));
   };
 
-  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setFormStatus({ submitting: true, error: false, submitted: false, errorMessage: '' }); // Reset status on new submission
+
+    // Basic form validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setFormStatus({ 
+        submitted: false, 
+        error: true, 
+        submitting: false, 
+        errorMessage: "Prosím vyplňte všetky povinné polia." 
+      });
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFormStatus({ 
+        submitted: false, 
+        error: true, 
+        submitting: false, 
+        errorMessage: "Prosím zadajte platný email." 
+      });
+      return;
+    }
+
+    // Get reCAPTCHA token
+    let captchaToken = null;
     try {
-      // Begin submission process
-      setFormStatus({ submitting: true, error: false, submitted: false, errorMessage: '' });
+      if (recaptchaRef.current) {
+        captchaToken = await recaptchaRef.current.executeAsync();
+        recaptchaRef.current.reset(); // Reset after getting token
+      }
+      if (!captchaToken) {
+        throw new Error("CAPTCHA token not received.");
+      }
+    } catch (error) {
+      console.error("CAPTCHA Error:", error);
+      setFormStatus({ 
+        submitted: false, 
+        error: true, 
+        submitting: false, 
+        errorMessage: "Chyba pri overení CAPTCHA. Skúste to prosím znova." 
+      });
+      return;
+    }
+
+    // --- Actual Fetch to Backend with timeout ---
+    try {
+      // Add timeout to the fetch request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
       
-      // Validate form inputs
-      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-        throw new Error("Prosím vyplňte všetky povinné polia.");
-      }
-
-      // Simple email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.email)) {
-        throw new Error("Prosím zadajte platný email.");
-      }
-
-      // Get reCAPTCHA token
-      let captchaToken = null;
-      try {
-        if (recaptchaRef.current) {
-          captchaToken = await recaptchaRef.current.executeAsync();
-          recaptchaRef.current.reset(); // Reset after getting token
-        }
-        
-        if (!captchaToken) {
-          throw new Error("Overenie reCAPTCHA zlyhalo, skúste to prosím znova.");
-        }
-      } catch (captchaError) {
-        console.error("reCAPTCHA Error:", captchaError);
-        throw new Error("Problém s overením reCAPTCHA. Skúste to prosím znova.");
-      }
-
-      // Prepare submission data
-      const submissionData = { 
-        ...formData, 
-        captchaToken 
-      };
+      console.log("Sending form data:", { ...formData, captchaToken });
       
-      console.log("Sending form data:", submissionData);
-
-      // Send data to API
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submissionData)
+        body: JSON.stringify({ ...formData, captchaToken }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId); // Clear the timeout if fetch completes
 
-      // Parse response data
+      // Try to parse the response as JSON
       let responseData;
       try {
         responseData = await response.json();
-      } catch (jsonError) {
-        console.error("Error parsing response:", jsonError);
-        throw new Error("Neplatná odpoveď zo servera. Skúste to prosím neskôr.");
+      } catch (parseError) {
+        console.error("Error parsing response:", parseError);
+        throw new Error("Server vrátil neplatnú odpoveď. Kontaktujte nás prosím emailom.");
       }
 
-      // Check for successful response
       if (!response.ok) {
-        throw new Error(responseData.message || `Server error: ${response.status}`);
+        throw new Error(responseData.message || `Chyba servera: ${response.status}`);
       }
 
-      // If we're still mounted, update state for success
-      if (isMounted.current) {
-        // Handle success
-        setFormStatus({ submitted: true, error: false, submitting: false, errorMessage: '' });
-        setFormData({ name: '', email: '', message: '' }); // Clear form
-      }
-
+      // Handle success
+      setFormStatus({ submitted: true, error: false, submitting: false });
+      setFormData({ name: '', email: '', message: '' }); // Clear form on success
     } catch (error) {
       console.error("Submit Error:", error);
       
-      // If we're still mounted, update state for error
-      if (isMounted.current) {
+      // Check if it's an abort error (timeout)
+      if (error.name === 'AbortError') {
         setFormStatus({ 
           submitted: false, 
           error: true, 
           submitting: false, 
-          errorMessage: error.message || "Nepodarilo sa odoslať formulár. Skúste to prosím neskôr." 
+          errorMessage: "Požiadavka trvala príliš dlho. Server je pravdepodobne preťažený. Skúste to prosím neskôr." 
+        });
+      } else {
+        // Display the error message
+        setFormStatus({ 
+          submitted: false, 
+          error: true, 
+          submitting: false, 
+          errorMessage: error.message || "Nepodarilo sa odoslať formulár. Kontaktujte nás prosím emailom." 
         });
       }
     }
@@ -183,7 +187,7 @@ const Kontakt = () => {
              {/* Display Error Message */}
              {formStatus.error && (
                <div className="form-error">
-                 <p><i className="fas fa-exclamation-triangle"></i> {formStatus.errorMessage}</p>
+                 <p><i className="fas fa-exclamation-triangle"></i> {formStatus.errorMessage || 'Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.'}</p>
                </div>
              )}
 
@@ -200,7 +204,7 @@ const Kontakt = () => {
                      onChange={handleChange} 
                      required 
                      aria-required="true" 
-                     disabled={formStatus.submitting}
+                     disabled={formStatus.submitting} 
                    />
                  </div>
                  <div className="form-group">
@@ -213,7 +217,7 @@ const Kontakt = () => {
                      onChange={handleChange} 
                      required 
                      aria-required="true" 
-                     disabled={formStatus.submitting}
+                     disabled={formStatus.submitting} 
                    />
                  </div>
                  <div className="form-group form-group-full">

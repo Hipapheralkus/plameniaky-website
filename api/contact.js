@@ -1,32 +1,49 @@
-// api/contact.js - Vercel Serverless Function for handling contact form submissions
+// api/contact.js - Optimized Vercel Serverless Function with timeout handling
 import nodemailer from 'nodemailer';
+
+// Wrap async operations with timeout
+const withTimeout = (promise, ms = 8000) => {
+  let timeoutId;
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error(`Operation timed out after ${ms}ms`));
+    }, ms);
+  });
+
+  return Promise.race([
+    promise,
+    timeoutPromise
+  ]).finally(() => clearTimeout(timeoutId));
+};
 
 // Function to verify reCAPTCHA token
 async function verifyRecaptcha(token) {
   try {
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     if (!secretKey) {
-      throw new Error('Missing reCAPTCHA secret key');
+      console.error('Missing reCAPTCHA secret key in environment variables');
+      throw new Error('Missing reCAPTCHA configuration');
     }
 
-    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `secret=${secretKey}&response=${token}`,
-    });
+    const response = await withTimeout(
+      fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `secret=${secretKey}&response=${token}`,
+      }), 
+      5000 // 5 second timeout for reCAPTCHA verification
+    );
 
     const data = await response.json();
     
-    // Log the full verification response for debugging
-    console.log('reCAPTCHA verification response:', data);
-    
     if (!data.success) {
+      console.error('reCAPTCHA verification failed:', data);
       throw new Error(`reCAPTCHA verification failed: ${data['error-codes']?.join(', ') || 'Unknown error'}`);
     }
     
-    return data.success;
+    return true;
   } catch (error) {
     console.error('reCAPTCHA verification error:', error);
     throw error;
@@ -34,59 +51,72 @@ async function verifyRecaptcha(token) {
 }
 
 export default async function handler(req, res) {
-  // Only allow POST requests
+  // CORS headers for API routes
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
+
+  // Handle OPTIONS method for CORS preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).json({ success: true });
+  }
+
+  // Only allow POST requests for actual form submission
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
   try {
+    // Extract form data
     const { name, email, message, captchaToken } = req.body;
 
-    // Validate input
+    // Basic validation
     if (!name || !email || !message) {
-      return res.status(400).json({ message: 'All fields are required' });
-    }
-
-    // Validate captcha token
-    if (!captchaToken) {
-      return res.status(400).json({ message: 'reCAPTCHA verification required' });
-    }
-
-    try {
-      // Verify reCAPTCHA
-      await verifyRecaptcha(captchaToken);
-    } catch (captchaError) {
-      console.error('Error verifying reCAPTCHA:', captchaError);
       return res.status(400).json({ 
-        message: 'Failed to verify reCAPTCHA. Please try again.',
-        error: captchaError.message
+        success: false, 
+        message: 'All fields are required' 
       });
     }
 
-    // Set up nodemailer transporter
+    if (!captchaToken) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'reCAPTCHA verification required' 
+      });
+    }
+
+    // Verify reCAPTCHA token
+    try {
+      await verifyRecaptcha(captchaToken);
+    } catch (captchaError) {
+      console.error('Failed reCAPTCHA verification:', captchaError);
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Failed to verify reCAPTCHA. Please try again.' 
+      });
+    }
+
+    // Configure email transport
+    const port = parseInt(process.env.EMAIL_PORT || '587');
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
-      port: parseInt(process.env.EMAIL_PORT || '587'),
-      secure: process.env.EMAIL_SECURE === 'true',
+      port: port,
+      secure: port === 465, // true only for port 465
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        pass: process.env.EMAIL_PASS,
       },
+      // Set timeout options to prevent hanging
+      connectionTimeout: 5000, // 5 seconds
+      greetingTimeout: 5000,   // 5 seconds
+      socketTimeout: 5000      // 5 seconds
     });
 
-    // Log email configuration for debugging (excluding password)
-    console.log('Email configuration:', {
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
-      secure: process.env.EMAIL_SECURE,
-      user: process.env.EMAIL_USER,
-      // Don't log the password
-    });
-
-    // Prepare email data
+    // Email content
     const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO || 'info@plameniaky.sk',
+      from: process.env.EMAIL_FROM || `"Contact Form" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: `Nová správa z webstránky od ${name}`,
       text: `
 Meno: ${name}
@@ -108,28 +138,34 @@ ${message}
       `,
     };
 
-    // Send the email
     try {
-      const info = await transporter.sendMail(mailOptions);
-      console.log('Email sent:', info.messageId);
+      // Send email with timeout
+      await withTimeout(
+        transporter.sendMail(mailOptions),
+        7000 // 7 second timeout for email sending
+      );
       
-      // Return success
-      return res.status(200).json({ message: 'Email sent successfully' });
+      console.log('Email sent successfully');
+      return res.status(200).json({ 
+        success: true, 
+        message: 'Email sent successfully' 
+      });
     } catch (emailError) {
       console.error('Error sending email:', emailError);
       
-      // Return detailed error for debugging
+      // Return a simplified error response
       return res.status(500).json({ 
-        message: 'Failed to send email',
-        error: emailError.message,
-        code: emailError.code
+        success: false, 
+        message: 'Failed to send email. Please try again later.'
       });
     }
   } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('Unexpected error in contact API:', error);
+    
+    // Return a generic error
     return res.status(500).json({ 
-      message: 'An unexpected error occurred',
-      error: error.message
+      success: false, 
+      message: 'A server error occurred. Please try again later.'
     });
   }
 }
