@@ -1,17 +1,19 @@
 // src/pages/Kontakt.jsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import ReCAPTCHA from "react-google-recaptcha";
 import './kontakt.css'; // Ensure lowercase 'k'
 
 const Kontakt = () => {
+  // Form data state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
+  // Form status state
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false,
@@ -19,8 +21,20 @@ const Kontakt = () => {
     errorMessage: '' // Store potential error messages
   });
 
+  // Reference to reCAPTCHA
   const recaptchaRef = useRef(null);
+  
+  // Track if component is mounted (for async operations)
+  const isMounted = useRef(true);
+  
+  // cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
+  // Form input change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -29,60 +43,91 @@ const Kontakt = () => {
     }));
   };
 
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({ submitting: true, error: false, submitted: false, errorMessage: '' }); // Reset status on new submission
-
-    let captchaToken = null;
+    
     try {
-      if (recaptchaRef.current) {
-        captchaToken = await recaptchaRef.current.executeAsync();
-        recaptchaRef.current.reset(); // Reset after getting token
+      // Begin submission process
+      setFormStatus({ submitting: true, error: false, submitted: false, errorMessage: '' });
+      
+      // Validate form inputs
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        throw new Error("Prosím vyplňte všetky povinné polia.");
       }
-      if (!captchaToken) {
-        throw new Error("CAPTCHA token not received.");
+
+      // Simple email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error("Prosím zadajte platný email.");
       }
-    } catch (error) {
-      console.error("CAPTCHA Error:", error);
-      setFormStatus({ submitted: false, error: true, submitting: false, errorMessage: "Chyba pri overení CAPTCHA." });
-      return;
-    }
 
-    // --- Actual Fetch to Backend ---
-    try {
-        console.log("Sending to /api/contact:", { ...formData, captchaToken }); // Log before sending
-        const response = await fetch('/api/contact', { // Use relative path for Vercel function
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...formData, captchaToken }) // Send form data and token
-        });
-
-        // Log raw response status
-        console.log("Response Status:", response.status);
-
-        const responseData = await response.json(); // Always try to parse JSON
-
-        // Log parsed response
-        console.log("Response Data:", responseData);
-
-
-        if (!response.ok) {
-             // Use message from backend if available, otherwise provide default
-             throw new Error(responseData.message || `Server error: ${response.status}`);
+      // Get reCAPTCHA token
+      let captchaToken = null;
+      try {
+        if (recaptchaRef.current) {
+          captchaToken = await recaptchaRef.current.executeAsync();
+          recaptchaRef.current.reset(); // Reset after getting token
         }
+        
+        if (!captchaToken) {
+          throw new Error("Overenie reCAPTCHA zlyhalo, skúste to prosím znova.");
+        }
+      } catch (captchaError) {
+        console.error("reCAPTCHA Error:", captchaError);
+        throw new Error("Problém s overením reCAPTCHA. Skúste to prosím znova.");
+      }
 
+      // Prepare submission data
+      const submissionData = { 
+        ...formData, 
+        captchaToken 
+      };
+      
+      console.log("Sending form data:", submissionData);
+
+      // Send data to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData)
+      });
+
+      // Parse response data
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (jsonError) {
+        console.error("Error parsing response:", jsonError);
+        throw new Error("Neplatná odpoveď zo servera. Skúste to prosím neskôr.");
+      }
+
+      // Check for successful response
+      if (!response.ok) {
+        throw new Error(responseData.message || `Server error: ${response.status}`);
+      }
+
+      // If we're still mounted, update state for success
+      if (isMounted.current) {
         // Handle success
-        setFormStatus({ submitted: true, error: false, submitting: false });
-        setFormData({ name: '', email: '', message: '' }); // Clear form on success
+        setFormStatus({ submitted: true, error: false, submitting: false, errorMessage: '' });
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      }
 
     } catch (error) {
-         console.error("Submit Error:", error);
-         // Display the error message from the catch block
-         setFormStatus({ submitted: false, error: true, submitting: false, errorMessage: error.message || "Nepodarilo sa odoslať formulár." });
+      console.error("Submit Error:", error);
+      
+      // If we're still mounted, update state for error
+      if (isMounted.current) {
+        setFormStatus({ 
+          submitted: false, 
+          error: true, 
+          submitting: false, 
+          errorMessage: error.message || "Nepodarilo sa odoslať formulár. Skúste to prosím neskôr." 
+        });
+      }
     }
-    // --- End Fetch ---
   };
-
 
   return (
     <PageLayout
@@ -138,7 +183,7 @@ const Kontakt = () => {
              {/* Display Error Message */}
              {formStatus.error && (
                <div className="form-error">
-                 <p><i className="fas fa-exclamation-triangle"></i> Ups! {formStatus.errorMessage || 'Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.'}</p>
+                 <p><i className="fas fa-exclamation-triangle"></i> {formStatus.errorMessage}</p>
                </div>
              )}
 
@@ -147,15 +192,42 @@ const Kontakt = () => {
                <form className="kontakt-form" onSubmit={handleSubmit} noValidate>
                  <div className="form-group">
                    <label htmlFor="name">Meno <span className="required">*</span></label>
-                   <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting} />
+                   <input 
+                     type="text" 
+                     id="name" 
+                     name="name" 
+                     value={formData.name} 
+                     onChange={handleChange} 
+                     required 
+                     aria-required="true" 
+                     disabled={formStatus.submitting}
+                   />
                  </div>
                  <div className="form-group">
                    <label htmlFor="email">Email <span className="required">*</span></label>
-                   <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting} />
+                   <input 
+                     type="email" 
+                     id="email" 
+                     name="email" 
+                     value={formData.email} 
+                     onChange={handleChange} 
+                     required 
+                     aria-required="true" 
+                     disabled={formStatus.submitting}
+                   />
                  </div>
                  <div className="form-group form-group-full">
                    <label htmlFor="message">Správa <span className="required">*</span></label>
-                   <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} required aria-required="true" disabled={formStatus.submitting}></textarea>
+                   <textarea 
+                     id="message" 
+                     name="message" 
+                     rows="6" 
+                     value={formData.message} 
+                     onChange={handleChange} 
+                     required 
+                     aria-required="true" 
+                     disabled={formStatus.submitting}
+                   ></textarea>
                  </div>
 
                  {/* v3 reCAPTCHA Component */}

@@ -1,100 +1,135 @@
-// api/contact.js
-// Requires: npm install nodemailer
-
+// api/contact.js - Vercel Serverless Function for handling contact form submissions
 import nodemailer from 'nodemailer';
 
+// Function to verify reCAPTCHA token
+async function verifyRecaptcha(token) {
+  try {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secretKey) {
+      throw new Error('Missing reCAPTCHA secret key');
+    }
+
+    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${secretKey}&response=${token}`,
+    });
+
+    const data = await response.json();
+    
+    // Log the full verification response for debugging
+    console.log('reCAPTCHA verification response:', data);
+    
+    if (!data.success) {
+      throw new Error(`reCAPTCHA verification failed: ${data['error-codes']?.join(', ') || 'Unknown error'}`);
+    }
+    
+    return data.success;
+  } catch (error) {
+    console.error('reCAPTCHA verification error:', error);
+    throw error;
+  }
+}
+
 export default async function handler(req, res) {
-  // Allow only POST requests
+  // Only allow POST requests
   if (req.method !== 'POST') {
-    console.log(`Method ${req.method} Not Allowed`);
-    // Set Allow header is good practice for 405
-    res.setHeader('Allow', ['POST']);
-    return res.status(405).json({ success: false, message: 'Method Not Allowed' });
-  }
-
-  const { name, email, message, captchaToken } = req.body;
-
-  // --- Basic Input Validation ---
-  if (!name || !email || !message || !captchaToken) {
-      console.log('Missing fields:', { name: !!name, email: !!email, message: !!message, captchaToken: !!captchaToken });
-      return res.status(400).json({ success: false, message: 'Missing required fields.' });
-  }
-
-  // --- CAPTCHA Verification ---
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-
-  if (!secretKey) {
-     console.error("RECAPTCHA_SECRET_KEY environment variable not set.");
-     // Don't expose this specific error to the client for security
-     return res.status(500).json({ success: false, message: 'Server configuration error.' });
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    console.log("Verifying CAPTCHA token...");
-    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(captchaToken)}`;
-    // Optionally add remoteip: &remoteip=${encodeURIComponent(req.headers['x-forwarded-for'] || req.socket.remoteAddress)}
+    const { name, email, message, captchaToken } = req.body;
 
-    const verificationResponse = await fetch(verificationUrl, { method: 'POST' });
-    if (!verificationResponse.ok) {
-        // Handle potential network errors talking to Google
-        throw new Error(`reCAPTCHA verification request failed with status: ${verificationResponse.status}`);
+    // Validate input
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: 'All fields are required' });
     }
-    const verificationData = await verificationResponse.json();
-    console.log("reCAPTCHA verification data:", verificationData);
 
-    // Check for success and score (adjust score threshold as needed)
-    // Also check action if you implemented it in the frontend execute call
-    if (!verificationData.success || (verificationData.score && verificationData.score < 0.5) /* || verificationData.action !== 'submit' */) {
-      console.log("CAPTCHA verification failed:", verificationData);
-      return res.status(400).json({ success: false, message: 'Failed CAPTCHA verification.' });
+    // Validate captcha token
+    if (!captchaToken) {
+      return res.status(400).json({ message: 'reCAPTCHA verification required' });
     }
-    console.log("CAPTCHA verification successful.");
 
-    // --- Verification Passed - Send Email ---
+    try {
+      // Verify reCAPTCHA
+      await verifyRecaptcha(captchaToken);
+    } catch (captchaError) {
+      console.error('Error verifying reCAPTCHA:', captchaError);
+      return res.status(400).json({ 
+        message: 'Failed to verify reCAPTCHA. Please try again.',
+        error: captchaError.message
+      });
+    }
 
-    // Configure Nodemailer transporter using environment variables
-    // Make sure these are set in your Vercel project settings!
+    // Set up nodemailer transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,      // e.g., 'smtp.example.com'
-      port: parseInt(process.env.EMAIL_PORT || "587", 10), // e.g., 587 or 465
-      secure: (process.env.EMAIL_PORT === '465'), // true for 465, false for other ports
+      host: process.env.EMAIL_HOST,
+      port: parseInt(process.env.EMAIL_PORT || '587'),
+      secure: process.env.EMAIL_SECURE === 'true',
       auth: {
-        user: process.env.EMAIL_USER,    // Your sending email address
-        pass: process.env.EMAIL_PASS,    // Your email password or app-specific password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
       },
-      // Optional: Add TLS options if needed for specific providers like Office365
-      // tls: {
-      //   ciphers:'SSLv3'
-      // }
     });
 
-    // Email options
+    // Log email configuration for debugging (excluding password)
+    console.log('Email configuration:', {
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: process.env.EMAIL_SECURE,
+      user: process.env.EMAIL_USER,
+      // Don't log the password
+    });
+
+    // Prepare email data
     const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER, // Sender address (use configured FROM or fallback to USER)
-      to: process.env.EMAIL_TO,            // List of receivers (your receiving email)
-      subject: `Nová správa z kontaktného formulára od ${name}`, // Subject line
-      text: `Meno: ${name}\nEmail: ${email}\n\nSpráva:\n${message}`, // Plain text body
-      html: `<p><strong>Meno:</strong> ${name}</p>
-             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-             <p><strong>Správa:</strong></p>
-             <p>${message.replace(/\n/g, '<br>')}</p>`, // HTML body
-       replyTo: email // Set the Reply-To header to the user's email
+      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      to: process.env.EMAIL_TO || 'info@plameniaky.sk',
+      subject: `Nová správa z webstránky od ${name}`,
+      text: `
+Meno: ${name}
+Email: ${email}
+
+Správa:
+${message}
+      `,
+      html: `
+<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px;">
+  <h2 style="color: #725692;">Nová správa z webstránky Plameniaky.sk</h2>
+  <p><strong>Od:</strong> ${name}</p>
+  <p><strong>Email:</strong> ${email}</p>
+  <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #725692;">
+    <p><strong>Správa:</strong></p>
+    <p>${message.replace(/\n/g, '<br>')}</p>
+  </div>
+</div>
+      `,
     };
 
-    console.log("Attempting to send email...");
-    // Send mail with defined transport object
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully.");
-
-    // Send success response to frontend
-    return res.status(200).json({ success: true, message: 'Form submitted successfully!' });
-
+    // Send the email
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Email sent:', info.messageId);
+      
+      // Return success
+      return res.status(200).json({ message: 'Email sent successfully' });
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      
+      // Return detailed error for debugging
+      return res.status(500).json({ 
+        message: 'Failed to send email',
+        error: emailError.message,
+        code: emailError.code
+      });
+    }
   } catch (error) {
-    console.error("Error during CAPTCHA verification or email sending:", error);
-    // Determine if it's a nodemailer specific error or general error
-    const message = error.code === 'EENVELOPE' || error.responseCode >= 500 ?
-                    'Chyba pri odosielaní emailu.' : // More specific error for email issues
-                    'Internal Server Error.';
-    return res.status(500).json({ success: false, message });
+    console.error('Unexpected error:', error);
+    return res.status(500).json({ 
+      message: 'An unexpected error occurred',
+      error: error.message
+    });
   }
 }
