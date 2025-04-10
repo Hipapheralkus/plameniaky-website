@@ -11,9 +11,9 @@ const VzdelavanieHudba = () => {
       <Section>
         <h2>Kombinácia: Vzdelávanie + Hudba</h2>
         <p>
-          Detailný popis ponuky zameranej na prepojenie vzdelávacích aktivít s hudbou a muzikoterapiou.
-          Príklady: hudobné workshopy pre deti, muzikoterapeutické sedenia pre školy/skupiny,
-          využitie rytmiky v neformálnom vzdelávaní.
+        (Na tejto časti stránky sa ešte pracuje...)
+        <br></br><br></br>
+        Aktuálne navštevujeme ročný kurz muzikoterapie, takže táto ponuka sa ešte len formuje. Zatiaľ vieme ponúknuť hudobné zážitkové programy či už ako príjemca alebo aj skúšanie hudobných nástrojov a práca s rytmom v skupine.
         </p>
         {/* Add more specific content, images, details here */}
       </Section>
