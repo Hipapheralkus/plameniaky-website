@@ -52,6 +52,16 @@ const CoNasCaka = () => {
       infoUcastnici: 'Medzi bohatý program podujatia je zaradený aj náš cirkusový workshop.',
       link: null
     },
+    {
+      id: 5,
+      title: 'Summer Time Music',
+      date: '3.-8. august 2025',
+      location: 'Hotel Orava, Srňacie, Dolný Kubín',
+      image: '/images/eventy/stm_2024_1.jpg',
+      description: 'Interpretačné kurzy pre študentov hudby v lone prírody.',
+      infoUcastnici: 'Individuálne hodiny s lektorom každý deň, skupinové workshopy, ansámble aj záverečný koncert.',
+      link: 'www.summertimemusic.sk'
+    },
     // Pridajte ďalšie akcie
   ];
 

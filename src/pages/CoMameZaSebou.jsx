@@ -41,29 +41,64 @@ const CoMameZaSebou = () => {
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti']
     },
     {
-      id: 2,
-      title: 'Vianočná ohňová show',
-      date: 'December 2024',
-      description: 'Magické vystúpenie na vianočných trhoch v Bratislave, ktoré zahrialo divákov v chladnom počasí.',
+      id: 3,
+      title: 'Oravské javisko',
+      date: '25.3.2025',
+      description: 'Premiéra nášho nového predstavenia a zároveň interaktívny program pre deti v regionálnom kole divadelnej súťaže.',
       gallery: [
-        '/images/archive/vianoce2024/ohen1.jpg',
-        '/images/archive/vianoce2024/ohen2.jpg',
+        '/images/eventy/oj_1.jpg',
+        '/images/eventy/oj_2.jpg',
+        '/images/eventy/oj_3.jpg',
+        '/images/eventy/oj_4.jpg',
+        '/images/eventy/oj_5.jpg',
+        '/images/eventy/oj_6.jpg',
+        '/images/eventy/oj_7.jpg',
+        '/images/eventy/oj_8.jpg',
+        '/images/eventy/oj_9.jpg',
+        '/images/eventy/oj_10.jpg',
+        '/images/eventy/oj_11.jpg',
+       
       ],
-      tags: ['#ohňovky', '#vystúpenie', '#vianoce', '#dolý_kubín', '#fire_show']
+      tags: ['#žonglovanie', '#workshop', '#eventy', '#deti', '#showka']
     },
     {
-      id: 3,
-      title: 'Letný tábor Cirkus Hravosvet',
-      date: 'August 2024',
-      description: 'Nezabudnuteľný týždeň plný cirkusových disciplín, hudby, hier a nových priateľstiev pre deti od 7 do 15 rokov.',
+      id: 4,
+      title: 'Zájazd za Trapiti',
+      date: '13.3.2025',
+      description: 'Mládežnícka výmena v Nových Zámkoch, po ktorej nasledovalo neplánované stretnutie s Adriánom Ohrádkom v jeho "rodnom" divadle.',
       gallery: [
-        '/images/archive/leto2024/tabor1.jpg',
-        '/images/archive/leto2024/tabor2.jpg',
-        '/images/archive/leto2024/tabor3.jpg',
-        '/images/archive/leto2024/tabor4.jpg',
+        '/images/eventy/trapiti_1.jpg',
+        '/images/eventy/trapiti_2.jpg',
+        '/images/eventy/trapiti_3.jpg',
+        '/images/eventy/trapiti_4.jpg',
+        '/images/eventy/trapiti_5.jpg',
+        '/images/eventy/trapiti_6.jpg',
+        '/images/eventy/trapiti_7.jpg',
+        '/images/eventy/trapiti_8.jpg',
+        '/images/eventy/trapiti_9.jpg',
+        '/images/eventy/trapiti_10.jpg',
+        '/images/eventy/trapiti_11.jpg',
+        '/images/eventy/trapiti_12.jpg',
+        '/images/eventy/trapiti_13.jpg',
+      
       ],
-      tags: ['#tábor', '#deti', '#leto', '#cirkus', '#hry', '#workshop']
+      tags: ['#workshop', '#akrobacia', '#deti', '#výmena', '#zájazd']
     },
+    {
+      id: 5,
+      title: 'Masterclass s Kaukliarom',
+      date: '12.3.2025',
+      description: 'Špeciálny tréning s hosťujúcim lektorom Filipom Hajdukom.',
+      gallery: [
+        '/images/eventy/kaukliar_1.jpg',
+        '/images/eventy/kaukliar_2.jpg',
+        '/images/eventy/kaukliar_3.jpg',
+        '/images/eventy/kaukliar_4.jpg',
+  
+      ],
+      tags: ['#workshop', '#žonglovanie', '#deti', '#passing']
+    },
+   
     // Pridajte ďalšie záznamy z archívu
   ];
 

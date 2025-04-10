@@ -11,9 +11,16 @@ const VystupeniaCirkus = () => {
       <Section>
         <h2>Kombinácia: Vystúpenia + Cirkus</h2>
         <p>
-          Popis našich vystúpení, ktoré primárne využívajú cirkusové umenie - žonglovanie (loptičky, kužele, kruhy),
-          akrobaciu, jednokolky, chodúle, klauniády a ďalšie. Vhodné pre festivaly, firemné akcie, mestské slávnosti,
-          súkromné oslavy.
+        (Na tejto časti stránky sa ešte pracuje...)
+        <br></br><br></br>
+        Ponúkame širokú škálu vystupení buď profesionálneho jednotlivca alebo neprofesionálneho kolektívu.
+        <br></br><br></br>
+        Modely vystúpení sú nasledovné:<br></br>
+        (1) ohraničené nacvičené predstavenie<br></br>
+        (2) túlavé postavy (improvizácia a interakcia ako dotvorenie atmosféry)
+        (3) moderovanie podujatia so zaujímavými doplnkami
+        <br></br><br></br>
+        Vystúpenia vieme spraviť v rôznych kostýmoch, prípadne pridať aj oheň alebo LED svetlá.
         </p>
         {/* Add more specific content, images, videos, details here */}
       </Section>
