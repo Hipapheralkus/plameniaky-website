@@ -48,9 +48,9 @@ const Navbar = () => {
   };
 
   const closeMobileMenu = () => {
-      if (window.innerWidth <= 960) {
-          setIsOpen(false);
-      }
+    if (window.innerWidth <= 960) {
+      setIsOpen(false);
+    }
   }
 
   return (
@@ -74,6 +74,17 @@ const Navbar = () => {
         </div>
 
         <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
+          {/* Optional close button inside menu */}
+          {isOpen && (
+            <button 
+              className="close-menu-btn" 
+              onClick={closeMobileMenu}
+              aria-label="Zatvoriť menu"
+            >
+              <i className="fas fa-times"></i>
+            </button>
+          )}
+          
           <li className="nav-item">
             <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Domov
@@ -83,30 +94,30 @@ const Navbar = () => {
           <li className="nav-item dropdown"> {/* Added 'dropdown' class */}
             {/* Link to main /ponuka page for accessibility/fallback */}
             <Link
-                to="/ponuka"
-                className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`}
-                onClick={(e) => {
-                    // On mobile, allow the main link click to close menu if it's just the base /ponuka
-                    if (location.pathname === '/ponuka') closeMobileMenu();
-                    // On desktop, prevent direct navigation if hovering dropdown is intended
-                    if (window.innerWidth > 960) {
-                        // Optional: if you want ONLY dropdown links to navigate, prevent default here
-                        // e.preventDefault();
-                    }
-                }}
-                // Add aria-haspopup for accessibility
-                aria-haspopup="true"
+              to="/ponuka"
+              className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`}
+              onClick={(e) => {
+                // On mobile, allow the main link click to close menu if it's just the base /ponuka
+                if (location.pathname === '/ponuka') closeMobileMenu();
+                // On desktop, prevent direct navigation if hovering dropdown is intended
+                if (window.innerWidth > 960) {
+                  // Optional: if you want ONLY dropdown links to navigate, prevent default here
+                  // e.preventDefault();
+                }
+              }}
+              // Add aria-haspopup for accessibility
+              aria-haspopup="true"
             >
-                Ponuka <i className="fas fa-caret-down dropdown-caret"></i> {/* Optional caret icon */}
+              Ponuka <i className="fas fa-caret-down dropdown-caret"></i> {/* Enhanced dropdown caret */}
             </Link>
             <ul className="dropdown-menu">
-                <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie v novom cirkuse</Link></li>
-                <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
-                <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Cirkusové vystúpenia</Link></li>
-                <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Hudobné vystúpenia</Link></li>
-                 {/* Optional: Link back to the main Ponuka page */}
-                 <li><hr className="dropdown-divider" /></li>
-                 <li><Link to="/ponuka" onClick={closeMobileMenu}>Prehľad ponuky</Link></li>
+              <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie v novom cirkuse</Link></li>
+              <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
+              <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Cirkusové vystúpenia</Link></li>
+              <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Hudobné vystúpenia</Link></li>
+              {/* Optional: Link back to the main Ponuka page */}
+              <li><hr className="dropdown-divider" /></li>
+              <li><Link to="/ponuka" onClick={closeMobileMenu}>Prehľad ponuky</Link></li>
             </ul>
           </li>
           {/* --- End Ponuka Dropdown --- */}
@@ -125,7 +136,6 @@ const Navbar = () => {
               Čo máme za sebou
             </Link>
           </li>
-          {/* Removed the "Odkazy" navigation item */}
           <li className="nav-item">
             <Link to="/kontakt" className={`nav-link ${location.pathname === '/kontakt' ? 'active' : ''}`} onClick={closeMobileMenu}>
               Kontakt

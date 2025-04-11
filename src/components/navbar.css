@@ -1,3 +1,5 @@
+/* src/components/navbar.css */
+
 /* Style for the dropdown container */
 .dropdown {
   position: relative; /* Needed for absolute positioning of dropdown-menu */
@@ -53,7 +55,6 @@
   }
   /* Hide caret on desktop if desired */
    .dropdown-caret {
-     /* display: none; */
      margin-left: 5px;
      font-size: 0.8em;
      transition: transform 0.3s ease;
@@ -64,44 +65,54 @@
 }
 
 
-/* Mobile Dropdown Styles */
+/* Mobile Dropdown Styles - IMPROVED */
 @media screen and (max-width: 960px) {
   /* Remove absolute positioning for mobile */
   .dropdown-menu {
     position: static;
     display: block; /* Always visible when parent menu is open */
-    background-color: transparent; /* Inherit background */
+    background-color: rgba(114, 86, 146, 0.05); /* Light purple background */
     box-shadow: none;
-    padding: 0;
+    padding: 5px 0;
     min-width: auto;
-    border-radius: 0;
-    margin-top: 10px; /* Space below main "Ponuka" link */
+    border-radius: 10px;
+    margin-top: 5px; /* Reduced space */
+    margin-bottom: 10px;
     margin-left: 20px; /* Indent submenu items */
+    margin-right: 20px;
+    border-left: 3px solid var(--color-primary-light);
   }
 
   .dropdown-menu li a {
-    padding: 8px 15px; /* Adjust padding for mobile */
-    font-size: 1rem; /* Slightly smaller font for submenu */
-    color: #555; /* Slightly lighter color for submenu */
+    padding: 12px 15px; /* Better touch target */
+    font-size: 1rem;
+    color: #555;
   }
 
    .dropdown-menu li a:hover {
-       background-color: transparent; /* No background hover effect */
-       color: var(--color-primary); /* Primary color on hover */
+       background-color: rgba(114, 86, 146, 0.1);
+       color: var(--color-primary);
    }
 
    .dropdown-caret {
-       display: inline-block; /* Ensure caret is visible */
+       display: inline-block;
        margin-left: 8px;
-       font-size: 0.9em;
+       font-size: 1.1em; /* Larger caret */
+       color: var(--color-primary);
    }
+   
    .dropdown-divider {
-       margin: 8px 15px; /* Adjust divider margin */
+       margin: 5px 15px;
+       background-color: rgba(114, 86, 146, 0.2);
+   }
+   
+   /* Active dropdown */
+   .nav-item.dropdown .nav-link.active + .dropdown-menu {
+     border-left-color: var(--color-primary);
    }
 }
 
 /* Add caret icon style if you use Font Awesome */
-/* Ensure Font Awesome is linked in your main HTML or CSS */
 .dropdown-caret {
     margin-left: 5px;
     font-size: 0.8em;
@@ -209,10 +220,11 @@
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #333;
+  background-color: #333; /* Dark color ensures visibility */
   transition: all 0.3s ease-in-out;
 }
 
+/* IMPROVED MOBILE MENU STYLING */
 @media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
@@ -224,9 +236,9 @@
     left: -100%;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
     margin: 0;
-    padding: 80px 0 30px;
+    padding: 90px 0 30px; /* Increased top padding */
     background-color: #fff;
     overflow-y: auto;
     z-index: 990;
@@ -241,26 +253,35 @@
   .nav-item {
     height: auto;
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 0; /* Reduced padding */
+    margin: 4px 0; /* Added small margin between items */
+    position: relative;
   }
 
   .nav-link {
-    text-align: center;
-    padding: 1rem;
+    text-align: left; /* Left aligned text */
+    padding: 16px 28px; /* Larger padding for better touch targets */
     width: 100%;
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left aligned */
     height: auto;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent; /* Invisible border for active indicator */
   }
 
-  /* Updated hover/active color for mobile */
+  /* Improved hover/active states */
   .nav-link:hover {
     color: var(--color-primary);
+    background-color: rgba(114, 86, 146, 0.05);
   }
 
   .nav-link.active {
     color: var(--color-primary);
     font-weight: 600;
+    border-left: 3px solid var(--color-primary); /* Visible border indicator */
+    background-color: rgba(114, 86, 146, 0.05);
   }
 
   .navbar-logo {
@@ -277,8 +298,10 @@
     z-index: 1000;
   }
 
+  /* Improved burger animation */
   .menu-icon-bar.open:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
+    background-color: var(--color-primary); /* Color changes when menu is open */
   }
 
   .menu-icon-bar.open:nth-child(2) {
@@ -287,6 +310,46 @@
 
   .menu-icon-bar.open:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--color-primary); /* Color changes when menu is open */
+  }
+  
+  /* Close button styling */
+  .close-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(114, 86, 146, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    z-index: 995; /* Below the menu icon */
+  }
+  
+  /* Visual separator between menu items */
+  .nav-item:after {
+    content: '';
+    display: block;
+    width: calc(100% - 56px); /* Match the padding of nav-link */
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+  }
+  
+  .nav-item:last-child:after {
+    display: none; /* No separator after last item */
+  }
+  
+  /* Indent for submenu items */
+  .dropdown-menu li a {
+    padding-left: 20px; /* Indentation for submenu */
+    font-size: 1rem; /* Slightly smaller than main items */
   }
 }
 
@@ -317,14 +380,16 @@
   }
 
   .nav-menu {
-    padding-top: 70px;
+    padding-top: 80px; /* Adjust top padding */
+    padding-bottom: 80px; /* Add bottom padding */
   }
 
   .nav-item {
-    padding: 1rem 0;
+    margin: 2px 0; /* Tighter spacing */
   }
 
   .nav-link {
     font-size: 1.1rem;
+    padding: 14px 24px; /* Slightly smaller on very small screens */
   }
 }
