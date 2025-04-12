@@ -205,34 +205,71 @@
   }
 }
 
-.menu-icon-bar {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #333; /* Dark color ensures visibility on white background */
-  transition: all 0.3s ease-in-out;
-}
-
-/* When the menu is open, keep the color change to purple */
-.menu-icon-bar.open:nth-child(1),
-.menu-icon-bar.open:nth-child(3) {
-  background-color: var(--color-primary); /* Color changes when menu is open */
-}
-
-/* Optional: Add a subtle border to the menu icon container for better visibility */
+/* Clear, robust styling for the menu icon */
 .menu-icon {
-  display: none;
+  display: none; /* Hidden by default, shown in mobile */
+  width: 40px; /* Wider clickable area */
+  height: 40px; /* Taller clickable area */
+  position: relative;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Inner container to properly position the bars */
+.menu-icon-inner {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1000;
-  /* Optional border for extra visibility */
-  /* padding: 5px; */
-  /* border-radius: 4px; */
-  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+/* Individual bars with fixed positioning for reliability */
+.menu-icon-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Position each bar explicitly */
+.menu-icon-bar:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon-bar:nth-child(2) {
+  top: 7.5px; /* Center the middle bar */
+}
+
+.menu-icon-bar:nth-child(3) {
+  top: 15px; /* Position bottom bar */
+}
+
+/* Open state transformations - explicitly positioned */
+.menu-icon-bar.open:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background-color: var(--color-primary);
+}
+
+.menu-icon-bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon-bar.open:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background-color: var(--color-primary);
 }
 
 /* IMPROVED MOBILE MENU STYLING */
@@ -304,43 +341,9 @@
     height: 50px;
   }
 
+  /* Mobile-specific menu icon enhancements */
   .menu-icon {
     display: flex;
-    z-index: 1000;
-  }
-
-  /* Improved burger animation */
-  .menu-icon-bar.open:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    background-color: var(--color-primary); /* Color changes when menu is open */
-  }
-
-  .menu-icon-bar.open:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-icon-bar.open:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-    background-color: var(--color-primary); /* Color changes when menu is open */
-  }
-  
-  /* Close button styling */
-  .close-menu-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(114, 86, 146, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    color: var(--color-primary);
-    font-size: 1.5rem;
-    z-index: 995; /* Below the menu icon */
   }
   
   /* Visual separator between menu items */
@@ -368,10 +371,6 @@
 @media (hover: none) {
   .nav-link {
     padding: 1rem 1.5rem;
-  }
-
-  .menu-icon {
-    padding: 10px;
   }
 }
 
