@@ -20,30 +20,20 @@ const CoNasCaka = () => {
       infoRodicia: 'Prosíme zabezpečiť vhodné oblečenie na pohyb a intertiérovú obuv. Aktivita je bezplatná.',
       link: null // Príklad linku
     },
+   
     {
       id: 2,
-      title: 'Svetový deň cirkusu',
-      date: '11. - 13. apríl 2025',
-      location: 'Bratislava',
-      image: '/images/cakanas/sdc_2024.webp',
-      description: 'Komunitný festival nového cirkusu .',
-      infoUcastnici: 'Naši študenti sa chystajú odprezentovať svoje nové vystúpenie, skúsiť si rôzne workshopy a popri tom aj trochu dobrovolníčiť.',
-      infoRodicia: 'Zabezpečená strava, doprava aj ubytovanie.',
-      link: 'https://www.cirkuskus.sk/festival-sdc' // Príklad linku
-    },
-    {
-      id: 3,
       title: 'Nehejtujem, dávam lajk',
       date: '30. apríl 2025',
       location: 'Mestské kultúrne stredisko Dolný Kubín',
       image: '/images/cakanas/nehejt_2024.webp',
       description: 'Preventívno-osvetové podujatie pre školy.',
       infoUcastnici: 'Prezentácia predstavenia Odchod neistý + následný workshop pre divákov.',
-      infoRodicia: null, // Nie je relevantné
+      infoRodicia: 'Stretávame sa o 8:00. Kto má tričká z minulého roka, nech si donesie.',
       link: null // Príklad linku
     },
     {
-      id: 4,
+      id: 3,
       title: 'Míľa pre mamu',
       date: '10. máj 2025',
       location: 'Námestovo',
@@ -51,6 +41,17 @@ const CoNasCaka = () => {
       description: 'Zábavné podujatie pre celú rodinu pri príležitosti najväčšej oslavy Dňa matiek na Slovensku.',
       infoUcastnici: 'Medzi bohatý program podujatia je zaradený aj náš cirkusový workshop.',
       link: null
+    },
+    {
+      id: 4,
+      title: 'PAF',
+      date: '17. máj 2025',
+      location: 'Nové Zámky',
+      image: '/images/cakanas/paf_25.jpg',
+      description: 'Pouličný andovský festival',
+      infoUcastnici: 'Naši študenti boli pozvaní odprezentovať svoje vystúpenie "Odchod neistý".',
+      infoRodicia: 'Zabezpečená strava, doprava aj prespanie na sobotu.',
+      link: 'https://www.facebook.com/events/2941428816020217/' // Príklad linku
     },
     {
       id: 5,
