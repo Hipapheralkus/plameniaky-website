@@ -61,7 +61,7 @@ const CoNasCaka = () => {
       image: '/images/cakanas/stm_2024_1.webp',
       description: 'Interpretačné kurzy pre študentov hudby v lone prírody.',
       infoUcastnici: 'Individuálne hodiny s lektorom každý deň, skupinové workshopy, ansámble aj záverečný koncert.',
-      link: 'www.summertimemusic.sk'
+      link: 'https://www.summertimemusic.sk'
     },
     // Pridajte ďalšie akcie
   ];
