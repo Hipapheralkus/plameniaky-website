@@ -18,7 +18,7 @@ const Ponuka = () => {
       id: 'foto1', // Vzdelávanie + Cirkus
       image: '/images/tiles/cirkus_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Cirkus',
-      description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
+      description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky pre všetky vekové aj schopnostné úrovne.',
       link: '/ponuka/vzdelavanie-cirkus' // <-- Updated Link
     },
     {
