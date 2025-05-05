@@ -13,7 +13,7 @@ const Tabor = () => {
       id: 1,
       name: 'Janko Šimko',
       position: 'Vedúci tábora',
-      photo: '/images/janko_2.jpg',
+      photo: '/images/janko_2.webp',
       bio: 'Hlavný tréner cirkusového krúžku, niekoľko rokov učil pre austrálsky Warehouse Circus, je to skúsený performer. Z cirkusových disciplín ho baví úplne všetko, venuje sa najmä žonglovaniu, balansu a párovej akrobacii.',
       social: [
         { icon: 'envelope', url: 'mailto:info@plameniaky.sk' },
@@ -25,7 +25,7 @@ const Tabor = () => {
       id: 2,
       name: 'cirkusový tréner',
       position: 'z partnerského Cirkuskusu',
-      photo: '/images/ckk_lektor.jpg',
+      photo: '/images/ckk_lektor.webp',
       bio: 'Určite bude na tábore aj nejaký úžasný lektor z prvej školy nového cirkusu na Slovensku, len ešte nevieme ktorý.',
        social: [
         { icon: 'instagram', url: 'https://www.instagram.com/cirkuskus' },
@@ -37,7 +37,7 @@ const Tabor = () => {
       id: 3,
       name: 'Hosťujúci lektori',
       position: 'z príbuzných odvetví',
-      photo: '/images/unknown.jpg',
+      photo: '/images/unknown.webp',
       bio: 'Pracujeme aj na rôznych lektoroch tanca, kreatívneho pohybu, divadla, klaunovania a podobne, iba pred zverejnením čakáme na potvrdenie termínov. ',
        social: [
          
@@ -72,7 +72,7 @@ const Tabor = () => {
           <div className="mission-image aspect-3-4">
             {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
             <LazyImage 
-              src="/images/tabor.jpg" 
+              src="/images/tabor.webp" 
               alt="Skupinová pyramída" 
             />
           </div>
@@ -80,11 +80,17 @@ const Tabor = () => {
       </Section>
 
 {/* Môžete sem pridať ďalšie sekcie, napr. Hodnoty, História (ako bola v predch. verzii) */}
-        <div style={{textAlign: 'center', marginTop: '20px'}}>
-            <a href="https://forms.gle/6CEcNi2UW95emzVf6" class="btn" target="_blank" rel="noopener noreferrer">
-                Prihláška
-            </a>
-        </div>
+<div style={{ textAlign: 'center', marginTop: '20px' }}>
+  <a
+    href="https://forms.gle/6CEcNi2UW95emzVf6"
+    className="btn large-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Prihláška
+  </a>
+</div>
+
         
 {/* Tím */}
 <Section title="Náš tím" background="alt" width="wide">
