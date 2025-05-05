@@ -12,9 +12,9 @@ const Tabor = () => {
     {
       id: 1,
       name: 'Janko Šimko',
-      position: 'Zakladateľ a hlavný lektor',
-      photo: '/images/janko_1.webp',
-      bio: 'Janko je dušou Plameniakov. S rokmi skúseností v hudbe, cirkusovom umení a pedagogike vedie väčšinu kurzov a vystúpení. Hudbe sa venuje od 7 rokov a aktuálne študuje ročný kurz muzikoterapie v Ostrave. Zároveň pôsobil ako lektor v najväčšej cirkusovej škole v Austrálii a svoje nadobudnuté skúsenosti teraz pretavuje do organizovania a učenia mnohých podujatí naprieč Slovenskom. V minulom roku bol menovaný aj za ambasádora Česko-Slovenskej skupiny pre mladý a sociálny cirkus Cirkonet.',
+      position: 'Vedúci tábora',
+      photo: '/images/janko_2.jpg',
+      bio: 'Hlavný tréner cirkusového krúžku, niekoľko rokov učil pre austrálsky Warehouse Circus, je to skúsený performer. Z cirkusových disciplín ho baví úplne všetko, venuje sa najmä žonglovaniu, balansu a párovej akrobacii.',
       social: [
         { icon: 'envelope', url: 'mailto:info@plameniaky.sk' },
         { icon: 'instagram', url: 'https://www.instagram.com/janko.showman' },
@@ -23,61 +23,57 @@ const Tabor = () => {
     },
     {
       id: 2,
-      name: 'Vsevolod Petrov',
-      position: 'Lektor nového cirkusu a klaun',
-      photo: '/images/seva_4.webp',
-      bio: 'Slovensko-ukrajinský cirkusový umelec, klaun , mím, hudobník aj technicky smerovaný chlap. Člen Asociácie profesionálnych mímov Slovenska a slovenského Cirkonetu, od roku 2023 pôsobí ako lektor na cirkusovom krúžku v Dolnom Kubine. Od malička sa pohybuje v umení a má za sebou veľa rôznych umeleckých festivalov a podujatí. Je žiakom slovenského míma Miroslava Kasprzyka, Theatru DEREVO a ďalších.',
+      name: 'cirkusový tréner',
+      position: 'z partnerského Cirkuskusu',
+      photo: '/images/ckk_lektor.jpg',
+      bio: 'Určite bude na tábore aj nejaký úžasný lektor z prvej školy nového cirkusu na Slovensku, len ešte nevieme ktorý.',
        social: [
-        { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' }
+        { icon: 'instagram', url: 'https://www.instagram.com/cirkuskus' },
+        { icon: 'facebook', url: 'https://www.facebook.com/Cirkuskus' }
       ]
     },
     
     {
       id: 3,
-      name: 'Nicolette Záhorová',
-      position: 'Asistujúca lektorka a akrobatka',
-      photo: '/images/niki_1.webp',
-      bio: 'Aj keď cirkusový krúžok navštevuje ako študentka, aktívne sa zapája do učenia workshopov a má za sebou aj niekoľko vystúpení po celom Slovensku.  ',
+      name: 'Hosťujúci lektori',
+      position: 'z príbuzných odvetví',
+      photo: '/images/unknown.jpg',
+      bio: 'Pracujeme aj na rôznych lektoroch tanca, kreatívneho pohybu, divadla, klaunovania a podobne, iba pred zverejnením čakáme na potvrdenie termínov. ',
        social: [
          
       ]
     },
-    {
-      id: 4,
-      name: 'Miro Laššák',
-      position: 'Asistent lektora',
-      photo: '/images/miro_1.webp',
-      bio: 'Prvý a zároveň najvernejší člen kubínskeho cirkusového krúžku. Vo svojich zručnostiach sa zdokonalil tak rýchlo, že už pomáha učiť krúžok v škôlke. ',
-       social: [
-         
-      ]
-    },
+   
       
     // Pridajte ďalších členov tímu
   ];
 
   return (
-    <PageLayout title="Tábor">
+    <PageLayout title="Letný tábor 2025" subtitle="Denný detský tábor nového cirkusu">
       {/* História a Poslanie */}
       <Section>
         <div className="mission-section"> {/* Môžete použiť existujúci štýl */}
           <div className="mission-text">
-            <h2>Kto sme?</h2>
+            <h2>Základné info</h2>
             <p>
-              Plameniaky sú skupina nadšencov, umelcov a organizátorov, ktorých spája láska k novému cirkusu, hudbe a práci s ľuďmi. Od roku 2020 prinášame radosť z pohybu, kreativity a spoločných zážitkov deťom, mladým aj dospelým.
+            <b>Termín:</b> 28.7. - 1.8.2025<br></br>
+            <b>Čas:</b> 8:00 - 15:30<br></br>
+            <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
+            <b>Vek účastníkov:</b> 8-18 rokov<br></br>
+            <b> Cena:</b> 140 € (pri registrácii do 31.5.2025)<br></br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 160 € (pri registrácii do 30.6.2025)<br></br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180 € (pri registrácii od 1.7.2025)<br></br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
             </p>
-            <p>
-              Našou filozofiou je vytvárať bezpečný a podporujúci priestor, kde môže každý objaviť a rozvíjať svoj skrytý potenciál, či už ide o žonglovanie, akrobaciu, hudbu alebo jednoducho radosť zo spoločného tvorenia. Veríme v silu zážitku a neformálneho vzdelávania.
-            </p>
-            <p>
-              Naším poslaním je šíriť pozitívnu energiu, podporovať kreativitu, fyzické a duševné zdravie prostredníctvom umenia a hry. Chceme byť miestom, kde sa ľudia stretávajú, učia sa nové veci a spoločne rastú.
-            </p>
+            <p>Prihláste sa na týždeň plný zábavy, umenia, a pritom poctivého tréningu! Celý týždeň sa budeme deliť na rôzne menšie skupiny, ktoré budú spolu hrať hry, učiť sa žonglovať, jazdiť na jednokolke, visieť na šáloch a mnoho ďalších aktivít. Ak budú mať deti chuť, tábor by sme chceli zakončiť záverečným predstavením v piatok o 16:00. V prípade pekného počasia budeme veľa času tráviť vonku. </p>
+            
+            
           </div>
-          <div className="mission-image aspect-4-3">
+          <div className="mission-image aspect-3-4">
             {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
             <LazyImage 
-              src="/images/plameniaky.webp" 
-              alt="Tím Plameniakov v akcii" 
+              src="/images/tabor.jpg" 
+              alt="Skupinová pyramída" 
             />
           </div>
         </div>

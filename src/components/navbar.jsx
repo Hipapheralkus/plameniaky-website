@@ -109,13 +109,13 @@ const Navbar = () => {
             </ul>
           </li>
           <li className="nav-item">
-            <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              O nás
+            <Link to="/tabor" className={`nav-link ${location.pathname === '/tabor' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Tábor
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/tabor" className={`nav-link ${location.pathname === '/tabor' ? 'active' : ''}`} onClick={closeMobileMenu}>
-              Tábor
+            <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              O nás
             </Link>
           </li>
           <li className="nav-item">
