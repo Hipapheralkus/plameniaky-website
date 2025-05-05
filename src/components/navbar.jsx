@@ -1,3 +1,4 @@
+// src/components/navbar.jsx
 // Updated navbar.jsx with improved menu icon structure
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -100,7 +101,7 @@ const Navbar = () => {
             </Link>
             <ul className="dropdown-menu">
               <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie v novom cirkuse</Link></li>
-              <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
+              <li><Link to="/ponuka/vzdelávanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
               <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Cirkusové vystúpenia</Link></li>
               <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Hudobné vystúpenia</Link></li>
               <li><hr className="dropdown-divider" /></li>
@@ -110,6 +111,11 @@ const Navbar = () => {
           <li className="nav-item">
             <Link to="/o-nas" className={`nav-link ${location.pathname === '/o-nas' ? 'active' : ''}`} onClick={closeMobileMenu}>
               O nás
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/tabor" className={`nav-link ${location.pathname === '/tabor' ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Tábor
             </Link>
           </li>
           <li className="nav-item">

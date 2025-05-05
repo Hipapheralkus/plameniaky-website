@@ -20,6 +20,7 @@ import VzdelavanieCirkus from './pages/VzdelavanieCirkus';
 import VzdelavanieHudba from './pages/VzdelavanieHudba';
 import VystupeniaCirkus from './pages/VystupeniaCirkus';
 import VystupeniaHudba from './pages/VystupeniaHudba';
+import Tabor from './pages/Tabor';
 
 import './styles/index.css'; // Hlavný CSS súbor
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/ponuka" element={<Ponuka />} />
         <Route path="/o-nas" element={<ONas />} />
+        <Route path="/tabor" element={<Tabor />} />
         <Route path="/co-nas-caka" element={<CoNasCaka />} />
         <Route path="/co-mame-za-sebou" element={<CoMameZaSebou />} /> {/* <-- Zmena cesty a elementu */}
         {/* Removed the route for Odkazy */}
