@@ -21,17 +21,7 @@ const CoNasCaka = () => {
       link: null // Príklad linku
     },
    
-    {
-      id: 2,
-      title: 'Nehejtujem, dávam lajk',
-      date: '30. apríl 2025',
-      location: 'Mestské kultúrne stredisko Dolný Kubín',
-      image: '/images/cakanas/nehejt_2024.webp',
-      description: 'Preventívno-osvetové podujatie pre školy.',
-      infoUcastnici: 'Prezentácia predstavenia Odchod neistý + následný workshop pre divákov.',
-      infoRodicia: 'Stretávame sa o 8:00. Kto má tričká z minulého roka, nech si donesie.',
-      link: null // Príklad linku
-    },
+   
     {
       id: 3,
       title: 'Míľa pre mamu',

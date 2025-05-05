@@ -18,28 +18,28 @@ const Ponuka = () => {
       id: 'foto1', // Vzdelávanie + Cirkus
       image: '/images/tiles/cirkus_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Cirkus',
-      description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky v školách aj firmách.',
+      description: 'Rozvíjame zručnosti a spoluprácu cez cirkusové techniky pre všetky vekové aj schopnostné úrovne.',
       link: '/ponuka/vzdelavanie-cirkus' // <-- Updated Link
     },
     {
       id: 'foto2', // Vzdelávanie + Hudba
       image: '/images/tiles/hudba_vzdelavanie.webp', // <<< REPLACE
       alt: 'Vzdelávanie - Hudba',
-      description: 'Objavujeme rytmus a harmóniu v edukačných programoch a muzikoterapii.',
+      description: 'Objavujeme rytmus a harmóniu v edukačných a zážitkových hudobných programoch.',
       link: '/ponuka/vzdelavanie-hudba' // <-- Updated Link
     },
     {
       id: 'foto3', // Vystúpenia + Nový cirkus
       image: '/images/tiles/cirkus_vystupka.webp', // <<< REPLACE
       alt: 'Vystúpenia - Cirkus',
-      description: 'Pútavé cirkusové show a žonglérske vystúpenia pre vaše eventy.',
+      description: 'Pútavé cirkusové vystúpenia na pódiu aj mimo neho.',
       link: '/ponuka/vystupenia-cirkus' // <-- Updated Link
     },
     {
       id: 'foto4', // Vystúpenia + Hudba
       image: '/images/tiles/hudba_vystupka.webp', // <<< REPLACE
       alt: 'Vystúpenia - Hudba',
-      description: 'Atmosférické hudobné performance a ohňové show s live hudbou.',
+      description: 'Vyplnenie kultúrneho programu cez hudobné vstupy.',
       link: '/ponuka/vystupenia-hudba' // <-- Updated Link
     }
   ];
