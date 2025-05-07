@@ -48,6 +48,39 @@ const Tabor = () => {
     // Pridajte ďalších členov tímu
   ];
 
+    const partners = [
+        {
+            name: 'fpu',
+            url: 'https://www.fpu.sk/',
+            logo: '/images/logo/fpu_logo.webp'
+        },
+        {
+            name: 'edukos',
+            url: 'https://edukos.sk/',
+            logo: '/images/logo/edukos_logo.webp'
+        },
+        {
+            name: 'nivam',
+            url: 'https://nivam.sk/',
+            logo: '/images/logo/nivam_logo.webp'
+        },
+        {
+            name: 'ministerstvo',
+            url: 'https://www.minedu.sk/',
+            logo: '/images/logo/ministerstvo_logo.webp'
+        },
+        {
+            name: 'dolnykubin',
+            url: 'https://www.dolnykubin.sk/',
+            logo: '/images/logo/mestodk_logo.webp'
+        },
+        {
+            name: 'ckk',
+            url: 'https://cirkuskus.sk/',
+            logo: '/images/logo/ckk_logo.webp'
+        }
+    ];
+
   return (
     <PageLayout title="Letný tábor 2025" subtitle="Denný detský tábor nového cirkusu">
       {/* História a Poslanie */}
@@ -129,6 +162,25 @@ const Tabor = () => {
           ))}
         </Grid>
       </Section>
+            {/* Partner Logos Section */}
+            <Section title="Naši partneri" width="wide">
+                <Grid type="fluid" minWidth="150px" gap="medium" centered={true}>
+                    {partners.map((partner) => (
+                      <a
+                        key={partner.name}
+                        href={partner.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="partner-logo-container"
+                      >
+                        <LazyImage
+                          src={partner.logo}
+                          alt={partner.name}
+                        />
+                      </a>
+                    ))}
+                </Grid>
+            </Section>
 
 
     </PageLayout>

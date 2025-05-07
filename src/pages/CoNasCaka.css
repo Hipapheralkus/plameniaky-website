@@ -222,3 +222,16 @@
     display: block;
   }
 }
+
+/* Partner logos container and images */
+.partner-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;       /* fixed container height */
+}
+.partner-logo-container img {
+  max-width: 100%;     /* never exceed container width */
+  max-height: 100%;    /* never exceed container height */
+  object-fit: contain;  /* preserve aspect ratio */
+}
