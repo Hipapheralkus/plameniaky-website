@@ -276,3 +276,15 @@
     font-size: 0.85rem;
   }
 }
+
+/* Make only this button larger */
+a.btn.large-btn {
+  font-size: 1.5rem !important;
+  padding: 1rem 2.5rem !important;
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base);
+}
+
+a.btn.large-btn:hover {
+  transform: translateY(-2px);
+}
