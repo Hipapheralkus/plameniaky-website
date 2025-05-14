@@ -23,18 +23,29 @@ const Tabor = () => {
     },
     {
       id: 2,
-      name: 'cirkusový tréner',
-      position: 'z partnerského Cirkuskusu',
-      photo: '/images/ckk_lektor.webp',
-      bio: 'Určite bude na tábore aj nejaký úžasný lektor z prvej školy nového cirkusu na Slovensku, len ešte nevieme ktorý.',
+      name: 'Suzanne Verschueren',
+      position: 'Trénerka z partnerského Cirkuskusu',
+      photo: '/images/suzanne.jpg',
+      bio: 'Suzanne je certifikovaná cirkusová inštruktorka pochádzajúca z Belgicka. V poslednej dobe prichádza na chuť aj vystupovaniu, vo voľnom čase rada balansuje. Veľkú radosť jej robí aj hľadanie nových spôsobov, ako kreatívne pristupovať k rôznym cirkusovým disciplínam. Okrem kurzu balansovania pre Cirkuskus vedie od roku 2020 organizáciu festivalu Svetový deň cirkusu.',
        social: [
-        { icon: 'instagram', url: 'https://www.instagram.com/cirkuskus' },
+        { icon: 'instagram', url: 'https://www.instagram.com/suzy_projects' },
         { icon: 'facebook', url: 'https://www.facebook.com/Cirkuskus' }
       ]
     },
     
     {
       id: 3,
+      name: 'Vsevolod Petrov',
+      position: 'asistujúci tréner',
+      photo: '/images/seva_5.jpg',
+      bio: 'Účastník mnohých workshopov, Seva stále vyhľadáva príležitosti, ako sa posunúť ďalej. Od jeho vzniku pomáha viesť cirkusový krúžok a učí aj mnoho externých workshopov. ',
+       social: [
+        { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' },
+         
+      ]
+    },
+    {
+      id: 4,
       name: 'Hosťujúci lektori',
       position: 'z príbuzných odvetví',
       photo: '/images/unknown.webp',

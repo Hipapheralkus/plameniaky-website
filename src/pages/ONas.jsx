@@ -26,7 +26,7 @@ const ONas = () => {
       name: 'Vsevolod Petrov',
       position: 'Lektor nového cirkusu a klaun',
       photo: '/images/seva_4.webp',
-      bio: 'Slovensko-ukrajinský cirkusový umelec, klaun , mím, hudobník aj technicky smerovaný chlap. Člen Asociácie profesionálnych mímov Slovenska a slovenského Cirkonetu, od roku 2023 pôsobí ako lektor na cirkusovom krúžku v Dolnom Kubine. Od malička sa pohybuje v umení a má za sebou veľa rôznych umeleckých festivalov a podujatí. Je žiakom slovenského míma Miroslava Kasprzyka, Theatru DEREVO a ďalších.',
+      bio: 'Slovensko-ukrajinský cirkusový umelec, klaun, mím, hudobník aj technicky smerovaný chlap. Člen Asociácie profesionálnych mímov Slovenska a slovenského Cirkonetu, od roku 2023 pôsobí ako lektor na cirkusovom krúžku v Dolnom Kubine. Od malička sa pohybuje v umení a má za sebou veľa rôznych umeleckých festivalov a podujatí. Je žiakom slovenského míma Miroslava Kasprzyka, Theatru DEREVO a ďalších.',
        social: [
         { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' }
       ]
