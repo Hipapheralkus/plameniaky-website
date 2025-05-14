@@ -21,19 +21,8 @@ const CoNasCaka = () => {
       link: null // Príklad linku
     },
    
-   
     {
-      id: 3,
-      title: 'Míľa pre mamu',
-      date: '10. máj 2025',
-      location: 'Námestovo',
-      image: '/images/cakanas/mila_2022.webp',
-      description: 'Zábavné podujatie pre celú rodinu pri príležitosti najväčšej oslavy Dňa matiek na Slovensku.',
-      infoUcastnici: 'Medzi bohatý program podujatia je zaradený aj náš cirkusový workshop.',
-      link: null
-    },
-    {
-      id: 4,
+      id: 2,
       title: 'PAF',
       date: '17. máj 2025',
       location: 'Nové Zámky',
@@ -41,7 +30,38 @@ const CoNasCaka = () => {
       description: 'Pouličný andovský festival',
       infoUcastnici: 'Naši študenti boli pozvaní odprezentovať svoje vystúpenie "Odchod neistý".',
       infoRodicia: 'Zabezpečená strava, doprava aj prespanie na sobotu.',
-      link: 'https://www.facebook.com/events/2941428816020217/' // Príklad linku
+      link: 'https://www.facebook.com/events/2941428816020217/' 
+    },
+    {
+      id: 3,
+      title: 'Vystúpenie pre CSS Prameň',
+      date: '23. máj 2025',
+      location: 'Kuzmínovo',
+      image: '/images/cakanas/kuzminko.jpg',
+      description: 'Zábavný program pre klientov s rôznymi hednikepmi',
+      infoUcastnici: 'Pripravujeme interaktívne vystúpenie, do ktorého sa môže zapojiť naozaj každý.',
+
+    },
+    {
+      id: 4,
+      title: 'Deň detí v Dolnom Kubíne',
+      date: '30. máj 2025',
+      location: 'Námestie Slobody, Dolný Kubín',
+      image: '/images/cakanas/mdd_25.jpg',
+      description: 'Zábavný program pre celú rodinu',
+      infoUcastnici: 'Ani my nebudeme chýbať so svojím cirkusovým workshopom od 13:00 do 17:00.',
+      
+    },
+    {
+      id: 5,
+      title: 'Deň rodiny v CSS Likava',
+      date: '6. jún 2025',
+      location: 'Centrum sociálnych služieb Likava',
+      image: '/images/cakanas/likava.jpg',
+      description: 'Modelovanie balónov pre klientov zariadenia a ich rodiny',
+      infoUcastnici: 'Budeme tam od 13:00 do 17:00, strava zabezpečená.',
+    
+      
     },
     {
       id: 5,
