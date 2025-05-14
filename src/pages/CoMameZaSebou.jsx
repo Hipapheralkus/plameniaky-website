@@ -12,6 +12,44 @@ const CoMameZaSebou = () => {
   const archivData = [
     {
       id: 1,
+      title: 'Svetový deň cirkusu 2025',
+      date: '11.-13.4.2025',
+      description: 'Medzinárodný komunitný festival nového cirkusu v Bratislave.',
+      gallery: [
+        '/images/eventy/sdc_25_1.jpg',
+        '/images/eventy/sdc_25_2.jpg',
+        '/images/eventy/sdc_25_3.jpg',
+        '/images/eventy/sdc_25_4.jpg',
+        '/images/eventy/sdc_25_5.jpg',
+        '/images/eventy/sdc_25_6.jpg',
+        '/images/eventy/sdc_25_7.jpg',
+        '/images/eventy/sdc_25_8.jpg',
+        '/images/eventy/sdc_25_9.jpg',
+        '/images/eventy/sdc_25_10.jpg',
+        '/images/eventy/sdc_25_11.jpg',
+        '/images/eventy/sdc_25_12.jpg',
+        '/images/eventy/sdc_25_13.jpg',
+        '/images/eventy/sdc_25_14.jpg',
+        '/images/eventy/sdc_25_15.jpg',
+        '/images/eventy/sdc_25_16.jpg',
+        '/images/eventy/sdc_25_17.jpg',
+        '/images/eventy/sdc_25_18.jpg',
+        '/images/eventy/sdc_25_19.jpg',
+        '/images/eventy/sdc_25_20.jpg',
+        '/images/eventy/sdc_25_21.jpg',
+        '/images/eventy/sdc_25_22.jpg',
+        '/images/eventy/sdc_25_23.jpg',
+        '/images/eventy/sdc_25_24.jpg',
+        '/images/eventy/sdc_25_25.jpg',
+        '/images/eventy/sdc_25_26.jpg',
+        '/images/eventy/sdc_25_27.jpg',
+        '/images/eventy/sdc_25_28.jpg',
+     
+      ],
+      tags: ['#festival', '#workshop', '#showka', '#deti','#zájazd' ]
+    },
+    {
+      id: 2,
       title: 'Pojkový workshop pre Orientalico',
       date: '1.4.2025',
       description: 'Intenzívny workshop zameraný na točenie s pojkami pre tanečnú skupinu.',
@@ -27,7 +65,7 @@ const CoMameZaSebou = () => {
       tags: ['#pojky', '#workshop', '#intensive', '#dospelí']
     },
     {
-      id: 2,
+      id: 3,
       title: 'Eniki beniki',
       date: '30.3.2025',
       description: 'Interaktívny program pre deti v regionálnom kole súťaže folklórnych súborov.',
@@ -41,7 +79,7 @@ const CoMameZaSebou = () => {
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti']
     },
     {
-      id: 3,
+      id: 4,
       title: 'Oravské javisko',
       date: '25.3.2025',
       description: 'Premiéra nášho nového predstavenia a zároveň interaktívny program pre deti v regionálnom kole divadelnej súťaže.',
@@ -62,7 +100,7 @@ const CoMameZaSebou = () => {
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti', '#showka']
     },
     {
-      id: 4,
+      id: 5,
       title: 'Zájazd za Trapiti',
       date: '13.3.2025',
       description: 'Mládežnícka výmena v Nových Zámkoch, po ktorej nasledovalo neplánované stretnutie s Adriánom Ohrádkom v jeho "rodnom" divadle.',
@@ -85,7 +123,7 @@ const CoMameZaSebou = () => {
       tags: ['#workshop', '#akrobacia', '#deti', '#výmena', '#zájazd']
     },
     {
-      id: 5,
+      id: 6,
       title: 'Masterclass s Kaukliarom',
       date: '12.3.2025',
       description: 'Špeciálny tréning s hosťujúcim lektorom Filipom Hajdukom.',
