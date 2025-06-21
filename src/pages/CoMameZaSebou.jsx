@@ -12,6 +12,20 @@ const CoMameZaSebou = () => {
   const archivData = [
     {
       id: 1,
+      title: 'Míľa pre mamu',
+      date: '10.5.2025',
+      description: 'Oslava dňa matiek v Námestove.',
+      gallery: [
+        '/images/eventy/mila_25_1.jpg',
+        '/images/eventy/mila_25_2.jpg',
+        '/images/eventy/mila_25_3.jpg',  
+        '/images/eventy/mila_25_4.jpg',
+        '/images/eventy/mila_25_5.jpg',
+      ],
+      tags: ['#workshop','#eventy']
+    },
+    {
+      id: 1,
       title: 'Svetový deň cirkusu 2025',
       date: '11.-13.4.2025',
       description: 'Medzinárodný komunitný festival nového cirkusu v Bratislave.',
