@@ -12,7 +12,7 @@ const CoNasCaka = () => {
     {
       id: 1,
       title: 'Krúžok nového cirkusu',
-      date: 'každý štvrtok od 14:00 do 16:00',
+      date: 'každý štvrtok počas školského roka od 14:00 do 16:00',
       location: 'Obchodná akadémia, Dolný Kubín',
       image: '/images/cakanas/kruzok_2.webp',
       description: 'Prídťe sa zabaviť a naučiť sa niečo nové!',
@@ -23,48 +23,47 @@ const CoNasCaka = () => {
    
     {
       id: 2,
-      title: 'PAF',
-      date: '17. máj 2025',
-      location: 'Nové Zámky',
-      image: '/images/cakanas/paf_25.jpg',
-      description: 'Pouličný andovský festival',
-      infoUcastnici: 'Naši študenti boli pozvaní odprezentovať svoje vystúpenie "Odchod neistý".',
-      infoRodicia: 'Zabezpečená strava, doprava aj prespanie na sobotu.',
-      link: 'https://www.facebook.com/events/2941428816020217/' 
+      title: 'Leto v parku',
+      date: 'každú stredu počas júla a augusta od 10:00 do 17:00',
+      location: 'Park M. Kukučína, Dolný Kubín',
+      image: '/images/cakanas/leto_v_parku.jpg',
+      description: 'Otvorený workshop pre každého, čo ide okolo!',
+      infoUcastnici: 'Za každú aktivitu získate pečiatku, ktorá vám pomôže dostať sa do žrebovania o skvelé ceny!',
+
     },
     {
       id: 3,
-      title: 'Vystúpenie pre CSS Prameň',
-      date: '23. máj 2025',
-      location: 'Kuzmínovo',
-      image: '/images/cakanas/kuzminko.jpg',
-      description: 'Zábavný program pre klientov s rôznymi hednikepmi',
-      infoUcastnici: 'Pripravujeme interaktívne vystúpenie, do ktorého sa môže zapojiť naozaj každý.',
+      title: 'Deň mesta a športu',
+      date: '29. jún 2025',
+      location: 'Nábrežie Oravskej priehrady, Námestovo',
+      image: '/images/cakanas/den_sportu_no.jpg',
+      description: 'Naša skupina zabezpečuje cirkusový workshop, chodúliarov aj autorské vystúpenie "Odchod neistý".',
+      infoUcastnici: 'Začiatok o 14:00, program je naozaj bohatý.',
+      link: 'https://www.facebook.com/events/1542887657116717'
 
     },
     {
       id: 4,
-      title: 'Deň detí v Dolnom Kubíne',
-      date: '30. máj 2025',
-      location: 'Námestie Slobody, Dolný Kubín',
-      image: '/images/cakanas/mdd_25.jpg',
-      description: 'Zábavný program pre celú rodinu',
-      infoUcastnici: 'Ani my nebudeme chýbať so svojím cirkusovým workshopom od 13:00 do 17:00.',
+      title: 'Iniciácia ohňa',
+      date: '4. júl 2025',
+      location: 'Dolný Kubín',
+      image: '/images/cakanas/iniciacia.jpg',
+      description: 'Prednáška o bezpečnosti pri práci s ohňom, ktorá vyústi v ohňový tréning.',
+      infoUcastnici: 'Do podujatia sa zapoja aj tanečnice z Orientalico a bubenícka skupina.',
       
     },
     {
       id: 5,
-      title: 'Deň rodiny v CSS Likava',
-      date: '6. jún 2025',
-      location: 'Centrum sociálnych služieb Likava',
-      image: '/images/cakanas/likava.jpg',
-      description: 'Modelovanie balónov pre klientov zariadenia a ich rodiny',
-      infoUcastnici: 'Budeme tam od 13:00 do 17:00, strava zabezpečená.',
-    
-      
+      title: 'Letný tábor Plameniakov',
+      date: '28. júl - 1. august 2025',
+      location: 'Obchodná akadémia, Dolný Kubín',
+      image: '/images/cakanas/tabor_25.jpg',
+      description: 'Denný detský tábor s hlavným zameraním na cirkus obohatený o hudbu, divadlo aj akrobaciu.',
+      infoUcastnici: 'Pre všetkých od 8 do 18 rokov.',
+      link: 'https://plameniaky.sk/tabor'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Summer Time Music',
       date: '3.-8. august 2025',
       location: 'Hotel Orava, Srňacie, Dolný Kubín',

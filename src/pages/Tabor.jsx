@@ -104,8 +104,7 @@ const Tabor = () => {
             <b>Čas:</b> 8:00 - 15:30<br></br>
             <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
             <b>Vek účastníkov:</b> 8-18 rokov<br></br>
-            <b> Cena:</b> 140 € (pri registrácii do 31.5.2025)<br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 160 € (pri registrácii do 30.6.2025)<br></br>
+            <b> Cena:</b> 160 € (pri registrácii do 30.6.2025)<br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180 € (pri registrácii od 1.7.2025)<br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
             </p>
