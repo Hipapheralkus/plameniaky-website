@@ -104,9 +104,9 @@ const Tabor = () => {
             <b>Čas:</b> 8:00 - 15:30<br></br>
             <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
             <b>Vek účastníkov:</b> 8-18 rokov<br></br>
-            <b> Cena:</b> 160 € (pri registrácii do 30.6.2025)<br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180 € (pri registrácii od 1.7.2025)<br></br>
+            <b> Cena:</b> 180 € <br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>v prípade potreby sociálneho štipendia nás priamo kontaktujte</i><br></br>
             </p>
             <p>Prihláste sa na týždeň plný zábavy, umenia, a pritom poctivého tréningu! Celý týždeň sa budeme deliť na rôzne menšie skupiny, ktoré budú spolu hrať hry, učiť sa žonglovať, jazdiť na jednokolke, visieť na šáloch a mnoho ďalších aktivít. Ak budú mať deti chuť, tábor by sme chceli zakončiť záverečným predstavením v piatok o 16:00. V prípade pekného počasia budeme veľa času tráviť vonku.
               <br></br><br></br> Hlavné zameranie tábora bude na nový cirkus, ktorý bude zároveň popretkávaný hudbou, divadlom, tancom aj gymnastikou.
