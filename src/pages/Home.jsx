@@ -44,6 +44,19 @@ const Home = () => {
            <Link to="/ponuka" className="btn mt-2">
                Objavte našu ponuku
            </Link>
+           <br></br> <br></br>
+           <p>
+
+  <a
+    href="https://forms.gle/cwaRkyBK346zsGgf7"
+    className="btn large-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Prihláška na krúžok
+  </a>
+  </p>
+
          </div>
       </Section>
 
