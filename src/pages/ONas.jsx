@@ -54,7 +54,19 @@ const ONas = () => {
     {
       id: 1,
       name: 'Medzinárodný vyšehradský fond',
-      description: 'Podpora projektu Summer Time Music 2025',
+      description: (
+        
+        <>
+        Podpora projektu {' '}
+         <a
+        href="https://www.summertimemusic.sk/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Summer Time Music 2025
+        </a>
+        </>
+      ),
       logo: '/images/visegrad2.webp',
       url: 'https://www.visegradfund.org/'
     },
@@ -168,7 +180,7 @@ const ONas = () => {
         </Grid>
       </Section>
 
-      {/* NAŠI PARTNERI */}
+      {/* PARTNERI */}
       <Section title="Partneri" width="wide">
         <Grid type="fluid" minWidth="220px" gap="medium" centered>
           {partners.map(partner => (
