@@ -80,13 +80,28 @@ const ONas = () => {
     
     {
       id: 1,   
+      logo: '/images/logo/edukos_logo.webp',
+      url: 'https://www.edukos.sk/'
+    },
+    {
+      id: 2,   
       logo: '/images/ckk.webp',
       url: 'https://www.cirkuskus.sk/'
     },
      {
-      id: 2,   
+      id: 3,   
       logo: '/images/logo/trapiti_logo.webp',
       url: 'https://www.trapiti.eu/'
+    },
+         {
+      id: 4,   
+      logo: '/images/logo/kaukliar_logo.webp',
+      url: 'https://www.kaukliar.sk/'
+    },
+             {
+      id: 5,   
+      logo: '/images/logo/divadelny_svet_logo.webp',
+      url: 'https://www.divadelnysvet.com/'
     }
   ];
 
