@@ -169,7 +169,7 @@ const ONas = () => {
       </Section>
 
       {/* NAŠI PARTNERI */}
-      <Section title="Naši partneri" width="wide">
+      <Section title="Partneri" width="wide">
         <Grid type="fluid" minWidth="220px" gap="medium" centered>
           {partners.map(partner => (
             <div className="partner-card" key={partner.id}>
