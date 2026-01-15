@@ -48,7 +48,7 @@ const Home = () => {
            <p>
 
   <a
-    href="https://forms.gle/cwaRkyBK346zsGgf7"
+    href="https://forms.gle/4G3UntLgWmzhtjhB9"
     className="btn large-btn"
     target="_blank"
     rel="noopener noreferrer"
