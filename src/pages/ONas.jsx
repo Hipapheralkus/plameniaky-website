@@ -75,11 +75,11 @@ const ONas = () => {
   // 🔹 PARTNERI
   const partners = [
     
-    {
+    /*{
       id: 1,   
       logo: '/images/logo/edukos_logo.webp',
       url: 'https://www.edukos.sk/'
-    },
+    },*/
     {
       id: 2,   
       logo: '/images/ckk.webp',
