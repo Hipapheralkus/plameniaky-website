@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@vercel/analytics": "latest",
-    "nodemailer": "latest",
+    "nodemailer": "^8.0.4",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-google-recaptcha": "latest",
-    "react-router-dom": "latest",
+    "react-router-dom": "^7.13.2",
     "sharp": "latest"
   },
   "devDependencies": {
