@@ -28,6 +28,6 @@
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
-    "vite": "latest"
+    "vite": "~7.3.2"
   }
 }
