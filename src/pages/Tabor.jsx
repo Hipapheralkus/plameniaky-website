@@ -35,12 +35,11 @@ const Tabor = () => {
     
     {
       id: 3,
-      name: 'Vsevolod Petrov',
-      position: 'asistujúci tréner',
-      photo: '/images/seva_5.jpg',
-      bio: 'Účastník mnohých workshopov, Seva stále vyhľadáva príležitosti, ako sa posunúť ďalej. Od jeho vzniku pomáha viesť cirkusový krúžok a učí aj mnoho externých workshopov. ',
+      name: 'Alisa Liubimova',
+      position: 'asistujúca tréneka',
+      photo: '/images/alisa.webp',
+      bio: 'Odrastenec cirkusových krúžkov CirKusKusu v trénerskom výcviku. ',
        social: [
-        { icon: 'instagram', url: 'https://www.instagram.com/vesel0v0d' },
          
       ]
     },
@@ -60,7 +59,7 @@ const Tabor = () => {
   ];
 
     const partners = [
-        {
+        /*{
             name: 'fpu',
             url: 'https://www.fpu.sk/',
             logo: '/images/logo/fpu_logo.webp'
@@ -79,7 +78,7 @@ const Tabor = () => {
             name: 'ministerstvo',
             url: 'https://www.minedu.sk/',
             logo: '/images/logo/ministerstvo_logo.webp'
-        },
+        },*/
         {
             name: 'dolnykubin',
             url: 'https://www.dolnykubin.sk/',
@@ -93,18 +92,22 @@ const Tabor = () => {
     ];
 
   return (
-    <PageLayout title="Letný tábor 2025" subtitle="Denný detský tábor nového cirkusu">
+    <PageLayout title="Letný tábor 2026" subtitle="Denný detský tábor nového cirkusu">
       {/* História a Poslanie */}
       <Section>
         <div className="mission-section"> {/* Môžete použiť existujúci štýl */}
           <div className="mission-text">
             <h2>Základné info</h2>
             <p>
-            <b>Termín:</b> 28.7. - 1.8.2025<br></br>
+            <b>Termín:</b> 20. - 24.7.2026<br></br>
             <b>Čas:</b> 8:00 - 15:30<br></br>
             <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
             <b>Vek účastníkov:</b> 8-18 rokov<br></br>
-            <b> Cena:</b> 180 € <br></br>
+            <b> Cena:</b> 140 € (pri prihlásení do 31.5.) <br></br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 160€ (pri prihlásení do 30.6.)
+            <br></br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180€ (pri prihlásení po 1.7.)
+             <br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>v prípade potreby sociálneho štipendia nás kontaktujte</i><br></br>
             </p>
@@ -127,7 +130,7 @@ const Tabor = () => {
 {/* Môžete sem pridať ďalšie sekcie, napr. Hodnoty, História (ako bola v predch. verzii) */}
 <div style={{ textAlign: 'center', marginTop: '20px' }}>
   <a
-    href="https://forms.gle/6CEcNi2UW95emzVf6"
+    href="https://forms.gle/RZo6bke9sMPwY5nF8"
     className="btn large-btn"
     target="_blank"
     rel="noopener noreferrer"
