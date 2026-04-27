@@ -1,5 +1,5 @@
 // src/pages/Tabor.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Grid from '../components/Grid';
@@ -7,7 +7,26 @@ import LazyImage from '../components/LazyImage';
 import './ONas.css'; // Zachovať existujúce alebo aktualizovať štýly
 
 const Tabor = () => {
-  // Vzorové dáta pre členov tímu - nahraďte reálnymi
+ const carouselImages = [
+    '/images/tabor_01.webp',
+    '/images/tabor_02.webp',
+    '/images/tabor_03.webp',
+    '/images/tabor_04.webp',
+    '/images/tabor_05.webp',
+    '/images/tabor_06.webp',
+    '/images/tabor_07.webp'
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+    // Vzorové dáta pre členov tímu - nahraďte reálnymi
   const teamMembers = [
     {
       id: 1,
@@ -120,8 +139,8 @@ const Tabor = () => {
           <div className="mission-image aspect-3-4">
             {/* Použite charakteristickú fotku tímu alebo spoločnej aktivity */}
             <LazyImage 
-              src="/images/tabor.webp" 
-              alt="Skupinová pyramída" 
+  src={carouselImages[currentImage]} 
+  alt="Letný tábor" 
             />
           </div>
         </div>
