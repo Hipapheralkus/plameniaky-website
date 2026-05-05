@@ -57,7 +57,7 @@ const Tabor = () => {
       name: 'Alisa Liubimova',
       position: 'asistujúca tréneka',
       photo: '/images/alisa.webp',
-      bio: 'Odrastenec cirkusových krúžkov CirKusKusu v trénerskom výcviku. ',
+      bio: 'V CirKusKuse vyrástla od detských krúžkov až po úlohu pomocníčky trénera. Venuje sa najmä balansu a žonglovaniu a teší ju možnosť sprevádzať ďalších objavovaním cirkusového pohybu. ',
        social: [
          
       ]
@@ -123,9 +123,9 @@ const Tabor = () => {
             <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
             <b>Vek účastníkov:</b> 8-18 rokov<br></br>
             <b> Cena:</b> 140 € (pri prihlásení do 31.5.) <br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 160€ (pri prihlásení do 30.6.)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 170€ (pri prihlásení do 30.6.)
             <br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 180€ (pri prihlásení po 1.7.)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 190€ (pri prihlásení po 1.7.)
              <br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>v prípade potreby sociálneho štipendia nás kontaktujte</i><br></br>
