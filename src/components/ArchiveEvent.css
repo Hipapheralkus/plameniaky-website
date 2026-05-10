@@ -187,3 +187,9 @@
     background-size: 32px;
   }
 }
+
+/* Visible focus ring on keyboard navigation through the gallery thumbs. */
+.gallery-image:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

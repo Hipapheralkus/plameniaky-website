@@ -16,16 +16,16 @@ const CoMameZaSebou = () => {
       date: '10.5.2025',
       description: 'Oslava dňa matiek v Námestove.',
       gallery: [
-        '/images/eventy/mila_25_1.jpg',
-        '/images/eventy/mila_25_2.jpg',
-        '/images/eventy/mila_25_3.jpg',  
-        '/images/eventy/mila_25_4.jpg',
-        '/images/eventy/mila_25_5.jpg',
+        '/images/eventy/mila_25_1.webp',
+        '/images/eventy/mila_25_2.webp',
+        '/images/eventy/mila_25_3.webp',
+        '/images/eventy/mila_25_4.webp',
+        '/images/eventy/mila_25_5.webp',
       ],
       tags: ['#workshop','#eventy']
     },
     {
-      id: 1,
+      id: 2,
       title: 'Svetový deň cirkusu 2025',
       date: '11.-13.4.2025',
       description: 'Medzinárodný komunitný festival nového cirkusu v Bratislave.',
@@ -63,7 +63,7 @@ const CoMameZaSebou = () => {
       tags: ['#festival', '#workshop', '#showka', '#deti','#zájazd' ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'Pojkový workshop pre Orientalico',
       date: '1.4.2025',
       description: 'Intenzívny workshop zameraný na točenie s pojkami pre tanečnú skupinu.',
@@ -79,7 +79,7 @@ const CoMameZaSebou = () => {
       tags: ['#pojky', '#workshop', '#intensive', '#dospelí']
     },
     {
-      id: 3,
+      id: 4,
       title: 'Eniki beniki',
       date: '30.3.2025',
       description: 'Interaktívny program pre deti v regionálnom kole súťaže folklórnych súborov.',
@@ -93,7 +93,7 @@ const CoMameZaSebou = () => {
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti']
     },
     {
-      id: 4,
+      id: 5,
       title: 'Oravské javisko',
       date: '25.3.2025',
       description: 'Premiéra nášho nového predstavenia a zároveň interaktívny program pre deti v regionálnom kole divadelnej súťaže.',
@@ -114,7 +114,7 @@ const CoMameZaSebou = () => {
       tags: ['#žonglovanie', '#workshop', '#eventy', '#deti', '#showka']
     },
     {
-      id: 5,
+      id: 6,
       title: 'Zájazd za Trapiti',
       date: '13.3.2025',
       description: 'Mládežnícka výmena v Nových Zámkoch, po ktorej nasledovalo neplánované stretnutie s Adriánom Ohrádkom v jeho "rodnom" divadle.',
@@ -137,7 +137,7 @@ const CoMameZaSebou = () => {
       tags: ['#workshop', '#akrobacia', '#deti', '#výmena', '#zájazd']
     },
     {
-      id: 6,
+      id: 7,
       title: 'Masterclass s Kaukliarom',
       date: '12.3.2025',
       description: 'Špeciálny tréning s hosťujúcim lektorom Filipom Hajdukom.',
@@ -158,7 +158,6 @@ const CoMameZaSebou = () => {
   const [filterTag, setFilterTag] = useState(null);
 
   const handleTagClick = (tag) => {
-      console.log("Kliknutý tag pre filter:", tag);
       setFilterTag(tag === filterTag ? null : tag);
   }
 

@@ -28,7 +28,7 @@
 .dropdown-menu li a {
   display: block;
   padding: 10px 20px; /* Padding inside links */
-  color: #444;
+  color: var(--color-text);
   text-decoration: none;
   white-space: nowrap; /* Prevent wrapping */
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -71,7 +71,7 @@
   .dropdown-menu {
     position: static;
     display: block; /* Always visible when parent menu is open */
-    background-color: rgba(114, 86, 146, 0.05); /* Light purple background */
+    background-color: rgba(var(--color-primary-rgb), 0.05); /* Light purple background */
     box-shadow: none;
     padding: 5px 0;
     min-width: auto;
@@ -86,11 +86,11 @@
   .dropdown-menu li a {
     padding: 12px 15px; /* Better touch target */
     font-size: 1rem;
-    color: #555;
+    color: var(--color-text-dark);
   }
 
    .dropdown-menu li a:hover {
-       background-color: rgba(114, 86, 146, 0.1);
+       background-color: rgba(var(--color-primary-rgb), 0.1);
        color: var(--color-primary);
    }
 
@@ -103,7 +103,7 @@
    
    .dropdown-divider {
        margin: 5px 15px;
-       background-color: rgba(114, 86, 146, 0.2);
+       background-color: rgba(var(--color-primary-rgb), 0.2);
    }
    
    /* Active dropdown */
@@ -169,7 +169,7 @@
 }
 
 .nav-link {
-  color: #444;
+  color: var(--color-text);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -237,7 +237,7 @@
   display: block;
   width: 24px;
   height: 3px;
-  background-color: #333;
+  background-color: var(--color-text-dark);
   border-radius: 2px;
   position: absolute;
   left: 0;
@@ -322,14 +322,14 @@
   /* Improved hover/active states */
   .nav-link:hover {
     color: var(--color-primary);
-    background-color: rgba(114, 86, 146, 0.05);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
   }
 
   .nav-link.active {
     color: var(--color-primary);
     font-weight: 600;
     border-left: 3px solid var(--color-primary); /* Visible border indicator */
-    background-color: rgba(114, 86, 146, 0.05);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
   }
 
   .navbar-logo {

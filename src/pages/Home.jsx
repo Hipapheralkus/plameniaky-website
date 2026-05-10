@@ -36,27 +36,24 @@ const Home = () => {
       >
          <div className="intro-text text-center">
            <h2>Vitajte medzi Plameniakmi!</h2>
-           <p className="slogan" style={{fontSize: '1.3rem', fontWeight: '500', fontStyle: 'italic', color: 'var(--color-primary)', marginBottom: '1.5rem'}}>Rozvíjame radosťou</p>
+           <p className="home-slogan">Rozvíjame radosťou</p>
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Zažite s nami čaro pohybu a kreativity!
            </p>
-           <Link to="/ponuka" className="btn mt-2">
+           <div className="home-cta-stack">
+             <Link to="/ponuka" className="btn">
                Objavte našu ponuku
-           </Link>
-           <br></br> <br></br>
-           <p>
-
-  <a
-    href="https://forms.gle/4G3UntLgWmzhtjhB9"
-    className="btn large-btn"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Prihláška na krúžok
-  </a>
-  </p>
-
+             </Link>
+             <a
+               href="https://forms.gle/4G3UntLgWmzhtjhB9"
+               className="btn large-btn"
+               target="_blank"
+               rel="noopener noreferrer"
+             >
+               Prihláška na krúžok
+             </a>
+           </div>
          </div>
       </Section>
 

@@ -156,6 +156,20 @@
   /* Spinner is centered by placeholder */
 }
 
+/* Fallback shown when an image 404s — neutral tile, no spinner. */
+.lazy-image-error {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-background-alt);
+  background-image:
+    linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.06) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(var(--color-primary-rgb), 0.06) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(var(--color-primary-rgb), 0.06) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(var(--color-primary-rgb), 0.06) 25%, transparent 25%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 0, -8px 0, -8px -8px;
+}
+
 /* Responsive image sizes */
 .responsive-img {
   width: 100%;

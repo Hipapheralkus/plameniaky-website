@@ -46,7 +46,7 @@ const HashtagGroup = ({
             tag={tagName}
             active={tagName === normalizedActiveTag}
             onClick={() => onTagClick && onTagClick(tag)} // Pass the original tag with # if needed by handler
-            to={baseUrl && tagName !== 'všetky' ? `<span class="math-inline">\{baseUrl\}/</span>{tagName}` : null} // Avoid creating link for 'všetky' if it's in tags array
+            to={baseUrl && tagName !== 'všetky' ? `${baseUrl}/${tagName}` : null} // Avoid creating link for 'všetky' if it's in tags array
           />
         );
       })}
