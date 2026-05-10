@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#1B3169"/>
+  <!-- Photo / image rectangle -->
+  <rect x="14" y="18" width="36" height="28" rx="2" fill="none" stroke="#f4b400" stroke-width="3"/>
+  <!-- Sun / circle inside -->
+  <circle cx="24" cy="28" r="3.5" fill="#f4b400"/>
+  <!-- Mountain peaks suggesting an image -->
+  <path d="M14 42 L24 32 L31 38 L40 28 L50 40 L50 44 Q50 46 48 46 L16 46 Q14 46 14 44 Z" fill="#f4b400"/>
+  <!-- Crop corners (top-left and bottom-right) — instantly reads as a crop tool -->
+  <path d="M6 16 L6 6 L16 6" fill="none" stroke="#f4b400" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M58 48 L58 58 L48 58" fill="none" stroke="#f4b400" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

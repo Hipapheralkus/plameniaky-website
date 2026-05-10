@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plameniaky — Event Image Exporter</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="exporter.css" />
+</head>
+<body>
+  <!-- Shown when the page is loaded via file:// instead of through the Express server -->
+  <div id="fileProtocolWarning" class="file-warning hidden">
+    <div class="file-warning-card">
+      <h1>⚠ Open through the server, not directly</h1>
+      <p>This page was opened from the local filesystem (<code>file://</code>), so it can't reach the export API.</p>
+      <p>From the repo root run:</p>
+      <pre><code>npm run image-exporter</code></pre>
+      <p>Then open <a href="http://127.0.0.1:5174/">http://127.0.0.1:5174/</a> in this browser.</p>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-row">
+      <h1>Event Image Exporter</h1>
+      <span class="output-path" id="outputPath">Detecting output folder…</span>
+    </div>
+    <div class="topbar-row controls">
+      <label>
+        Batch name
+        <input type="text" id="batchName" placeholder="e.g. tabor_25" autocomplete="off" />
+      </label>
+      <span class="hint">Lowercase, digits, <code>_</code> or <code>-</code> only.</span>
+      <span class="counter" id="counter">0 images</span>
+      <button id="clearBtn" type="button" class="ghost" disabled>Clear all</button>
+      <button id="exportBtn" type="button" class="primary" disabled>Export</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="dropzone" class="dropzone">
+      <p>Drop images here, or <button type="button" id="pickBtn" class="link">click to pick files</button>.</p>
+      <p class="hint">All images need a 1:1 thumbnail crop before export. Drag cards to reorder.</p>
+      <input type="file" id="filePicker" accept="image/*" multiple hidden />
+    </section>
+
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <!-- Crop modal -->
+  <div id="cropModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cropModalTitle">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="cropModalTitle">Crop thumbnail (1:1)</h2>
+        <button type="button" id="cropCancel" class="ghost">Cancel</button>
+      </header>
+      <div class="cropper-wrap">
+        <div id="cropperHost"></div>
+      </div>
+      <footer class="modal-footer">
+        <button type="button" id="cropSave" class="primary">Save crop</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Result modal -->
+  <div id="resultModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="resultTitle">Export complete</h2>
+      </header>
+      <div id="resultBody" class="modal-body"></div>
+      <footer class="modal-footer">
+        <button type="button" id="resultClose" class="primary">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Confirm modal (collisions) -->
+  <div id="confirmModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="confirmTitle">File name collision</h2>
+      </header>
+      <div id="confirmBody" class="modal-body"></div>
+      <footer class="modal-footer">
+        <button type="button" id="confirmCancel" class="ghost">Cancel</button>
+        <button type="button" id="confirmOverwrite" class="danger">Overwrite</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="busy" class="busy hidden"><div class="spinner"></div><span id="busyLabel">Working…</span></div>
+
+  <!-- Cropper.js v2 — web-components based, no separate CSS file. -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/cropperjs@2.1.1/dist/cropper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"></script>
+  <script src="exporter.js"></script>
+</body>
+</html>
