@@ -25,7 +25,7 @@ const Tabor = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [carouselImages.length]);
     // Vzorové dáta pre členov tímu - nahraďte reálnymi
   const teamMembers = [
     {

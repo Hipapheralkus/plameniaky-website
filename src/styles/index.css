@@ -1,16 +1,36 @@
 /* src/styles/index.css */
 
-/* Import all CSS files in correct order */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+/* Note: Montserrat and Font Awesome are loaded via <link> tags in index.html.
+   Importing them here too duplicates the request and pushes them to the end
+   of the discovery chain, delaying first paint. */
 
 @import './variables.css';
 @import './reset.css';
-@import '../components/Layout.css'; 
+@import '../components/Layout.css';
 @import './buttons.css';
-@import './grid.css'; 
-@import './loading.css'; 
+@import './grid.css';
+@import './loading.css';
 @import '../components/Hashtag.css';
 @import '../components/RelatedPonukaNav.css';
 
 /* Page/component-specific styles are imported via their respective JS/JSX files */
+
+/* Suspense fallback shown while a route chunk is loading. */
+.route-loading {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Honor user OS-level reduced-motion preference everywhere. Without this
+   the carousel auto-advance, lightbox fade-in, hover transforms etc. all
+   ignore the setting. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,6 +1,17 @@
 // api/contact.js - Optimized Vercel Serverless Function with timeout handling
 import nodemailer from 'nodemailer';
 
+// Escape user-supplied strings before interpolating into the email HTML body.
+// Without this, a submitted message like `<img src=x onerror=...>` would render
+// as live HTML in the recipient's inbox.
+const escapeHtml = (s) =>
+  String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
 // Wrap async operations with timeout
 const withTimeout = (promise, ms = 8000) => {
   let timeoutId;
@@ -128,11 +139,11 @@ ${message}
       html: `
 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px;">
   <h2 style="color: #725692;">Nová správa z webstránky Plameniaky.sk</h2>
-  <p><strong>Od:</strong> ${name}</p>
-  <p><strong>Email:</strong> ${email}</p>
+  <p><strong>Od:</strong> ${escapeHtml(name)}</p>
+  <p><strong>Email:</strong> ${escapeHtml(email)}</p>
   <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #725692;">
     <p><strong>Správa:</strong></p>
-    <p>${message.replace(/\n/g, '<br>')}</p>
+    <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
   </div>
 </div>
       `,

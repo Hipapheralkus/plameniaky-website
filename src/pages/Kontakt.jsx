@@ -179,15 +179,15 @@ const Kontakt = () => {
              <h3>Napíšte nám správu</h3>
              {/* Display Success Message */}
              {formStatus.submitted && (
-               <div className="form-success">
-                 <p><i className="fas fa-check-circle"></i> Ďakujeme za Vašu správu! Čoskoro sa Vám ozveme.</p>
+               <div className="form-success" role="status" aria-live="polite">
+                 <p><i className="fas fa-check-circle" aria-hidden="true"></i> Ďakujeme za Vašu správu! Čoskoro sa Vám ozveme.</p>
                </div>
              )}
 
              {/* Display Error Message */}
              {formStatus.error && (
-               <div className="form-error">
-                 <p><i className="fas fa-exclamation-triangle"></i> {formStatus.errorMessage || 'Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.'}</p>
+               <div className="form-error" role="alert" aria-live="assertive">
+                 <p><i className="fas fa-exclamation-triangle" aria-hidden="true"></i> {formStatus.errorMessage || 'Niečo sa pokazilo pri odosielaní. Skúste to prosím znova alebo nás kontaktujte priamo.'}</p>
                </div>
              )}
 

@@ -1,7 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import fs from 'fs'
-import { resolve } from 'path'
 
 // Ensure robots.txt and sitemap.xml are copied to dist during build
 export default defineConfig({

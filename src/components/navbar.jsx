@@ -8,8 +8,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu when route changes
+  // Close mobile menu when route changes. The hooks linter would prefer we
+  // avoid setState in an effect, but route change → close menu is genuinely
+  // a side effect of navigating, with no equivalent prop-derivation.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsOpen(false);
   }, [location.pathname]);
 
@@ -88,12 +91,8 @@ const Navbar = () => {
             <Link
               to="/ponuka"
               className={`nav-link ${location.pathname.startsWith('/ponuka') ? 'active' : ''}`}
-              onClick={(e) => {
+              onClick={() => {
                 if (location.pathname === '/ponuka') closeMobileMenu();
-                if (window.innerWidth > 960) {
-                  // Optional: if you want ONLY dropdown links to navigate, prevent default here
-                  // e.preventDefault();
-                }
               }}
               aria-haspopup="true"
             >
@@ -101,7 +100,7 @@ const Navbar = () => {
             </Link>
             <ul className="dropdown-menu">
               <li><Link to="/ponuka/vzdelavanie-cirkus" onClick={closeMobileMenu}>Vzdelávanie v novom cirkuse</Link></li>
-              <li><Link to="/ponuka/vzdelávanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
+              <li><Link to="/ponuka/vzdelavanie-hudba" onClick={closeMobileMenu}>Vzdelávanie v hudbe</Link></li>
               <li><Link to="/ponuka/vystupenia-cirkus" onClick={closeMobileMenu}>Cirkusové vystúpenia</Link></li>
               <li><Link to="/ponuka/vystupenia-hudba" onClick={closeMobileMenu}>Hudobné vystúpenia</Link></li>
               <li><hr className="dropdown-divider" /></li>

@@ -15,7 +15,7 @@ function resolveOutputPath() {
     if (fs.existsSync(G_DRIVE) && fs.statSync(G_DRIVE).isDirectory()) {
       return { path: G_DRIVE, source: 'G-drive' };
     }
-  } catch (_) { /* ignore */ }
+  } catch { /* ignore */ }
   return { path: LOCAL, source: 'local-repo' };
 }
 

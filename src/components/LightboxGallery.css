@@ -246,3 +246,11 @@
       display: none; /* Hide thumbnails on very small screens */
     }
   }
+
+/* Visible focus ring for keyboard users tabbing through the lightbox. */
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible,
+.thumbnail-btn:focus-visible {
+  outline: 2px solid #f4b400;
+  outline-offset: 2px;
+}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import LazyImage from './LazyImage';
 import LightboxGallery from './LightboxGallery';
+import { createThumbPath } from '../utils/imagePaths';
 import './ArchiveEvent.css';
 
 const ArchiveEvent = ({ event, onTagClick }) => {
@@ -22,23 +23,6 @@ const ArchiveEvent = ({ event, onTagClick }) => {
   const handleImageClick = (index) => {
     setInitialImageIndex(index);
     setLightboxOpen(true);
-  };
-
-  // Convert gallery paths to use thumbnails for the grid
-  const createThumbPath = (imgPath) => {
-    // Handle webp files
-    if (imgPath.endsWith('.webp')) {
-      return imgPath.replace('/eventy/', '/eventy/thumbs/').replace('.webp', '_thumb.webp');
-    }
-    // Handle jpg files
-    else if (imgPath.endsWith('.jpg')) {
-      return imgPath.replace('/eventy/', '/eventy/thumbs/').replace('.jpg', '_thumb.webp');
-    }
-    // Handle other image formats
-    else {
-      const basePath = imgPath.substring(0, imgPath.lastIndexOf('.'));
-      return `${basePath.replace('/eventy/', '/eventy/thumbs/')}_thumb.webp`;
-    }
   };
 
   return (

@@ -22,6 +22,11 @@
   --color-border: #e0e0e0;
   --color-border-light: #f0f0f0;
 
+  /* Footer-specific tokens (footer uses a dark background that doesn't
+     match --color-background, so it gets its own pair). */
+  --color-footer-bg: #333333;
+  --color-footer-text: #f9f9f9;
+
   /* Shadows */
   --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.05);

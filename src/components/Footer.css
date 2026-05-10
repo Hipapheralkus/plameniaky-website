@@ -1,7 +1,7 @@
 /* src/components/Footer.css */
 .footer {
-  background-color: #333;
-  color: #f9f9f9;
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
   padding: 40px 0 0;
 }
 
@@ -35,7 +35,7 @@
 
 
 .footer-column h3 {
-  color: #f9f9f9;
+  color: var(--color-footer-text);
   margin-bottom: 15px;
   font-size: 1.1rem;
   position: relative;
@@ -70,7 +70,7 @@
 }
 
 .footer-menu-column ul li a {
-  color: #f9f9f9;
+  color: var(--color-footer-text);
   text-decoration: none;
   transition: color 0.3s ease;
   display: inline-block;
@@ -110,7 +110,7 @@
     color: var(--color-primary-light);
 }
 .footer-contact-info a {
-    color: #f9f9f9;
+    color: var(--color-footer-text);
     text-decoration: none;
 }
 .footer-contact-info a:hover {
@@ -136,7 +136,7 @@
 }
 
 .footer-social-icons a {
-  color: #f9f9f9;
+  color: var(--color-footer-text);
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
@@ -151,7 +151,7 @@
   padding: 20px 0;
   text-align: center;
   font-size: 0.9rem;
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* --- Focus States --- */

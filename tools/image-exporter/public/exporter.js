@@ -242,7 +242,7 @@
     if (!it) return;
     cropTargetId = id;
 
-    if (cropImageUrl) { try { URL.revokeObjectURL(cropImageUrl); } catch (_) {} }
+    if (cropImageUrl) { try { URL.revokeObjectURL(cropImageUrl); } catch { /* already revoked */ } }
     cropImageUrl = URL.createObjectURL(it.file);
 
     // Show the modal first and clear any stale cropper. We mount the cropper
@@ -310,7 +310,7 @@
   function closeCropper() {
     cropModal.classList.add('hidden');
     cropperHost.innerHTML = '';
-    if (cropImageUrl) { try { URL.revokeObjectURL(cropImageUrl); } catch (_) {} cropImageUrl = null; }
+    if (cropImageUrl) { try { URL.revokeObjectURL(cropImageUrl); } catch { /* already revoked */ } cropImageUrl = null; }
     cropTargetId = null;
   }
 
