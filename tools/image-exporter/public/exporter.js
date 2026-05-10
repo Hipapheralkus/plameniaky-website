@@ -348,7 +348,7 @@
     const padWidth = items.length > 99 ? 3 : 2;
 
     showBusy('Checking for collisions…');
-    let collisions = [];
+    let collisions;
     try {
       const r = await fetch('/api/check-collisions', {
         method: 'POST',

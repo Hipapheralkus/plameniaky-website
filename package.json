@@ -11,24 +11,24 @@
     "image-exporter": "cd tools/image-exporter && npm install --silent && node server.js"
   },
   "dependencies": {
-    "@vercel/analytics": "latest",
-    "nodemailer": "^8.0.5",
+    "@vercel/analytics": "^2.0.1",
+    "nodemailer": "^8.0.7",
     "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-google-recaptcha": "latest",
-    "react-router-dom": "^7.13.2",
+    "react-router-dom": "^7.15.0",
     "sharp": "latest"
   },
   "devDependencies": {
-    "@eslint/js": "latest",
-    "@types/react": "latest",
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "latest",
-    "@vitejs/plugin-react": "latest",
-    "eslint": "latest",
-    "eslint-plugin-react-hooks": "latest",
-    "eslint-plugin-react-refresh": "latest",
-    "globals": "latest",
-    "vite": "~7.3.2"
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "vite": "^8.0.11"
   }
 }
