@@ -62,7 +62,7 @@ const Tabor = () => {
          
       ]
     },
-    {
+    /*{
       id: 4,
       name: 'Hosťujúci lektori',
       position: 'z príbuzných odvetví',
@@ -71,7 +71,7 @@ const Tabor = () => {
        social: [
          
       ]
-    },
+    }*/,
    
       
     // Pridajte ďalších členov tímu
