@@ -255,7 +255,7 @@
     requestAnimationFrame(() => {
       cropperHost.innerHTML = `
         <cropper-canvas background>
-          <cropper-image id="cropImg" src="${cropImageUrl}" rotatable scalable translatable></cropper-image>
+          <cropper-image id="cropImg" rotatable scalable translatable></cropper-image>
           <cropper-shade hidden></cropper-shade>
           <cropper-handle action="select" plain></cropper-handle>
           <cropper-selection id="cropSel" initial-coverage="0.8" aspect-ratio="1" movable resizable outlined>
@@ -277,6 +277,9 @@
       const cropImg = document.getElementById('cropImg');
       const sel = document.getElementById('cropSel');
       if (!cropImg) return;
+      // Set src as an attribute rather than via innerHTML interpolation so
+      // the blob URL is never re-parsed as HTML.
+      cropImg.setAttribute('src', cropImageUrl);
       const fit = () => {
         try {
           if (typeof cropImg.$center === 'function') cropImg.$center('contain');

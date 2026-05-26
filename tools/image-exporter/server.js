@@ -3,6 +3,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const rateLimit = require('express-rate-limit');
 
 const PORT = 5174;
 const HOST = '127.0.0.1';
@@ -19,9 +20,29 @@ function resolveOutputPath() {
   return { path: LOCAL, source: 'local-repo' };
 }
 
+// Strip any directory components and verify the resolved path stays inside
+// baseDir before returning. Used as defense-in-depth even though isValidBatch
+// already restricts the input charset.
+function safeJoin(baseDir, fileName) {
+  const base = path.resolve(baseDir);
+  const sanitized = path.basename(fileName);
+  const resolved = path.resolve(base, sanitized);
+  if (resolved !== base && !resolved.startsWith(base + path.sep)) {
+    throw new Error(`Refusing path outside base directory: ${fileName}`);
+  }
+  return resolved;
+}
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 100 * 1024 * 1024 }, // 100 MB per file
+});
+
+const apiLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
 const app = express();
@@ -32,20 +53,21 @@ app.get('/api/output-path', (req, res) => {
   res.json({ ...out, thumbsPath: path.join(out.path, 'thumbs') });
 });
 
-app.post('/api/check-collisions', express.json(), (req, res) => {
+app.post('/api/check-collisions', apiLimiter, express.json(), (req, res) => {
   const { batchName, count, padWidth } = req.body || {};
   if (!isValidBatch(batchName)) return res.status(400).json({ error: 'invalid batch name' });
   const out = resolveOutputPath();
   const existing = [];
   for (let i = 1; i <= count; i++) {
     const name = `${batchName}_${String(i).padStart(padWidth, '0')}.webp`;
-    if (fs.existsSync(path.join(out.path, name))) existing.push(name);
+    if (fs.existsSync(safeJoin(out.path, name))) existing.push(name);
   }
   res.json({ existing, outputPath: out.path });
 });
 
 app.post(
   '/api/export',
+  apiLimiter,
   upload.fields([
     { name: 'fulls', maxCount: 500 },
     { name: 'thumbs', maxCount: 500 },
@@ -81,8 +103,8 @@ app.post(
         const num = String(i + 1).padStart(padWidth, '0');
         const fullName = `${batchName}_${num}.webp`;
         const thumbName = `${batchName}_${num}_thumb.webp`;
-        const fullPath = path.join(out.path, fullName);
-        const thumbPath = path.join(thumbsDir, thumbName);
+        const fullPath = safeJoin(out.path, fullName);
+        const thumbPath = safeJoin(thumbsDir, thumbName);
 
         if (!allowOverwrite || allowOverwrite === 'false') {
           if (fs.existsSync(fullPath) || fs.existsSync(thumbPath)) {
