@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "nodemailer": "^8.0.7",
+    "nodemailer": "^9.0.1",
     "prop-types": "latest",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-google-recaptcha": "latest",
-    "react-router-dom": "^7.15.0",
+    "react-router-dom": "^7.18.0",
     "sharp": "latest"
   },
   "devDependencies": {
@@ -29,6 +29,6 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
-    "vite": "^8.0.11"
+    "vite": "^8.0.16"
   }
 }
