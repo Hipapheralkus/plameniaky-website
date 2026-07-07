@@ -71,9 +71,9 @@ const Tabor = () => {
        social: [
          
       ]
-    }*/
-
-
+    }*/,
+   
+      
     // Pridajte ďalších členov tímu
   ];
 
@@ -122,12 +122,8 @@ const Tabor = () => {
             <b>Čas:</b> 8:00 - 15:30<br></br>
             <b>Miesto:</b> telocvičňa Obchodnej Akadémie, Dolný Kubín<br></br>
             <b>Vek účastníkov:</b> 8-18 rokov<br></br>
-            <b> Cena:</b> 140 € (pri prihlásení do 31.5.) <br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 170€ (pri prihlásení do 30.6.)
-            <br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 190€ (pri prihlásení po 1.7.)
-             <br></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
+            <b> Cena:</b> 170 €  <br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>cena zahŕňa lektorné, materiál, priestor, stravu</i><br></br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>v prípade potreby sociálneho štipendia nás kontaktujte</i><br></br>
             </p>
             <p>Prihláste sa na týždeň plný zábavy, umenia, a pritom poctivého tréningu! Celý týždeň sa budeme deliť na rôzne menšie skupiny, ktoré budú spolu hrať hry, učiť sa žonglovať, jazdiť na jednokolke, visieť na šáloch a mnoho ďalších aktivít. Ak budú mať deti chuť, tábor by sme chceli zakončiť záverečným predstavením v piatok o 16:00. V prípade pekného počasia budeme veľa času tráviť vonku.
