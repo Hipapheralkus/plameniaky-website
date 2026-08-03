@@ -1,6 +1,6 @@
 // src/pages/PonukaDetail.jsx
 import React from 'react';
-import { useParams, Link } from 'react-router-dom'; // useParams na získanie slug z URL
+import { useParams, Link } from 'react-router'; // useParams na získanie slug z URL
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Grid from '../components/Grid';

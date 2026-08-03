@@ -1,7 +1,7 @@
 // src/components/navbar.jsx
 // Updated navbar.jsx with improved menu icon structure
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router';
 import './navbar.css';
 
 const Navbar = () => {

@@ -1,6 +1,6 @@
 // src/pages/CoNasCaka.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import LazyImage from '../components/LazyImage';

@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import PageLayout from '../components/PageLayout';
 import Section from '../components/Section';
 import Slideshow from '../components/Slideshow'; // Import Slideshow component

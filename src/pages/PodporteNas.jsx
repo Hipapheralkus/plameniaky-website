@@ -1,6 +1,6 @@
 // src/pages/PodporteNas.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import PageLayout from '../components/PageLayout'; // Assuming you use PageLayout now
 import Section from '../components/Section';
 import Grid from '../components/Grid';
