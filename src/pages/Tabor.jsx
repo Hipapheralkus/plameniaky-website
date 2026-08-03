@@ -71,7 +71,7 @@ const Tabor = () => {
        social: [
          
       ]
-    }*/,
+    }*/
    
       
     // Pridajte ďalších členov tímu
