@@ -46,7 +46,7 @@ const Home = () => {
                Objavte našu ponuku
              </Link>
              <a
-               href="https://forms.gle/4G3UntLgWmzhtjhB9"
+               href="https://forms.gle/EwDeAoeHNMhPYEJS7"
                className="btn large-btn"
                target="_blank"
                rel="noopener noreferrer"
