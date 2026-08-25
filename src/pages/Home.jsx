@@ -36,7 +36,7 @@ const Home = () => {
       >
          <div className="intro-text text-center">
            <h2>Vitajte medzi Plameniakmi!</h2>
-           <p className="home-slogan">Rozvíjame radosťou</p>
+           <p className="home-slogan">Centrum hravého rozvoja</p>
            <p>
               Sme tu, aby sme prinášali radosť, umenie a nové zručnosti do vášho života prostredníctvom cirkusu, hudby a vzdelávania.
               Zažite s nami čaro pohybu a kreativity!
@@ -51,7 +51,7 @@ const Home = () => {
                target="_blank"
                rel="noopener noreferrer"
              >
-               Prihláška na krúžok
+               Prihláška na kurzy
              </a>
            </div>
          </div>
