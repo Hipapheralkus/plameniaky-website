@@ -51,7 +51,7 @@ Piatky 18:30-20:00<br></br>
 Telocvičňa Obchodnej akadémie<br></br>
 Cena: 240 €<br></br>
 <br></br><br></br>
-          Ďalšie odely môžu byť nasledovné:<br></br>
+          Ďalšie modely môžu byť nasledovné:<br></br>
           (1) uzavretý workshop, kde je malý počet účasntíkov od začiatku do konca a vieme postupne zvyšovať náročnosť techník<br></br>
           (2) otvorený workshop na podujatí, kde účastníci rôzne prichádzajú a odchádzajú, je to skôr zážitkové ako budujúce zručnosti<br></br>
           (3) pravidelný kurz (aktuálne prebieha krúžok pre deti od 3-6 rokov v rámci MŠ; a krúžok pre deti a dospelých od 10 rokov vyššie)
