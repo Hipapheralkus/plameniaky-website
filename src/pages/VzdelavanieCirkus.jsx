@@ -15,12 +15,12 @@ const VzdelavanieCirkus = () => {
         <br></br><br></br>
           Vieme poskytnúť programy od najmenších detí s rodičmi, cez dospelých až po seniorov, vrátane znevýhodnených skupín.<br></br>
 <br></br>
-<h3>Aktuálna ponuka kurzov:</h3>
+<h3>Aktuálna ponuka kurzov do 31.1.2027:</h3>
 <br></br>
 Cirkusový krúžok v škôlke (3-6r)<br></br>
 Pondelky 8:15-9:00<br></br>
 Súkromná MŠ M. Montessori<br></br>
-Cena: 105 €<br></br>
+Cena: 120 €<br></br>
 <br></br>
 
 Cirkus pre rodičov s deťmi (3-6r)<br></br>
