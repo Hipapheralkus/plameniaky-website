@@ -4,7 +4,7 @@
 .kruzok-slideshow-tile {
   max-width: 450px; /* Adjust maximum size of the square tile */
   width: 90%; /* Make it responsive within its container */
-  aspect-ratio: 1 / 1; /* Enforce square shape */
+  aspect-ratio: 3 / 4; /* Enforce square shape */
   margin: 0 auto; /* Center the tile horizontally */
   overflow: hidden; /* Hide anything overflowing the square */
   position: relative; /* Needed for absolute positioning of slideshow elements */

@@ -16,12 +16,13 @@ const Home = () => {
     { url: '/images/carousel_4.webp', alt: 'Pojky', caption: 'Ponúkame pohybové programy aj pre dospelých' },
   ];
 
-  // --- New Slideshow Images for Cirkusovy Kruzok ---
+  // --- New Slideshow Images for Cirkusove kurzy ---
   const kruzokSlideshowImages = [
-    { url: '/images/kruzok/cirkusovyKruzok01.webp', alt: 'Cirkusový krúžok - Plagát 1' }, // Captions optional here
-    { url: '/images/kruzok/cirkusovyKruzok02.webp', alt: 'Cirkusový krúžok - Plagát 2' },
-    { url: '/images/kruzok/cirkusovyKruzok03.webp', alt: 'Cirkusový krúžok - Plagát 3' },
-    { url: '/images/kruzok/cirkusovyKruzok04.webp', alt: 'Cirkusový krúžok - Plagát 4' },
+    { url: '/images/kruzok/kurzy_s_rodicom.webp', alt: 'Cirkus pre rodičov s deťmi' }, // Captions optional here
+    { url: '/images/kruzok/kurzy_dospeli.webp', alt: 'Cirkus pre dospelých' },
+    { url: '/images/kruzok/kurzy_uvod.webp', alt: 'Úvod do cirkusu' },
+    { url: '/images/kruzok/kurzy_adaptovany.webp', alt: 'Adaptovaný cirkus' },
+    { url: '/images/kruzok/kurzy_zadok.webp', alt: 'Rozvíjame radosťou' },
   ];
 
   return (
@@ -59,7 +60,7 @@ const Home = () => {
 
       {/* --- Section for Cirkusovy Kruzok Slideshow Tile --- */}
       <Section
-        title="Aktuálne: Cirkusový Krúžok"
+        title="Aktuálne: Cirkusové kurzy"
         padding="normal"
         width="normal" // Keep section width normal or narrow
         background="alt"
