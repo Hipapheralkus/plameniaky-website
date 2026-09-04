@@ -1,31 +1,57 @@
 /* src/styles/variables.css */
 
 :root {
-  /* Color palette - Updated */
-  --color-primary: #725692; /* User requested purple */
-  --color-primary-dark: #5B4474; /* Darker shade of purple */
-  --color-primary-light: #9a7fc0; /* Lighter shade of purple */
-  --color-primary-bg: #f3eef9; /* Very light purple background */
-  --color-primary-rgb: 114, 86, 146; /* RGB for the new primary color */
+ /* Brand color palette */
 
-  /* Accent colors from logo manual (optional use) */
-  --color-accent-blue: #1b3169;
-  --color-accent-pink: #cf7cb2;
+  /* Hlavná modrá */
+  --color-primary: #00addb;
+  --color-primary-hover: #009fc9;
+  --color-primary-dark: #007f9f;
+  --color-primary-light: #73d7ec;
+  --color-primary-bg: #e6f8fc;
+  --color-primary-rgb: 0, 173, 219;
 
-  --color-text-dark: #333333;
-  --color-text: #555555;
-  --color-text-light: #777777;
+  /* Druhá hlavná farba – žltá */
+  --color-secondary: #faee77;
+  --color-secondary-hover: #f3df53;
+  --color-secondary-light: #fff7ad;
+  --color-secondary-bg: #fffbea;
+  --color-secondary-rgb: 250, 238, 119;
 
+  /* Ďalšie farby identity */
+  --color-brand-cream: #ededd1;
+  --color-brand-brown: #3b2414;
+
+  /* Accent colors */
+  --color-accent-blue: var(--color-primary);
+  --color-accent-yellow: var(--color-secondary);
+  --color-accent-cream: var(--color-brand-cream);
+  --color-accent-brown: var(--color-brand-brown);
+
+  /* Starý názov ponechaný, aby sa nerozbili existujúce štýly */
+  --color-accent-pink: var(--color-secondary);
+
+  /* Text */
+  --color-text-dark: var(--color-brand-brown);
+  --color-text: #59473a;
+  --color-text-light: #74685f;
+
+  /* Text umiestnený na farebnom pozadí */
+  --color-text-on-primary: var(--color-brand-brown);
+  --color-text-on-secondary: var(--color-brand-brown);
+  --color-text-on-dark: var(--color-brand-cream);
+
+  /* Backgrounds */
   --color-background: #ffffff;
-  --color-background-alt: #f9f9f9;
+  --color-background-alt: var(--color-brand-cream);
 
-  --color-border: #e0e0e0;
-  --color-border-light: #f0f0f0;
+  /* Borders */
+  --color-border: #d6d6b9;
+  --color-border-light: #efefe2;
 
-  /* Footer-specific tokens (footer uses a dark background that doesn't
-     match --color-background, so it gets its own pair). */
-  --color-footer-bg: #333333;
-  --color-footer-text: #f9f9f9;
+  /* Footer */
+  --color-footer-bg: var(--color-brand-brown);
+  --color-footer-text: var(--color-brand-cream);
 
   /* Shadows */
   --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
