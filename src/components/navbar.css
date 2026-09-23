@@ -81,9 +81,11 @@
     margin-left: 20px; /* Indent submenu items */
     margin-right: 20px;
     border-left: 3px solid var(--color-primary-light);
+    text-align: left;
   }
 
   .dropdown-menu li a {
+    white-space: normal; /* Allow long labels to wrap on narrow screens */
     padding: 12px 15px; /* Better touch target */
     font-size: 1rem;
     color: var(--color-text-dark);
@@ -304,6 +306,10 @@
     padding: 0; /* Reduced padding */
     margin: 4px 0; /* Added small margin between items */
     position: relative;
+    /* Stack link, submenu and separator vertically; the default row
+       direction put the Ponuka submenu beside its link and off-screen. */
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .nav-link {
