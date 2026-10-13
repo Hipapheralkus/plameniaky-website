@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Layout from './Layout';
 
 const SITE_NAME = 'Plameniaky.sk';
+// Same as the static <title> in index.html; used for pages without a title (home).
+const DEFAULT_TITLE = 'Plameniaky | Rozvíjame radosťou';
 
 /**
  * PageLayout component that provides standardized layout templates for different page types
@@ -30,7 +32,7 @@ const PageLayout = ({
   // React 19 hoists <title>/<meta>/<link> from any component into <head>.
   // We render a per-page title here so each route gets its own document
   // title without each page having to wire useEffect document.title manually.
-  const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const pageTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE;
   const docTitle = <title>{pageTitle}</title>;
 
   const layoutByType = {

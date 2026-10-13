@@ -1,5 +1,5 @@
 // src/components/Layout.jsx
-import React, { useEffect } from 'react'; // <-- Importuj useEffect
+import React from 'react';
 import Navbar from './navbar';
 import Footer from './Footer';
 import PropTypes from 'prop-types';
@@ -29,13 +29,7 @@ const Layout = ({
   spacing = 'normal',
   fluid = false
 }) => {
-
-  // --- Nastavenie titulku stránky ---
-  useEffect(() => {
-    document.title = "Plameniaky | Rozvíjame radosťou";
-  }, []); // Prázdne pole znamená, že sa spustí len raz po načítaní komponentu
-  // --- Koniec nastavenia titulku ---
-
+  // The document title is set per page by PageLayout.
 
   // Determine the content container class based on width prop
   let contentContainerClass = 'content-container';

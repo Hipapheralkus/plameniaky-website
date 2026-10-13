@@ -6,6 +6,7 @@ import Section from '../components/Section';
 import Grid from '../components/Grid';
 import LazyImage from '../components/LazyImage';
 import Hashtag from '../components/Hashtag';
+import NotFound from './NotFound';
 import './PonukaDetail.css'; 
 
 const PonukaDetail = () => {
@@ -72,7 +73,8 @@ const PonukaDetail = () => {
   };
   // --- Koniec vzorových dát ---
 
-  const currentKategoria = kategorieInfo[kategoriaSlug] || kategorieInfo['vsetko']; 
+  const currentKategoria = kategorieInfo[kategoriaSlug];
+  if (!currentKategoria) return <NotFound />;
 
   const handleTagClick = (tag) => {
       console.log("Filtrovať podľa tagu:", tag);
