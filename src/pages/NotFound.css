@@ -1,0 +1,29 @@
+/* src/pages/NotFound.css */
+
+.not-found {
+  text-align: center;
+}
+
+.not-found-code {
+  font-size: clamp(5rem, 18vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.not-found-path {
+  word-break: break-all;
+  color: var(--color-text-dark);
+  background-color: var(--color-primary-bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}

@@ -19,6 +19,7 @@ const VzdelavanieHudba = lazy(() => import('./pages/VzdelavanieHudba'));
 const VystupeniaCirkus = lazy(() => import('./pages/VystupeniaCirkus'));
 const VystupeniaHudba = lazy(() => import('./pages/VystupeniaHudba'));
 const Tabor = lazy(() => import('./pages/Tabor'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 import './styles/index.css'; // Hlavný CSS súbor
 
@@ -52,6 +53,9 @@ function App() {
 
           {/* --- General Category Detail Route (Catches /ponuka/cirkus, /ponuka/hudba, etc.) --- */}
           <Route path="/ponuka/:kategoriaSlug" element={<PonukaDetail />} />
+
+          {/* --- Catch-all for unknown URLs --- */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </Router>
