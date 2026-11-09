@@ -110,85 +110,15 @@ const CirkusSpajaSvety = () => {
     },
   ];
 
-  {/* Sekcia 4: Cezhraniční partneri */}
-      <Section title="Cezhraničné partnerstvo" background="alt">
-        <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-          {partners.map((partner) => (
-            <div 
-              key={partner.name}
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '16px',
-                padding: '35px',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.06)',
-                display: 'grid',
-                gridTemplateColumns: '220px 1fr',
-                gap: '30px',
-                alignItems: 'center'
-              }}
-              className="partner-card-large"
-            >
-              {/* Logo partnera */}
-              <div style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid #eee',
-                borderRadius: '12px',
-                padding: '20px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '160px'
-              }}>
-                <LazyImage 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-                />
-              </div>
-
-              {/* Informácie o partnerovi */}
-              <div style={{ textAlign: 'left' }}>
-                <span style={{ 
-                  backgroundColor: '#e3f2fd', 
-                  color: '#1565c0', 
-                  fontWeight: '600', 
-                  fontSize: '0.85rem', 
-                  padding: '5px 14px', 
-                  borderRadius: '20px',
-                  display: 'inline-block',
-                  marginBottom: '10px'
-                }}>
-                  {partner.role}
-                </span>
-
-                <h3 style={{ fontSize: '1.8rem', color: '#222', margin: '0 0 12px 0' }}>
-                  {partner.name}
-                </h3>
-
-                <p style={{ color: '#555', lineHeight: '1.6', fontSize: '1rem', margin: '0 0 20px 0' }}>
-                  {partner.bio}
-                </p>
-
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '10px 20px',
-                    fontSize: '0.95rem'
-                  }}
-                >
-                  Navštíviť web Prostě Cirkus <i className="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+  const partners = [
+    {
+      name: 'Prostě Cirkus z.s.',
+      role: 'Hlavný cezhraničný partner (Česko)',
+      url: 'https://prostecirkus.cz/',
+      logo: '/images/logo/proste_cirkus_logo.webp',
+      bio: 'Česká organizácia so sídlom vo Valašskom Meziříčí, ktorá sa dlhodobo venuje rozvoju nového cirkusu, neformálnemu vzdelávaniu mládeže a tvorbe komunitných podujatí v Zlínskom a Moravskosliezskom kraji.'
+    }
+  ];
   
 
   return (
@@ -300,23 +230,83 @@ const CirkusSpajaSvety = () => {
       </Section>
 
       {/* Sekcia 4: Cezhraniční partneri */}
-      <Section title="Cezhraničné partnerstvo" background="alt" width="wide">
-        <Grid type="fluid" minWidth="200px" gap="medium" centered={true}>
+      <Section title="Cezhraničné partnerstvo" background="alt">
+        <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           {partners.map((partner) => (
-            <a
+            <div 
               key={partner.name}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="partner-logo-container"
-              style={{ textAlign: 'center', padding: '15px' }}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '16px',
+                padding: '35px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.06)',
+                display: 'grid',
+                gridTemplateColumns: '220px 1fr',
+                gap: '30px',
+                alignItems: 'center'
+              }}
+              className="partner-card-large"
             >
-              <LazyImage src={partner.logo} alt={partner.name} />
-              <p style={{ marginTop: '10px', fontWeight: 'bold', fontSize: '0.9rem', color: '#333' }}>{partner.name}</p>
-              <span style={{ fontSize: '0.8rem', color: '#666' }}>{partner.role}</span>
-            </a>
+              {/* Logo partnera */}
+              <div style={{
+                backgroundColor: '#ffffff',
+                border: '1px solid #eee',
+                borderRadius: '12px',
+                padding: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '160px'
+              }}>
+                <LazyImage 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                />
+              </div>
+
+              {/* Informácie o partnerovi */}
+              <div style={{ textAlign: 'left' }}>
+                <span style={{ 
+                  backgroundColor: '#e3f2fd', 
+                  color: '#1565c0', 
+                  fontWeight: '600', 
+                  fontSize: '0.85rem', 
+                  padding: '5px 14px', 
+                  borderRadius: '20px',
+                  display: 'inline-block',
+                  marginBottom: '10px'
+                }}>
+                  {partner.role}
+                </span>
+
+                <h3 style={{ fontSize: '1.8rem', color: '#222', margin: '0 0 12px 0' }}>
+                  {partner.name}
+                </h3>
+
+                <p style={{ color: '#555', lineHeight: '1.6', fontSize: '1rem', margin: '0 0 20px 0' }}>
+                  {partner.bio}
+                </p>
+
+                <a
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '10px 20px',
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  Navštíviť web Prostě Cirkus <i className="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
           ))}
-        </Grid>
+        </div>
       </Section>
 
       {/* Sekcia 5: Povinná publicita a spolufinancovanie EÚ */}
