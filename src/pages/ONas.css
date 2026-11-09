@@ -12,6 +12,10 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-md);
+  max-width: 400px;       /* 🔑 Obmedzí šírku obrázka */
+  max-height: 480px;      /* 🔑 Obmedzí výšku obrázka */
+  width: 100%;
+  margin: 0 auto;         /* Vycentruje obrázok v stĺpci */
 }
 
 .mission-image img {

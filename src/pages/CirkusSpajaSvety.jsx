@@ -8,8 +8,13 @@ import './ONas.css';
 
 const CirkusSpajaSvety = () => {
   const carouselImages = [
-    '/images/cirkus_01.webp',
-    '/images/cirkus_02.webp',
+    '/images/css_01.webp',
+    '/images/css_02.webp',
+    '/images/css_03.webp',
+    '/images/css_04.webp',
+    '/images/css_05.webp',
+    '/images/css_06.webp',
+    
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -28,7 +33,7 @@ const CirkusSpajaSvety = () => {
     {
       id: 1,
       title: 'Úvodné víkendové sústredenie (SK)',
-      date: 'Jeseň 2026',
+      date: '2.-4. 10. 2026',
       location: 'Dolný Kubín (Slovensko)',
       desc: 'Zoznamovacie víkendové sústredenie so štruktúrovanými tréningami akrobacie a žonglovania. Súčasťou je otvorený cirkusový workshop pre širokú verejnosť v Parku M. Kukučína.',
       badge: 'SK Víkend'
@@ -36,33 +41,33 @@ const CirkusSpajaSvety = () => {
     {
       id: 2,
       title: 'Utužovacie víkendové sústredenie (CZ)',
-      date: 'Jeseň / Zima 2026',
-      location: 'Nový Jičín & Valašské Meziříčí (Česko)',
-      desc: 'Nadviazanie na vytvorené vzťahy, nastavenie cieľov, párová akrobacia a budovanie dôvery. Otvorený workshop pre verejnosť v Tržnici vo Valašskom Meziříčí.',
+      date: '20.-22. 11. 2026',
+      location: 'Valašské Meziříčí (Česko)',
+      desc: 'Nadviazanie na vytvorené vzťahy, nastavenie cieľov, párová akrobacia a budovanie dôvery. Iniciácia práce s ohňom. Otvorený workshop pre verejnosť na Tržnici vo Valašskom Meziříčí.',
       badge: 'CZ Víkend'
     },
     {
       id: 3,
       title: 'Víkendové sústredenie s ohňom (CZ)',
-      date: 'Jar 2027',
-      location: 'Nový Jičín & Valašské Meziříčí (Česko)',
+      date: '27.-29. 5. 2027',
+      location: 'Valašské Meziříčí (Česko)',
       desc: 'Návrat k intenzívnej tvorbe. Vyhodnotenie pokroku, tréning s ohňovými rekvizitami a večerný vererejný Fire Jam prepojený so živou hudbou.',
-      badge: 'CZ Víkend + Oheň'
+      badge: 'CZ Víkend + Ohňovka'
     },
     {
       id: 4,
       title: 'Víkendové sústredenie s ohňom (SK)',
-      date: 'Máj / Jún 2027',
+      date: '24.-26. 6. 2027',
       location: 'Dolný Kubín (Slovensko)',
       desc: 'Spoločné vytváranie vystúpenia spojené so Svätojánskou vatrou v Dolnom Kubíne. Otvorený workshop a ohňová show pre verejnosť a návštevníkov mesta.',
-      badge: 'SK Víkend + Oheň'
+      badge: 'SK Víkend + Ohňovka'
     },
     {
       id: 5,
-      title: 'Záverečný letný tábor nového cirkusu',
-      date: 'Júl / August 2027 (5 dní)',
+      title: 'Záverečný pobytový letný tábor (CZ)',
+      date: '12.-16. 7. 2027 (5 dní)',
       location: 'Okolie Nového Jičína a Valašského Meziříčí',
-      desc: 'Vyvrcholenie celoročného projektu. Týždenný pobytový tábor s tvorbou záverečného galapredstavenia, pobytom v prírode a hlbokým upevnením priateľstiev.',
+      desc: 'Vyvrcholenie celoročného projektu. Týždenný pobytový tábor s tvorbou záverečného predstavenia, pobytom v prírode a hlbokým upevnením priateľstiev.',
       badge: 'Letný Tábor'
     }
   ];
@@ -70,24 +75,39 @@ const CirkusSpajaSvety = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Ján Šimko, MBA',
+      name: 'Janko Šimko',
       position: 'Hlavný manažér & Lektor (SK)',
-      photo: '/images/janko_2.webp',
+      photo: '/images/janko_3.webp',
       bio: 'Predseda OZ Plameniaky, tréner s medzinárodnými skúsenosťami (Warehouse Circus Austrália). Venuje sa žonglovaniu, balansu a párovej akrobacii.',
-      social: [
-        { icon: 'envelope', url: 'mailto:info@plameniaky.sk' }
-      ]
+      
+    
     },
     {
       id: 2,
-      name: 'Bc. Monika Drobková',
+      name: 'Monča Drobková',
       position: 'Koordinátorka & Lektorka (CZ)',
-      photo: '/images/suzanne.jpg', // Upravte podľa potreby
+      photo: '/images/monca.webp', // Upravte podľa potreby
       bio: 'Predsedníčka partnerskej organizácie Prostě Cirkus z.s., dlhoročná organizátorka voľnočasových a cirkusových aktivít v Zlínskom a Moravskosliezskom kraji.',
-      social: [
-        { icon: 'envelope', url: 'mailto:monikamiko@seznam.cz' }
-      ]
-    }
+    },
+        {
+      id: 3,
+      name: 'Suzanne Verschueren',
+      position: 'Lektorka (SK)',
+      photo: '/images/suzanne.jpg', // Upravte podľa potreby
+      bio: 'Suzanne je certifikovaná cirkusová inštruktorka z Belgicka. Jej špecialitou sú hry a balans.',
+    },
+        {
+      id: 4,
+      name: 'Vítek Nožka',
+      position: 'Lektor (CZ)',
+      photo: '/images/vit.webp', // Upravte podľa potreby
+    },
+        {
+      id: 5,
+      name: 'Hanka Krumpochová',
+      position: 'Lektorka (CZ)',
+      photo: '/images/hanka.webp', // Upravte podľa potreby
+    },
   ];
 
   const partners = [
@@ -97,18 +117,13 @@ const CirkusSpajaSvety = () => {
       url: 'https://prostecirkus.cz/',
       logo: '/images/logo/proste_cirkus_logo.webp' // Nahraďte vlastným logom
     },
-    {
-      name: 'Mesto Dolný Kubín',
-      role: 'Partner lokality (SR)',
-      url: 'https://www.dolnykubin.sk/',
-      logo: '/images/logo/mestodk_logo.webp'
-    }
+  
   ];
 
   return (
     <PageLayout 
       title="Cirkus spája svety" 
-      subtitle="Medzinárodná cezhraničná výmena a letný tábor nového cirkusu (SK – CZ)"
+      subtitle="Medzinárodná mládežnícka výmena"
     >
       {/* Sekcia 1: O projekte */}
       <Section>
@@ -119,11 +134,11 @@ const CirkusSpajaSvety = () => {
               Projekt <b>„Cirkus spája svety“</b> je séria medzinárodných stretnutí a výmen medzi obyvateľmi slovenského a českého pohraničia. Prostredníctvom nekomerčnej a inkluzívnej formy nového cirkusu spájame mladých ľudí, komunity aj širokú verejnosť bez jazykových či sociálnych bariér.
             </p>
             <p>
-              Počas celého školského roka prebehnú <b>dva víkendy v Dolnom Kubíne</b> a <b>dva víkendy v Novom Jičíne</b>, ktoré vyvrcholia <b>5-dňovým pobytovým letným táborom v Českej republike</b>.
+              Počas celého školského roka prebehnú <b>dva víkendy v Dolnom Kubíne</b> a <b>dva víkendy vo Valašskom Meziřičí</b>, ktoré vyvrcholia <b>5-dňovým pobytovým letným táborom v Českej republike</b>.
             </p>
             <p>
-              <b>Hlavná cieľová skupina:</b> Mladí ľudia (8 – 19 rokov), ktorí sa už cirkusu venujú alebo chcú rozvíjať svoje zručnosti v párovej akrobacii, žonglovaní a vzdušnej akrobacii.<br />
-              <b>Verejnosť:</b> Otvorené celodenné workshopy a záverečné vystúpenia pre celú komunitu v Dolnom Kubíne, Novom Jičíne a Valašskom Meziříčí.
+              <b>Hlavná cieľová skupina:</b> Mladí ľudia (8 – 19 rokov), ktorí sa už cirkusu venujú alebo chcú rozvíjať svoje zručnosti v párovej akrobacii, žonglovaní a vzdušnej akrobacii.<br /><br />
+              <b>Verejnosť:</b> Otvorené celodenné workshopy a záverečné vystúpenia pre celú komunitu v Dolnom Kubíne a Valašskom Meziříčí.
             </p>
           </div>
           <div className="mission-image aspect-3-4">
@@ -172,12 +187,12 @@ const CirkusSpajaSvety = () => {
         {/* Tlačidlo prihlášky */}
         <div style={{ textAlign: 'center', marginTop: '35px' }}>
           <a
-            href="https://forms.gle/RZo6bke9sMPwY5nF8"
+            href="https://forms.gle/T4f7wCsTXNsdbr9a8"
             className="btn large-btn"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Mám záujem o zapojenie / Prihláška
+            Prihláška
           </a>
         </div>
       </Section>
@@ -236,21 +251,32 @@ const CirkusSpajaSvety = () => {
       {/* Sekcia 5: Povinná publicita a spolufinancovanie EÚ */}
       <Section width="wide">
         <div style={{
-          backgroundColor: '#f8f9fa',
-          border: '1px solid #e0e0e0',
-          borderRadius: '12px',
-          padding: '25px',
-          textAlign: 'center',
-          marginTop: '10px'
-        }}>
-          {/* Miesto pre Logolink Interreg SK-CZ */}
-          <div style={{ marginBottom: '15px' }}>
-            <img 
-              src="/images/logo/interreg_logolink.webp" 
-              alt="Interreg Slovensko-Česko, Spolufinancované Európskou úniou, Fond malých projektov, ER BBK" 
-              style={{ maxHeight: '70px', maxWidth: '100%', height: 'auto' }}
-            />
-          </div>
+    backgroundColor: '#f8f9fa',
+    border: '1px solid #e0e0e0',
+    borderRadius: '12px',
+    padding: '25px',
+    textAlign: 'center',
+    marginTop: '10px',
+    overflow: 'hidden' // Zabezpečí, že rohy obrázka nepretečú cez zaoblenie boxu
+  }}>
+    {/* Vycentrovaný Logolink na plnú vnútro-šírku boxu */}
+    <div style={{ 
+      margin: '-25px -25px 20px -25px', // Negatívny margin vynuluje padding boxu
+      backgroundColor: '#ffffff', // Biely podklad pre logolink
+      padding: '20px',
+      borderBottom: '1px solid #e0e0e0'
+    }}>
+      <img 
+        src="/images/logo/logolink_int.png" 
+        alt="Interreg Slovensko-Česko, Spolufinancované Európskou úniou, Fond malých projektov, ER BBK" 
+        style={{ 
+          width: '100%', 
+          maxWidth: '100%',
+          height: 'auto',
+          display: 'block' 
+        }}
+      />
+    </div>
           <h4 style={{ margin: '10px 0 5px 0', color: '#333' }}>Projekt: Cirkus spája svety</h4>
           <p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
             <b>Kód projektu:</b> FMP/MI/03/031_SK | <b>Priorita:</b> 3.2 Miestne iniciatívy

@@ -19,6 +19,7 @@ const VzdelavanieHudba = lazy(() => import('./pages/VzdelavanieHudba'));
 const VystupeniaCirkus = lazy(() => import('./pages/VystupeniaCirkus'));
 const VystupeniaHudba = lazy(() => import('./pages/VystupeniaHudba'));
 const Tabor = lazy(() => import('./pages/Tabor'));
+const CirkusSpajaSvety = lazy(() => import('./pages/CirkusSpajaSvety'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 import './styles/index.css'; // Hlavný CSS súbor
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ponuka" element={<Ponuka />} />
           <Route path="/o-nas" element={<ONas />} />
+          <Route path="/cirkus-spaja-svety" element={<CirkusSpajaSvety />} />  
           <Route path="/tabor" element={<Tabor />} />
           <Route path="/co-nas-caka" element={<CoNasCaka />} />
           <Route path="/co-mame-za-sebou" element={<CoMameZaSebou />} />
