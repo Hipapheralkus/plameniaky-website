@@ -248,22 +248,30 @@ const CirkusSpajaSvety = () => {
               className="partner-card-large"
             >
               {/* Logo partnera */}
-              <div style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid #eee',
-                borderRadius: '12px',
-                padding: '20px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '160px'
-              }}>
-                <LazyImage 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-                />
-              </div>
+<div style={{
+  backgroundColor: '#ffffff',
+  border: '1px solid #eee',
+  borderRadius: '12px',
+  padding: '15px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '160px',
+  overflow: 'hidden'
+}}>
+  <img 
+    src={partner.logo} 
+    alt={partner.name} 
+    style={{ 
+      maxHeight: '100%', 
+      maxWidth: '100%', 
+      width: 'auto',
+      height: 'auto',
+      objectFit: 'contain', // 🔑 Zabezpečí, že sa logo nikdy neoreže
+      display: 'block'
+    }}
+  />
+</div>
 
               {/* Informácie o partnerovi */}
               <div style={{ textAlign: 'left' }}>
@@ -339,15 +347,21 @@ const CirkusSpajaSvety = () => {
       />
     </div>
           <h4 style={{ margin: '10px 0 5px 0', color: '#333' }}>Projekt: Cirkus spája svety</h4>
-          <p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
-            <b>Kód projektu:</b> FMP/MI/03/031_SK | <b>Priorita:</b> 3.2 Miestne iniciatívy
-          </p>
-          <p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
-            <b>Žiadateľ:</b> Plameniaky (SR) | <b>Hlavný cezhraničný partner:</b> Prostě Cirkus z.s. (ČR)
-          </p>
-          <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '12px', fontStyle: 'italic', maxWidth: '800px', margin: '12px auto 0 auto' }}>
-            Malý projekt je spolufinancovaný Európskou úniou z Európskeho fondu regionálneho rozvoja (EFRR) vo výške 80 % v rámci programu Interreg Slovensko – Česko 2021 – 2027 (Fond malých projektov spravovaný Euroregiónom Bílé - Biele Karpaty).
-          </p>
+<p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
+  <b>Kód projektu:</b> FMP/MI/03/031_SK | <b>Priorita:</b> 3.2 Miestne iniciatívy
+</p>
+<p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
+  <b>Žiadateľ:</b> Plameniaky (SR) | <b>Hlavný cezhraničný partner:</b> Prostě Cirkus z.s. (ČR)
+</p>
+<p style={{ fontSize: '0.85rem', color: '#555', margin: '4px 0' }}>
+  <b>Finančný príspevok z EFRR:</b> 23 265,83 € (80 % z celkových výdavkov)
+</p>
+<p style={{ fontSize: '0.85rem', color: '#666', marginTop: '12px', fontStyle: 'italic', maxWidth: '800px', margin: '12px auto 0 auto' }}>
+  Malý projekt je spolufinancovaný Európskou úniou z Európskeho fondu regionálneho rozvoja (EFRR) v rámci programu Interreg Slovensko – Česko 2021 – 2027 (Fond malých projektov spravovaný Euroregiónom Bílé - Biele Karpaty).
+</p>
+<p style={{ fontSize: '0.8rem', color: '#888', marginTop: '10px' }}>
+  Viac informácií nájdete na stránkach <a href="https://erbbk.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'underline' }}>www.erbbk.eu</a> a <a href="https://www.sk-cz.eu" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'underline' }}>www.sk-cz.eu</a>.
+</p>
         </div>
       </Section>
     </PageLayout>
