@@ -93,20 +93,21 @@ const CirkusSpajaSvety = () => {
       id: 3,
       name: 'Suzanne Verschueren',
       position: 'Lektorka (SK)',
-      photo: '/images/suzanne.jpg', // Upravte podľa potreby
+      photo: '/images/suzanne.jpg',
       bio: 'Suzanne je certifikovaná cirkusová inštruktorka z Belgicka. Jej špecialitou sú hry a balans.',
     },
         {
       id: 4,
       name: 'Vítek Nožka',
       position: 'Lektor (CZ)',
-      photo: '/images/vit.webp', // Upravte podľa potreby
+      photo: '/images/vit.webp',
+      bio: 'Nadšenec do umění všeho druhu. Poslední roky se aktivně věnuje cirkusu, kde se specializuje na klauning a žonglování.'
     },
         {
       id: 5,
       name: 'Hanka Krumpochová',
       position: 'Lektorka (CZ)',
-      photo: '/images/hanka.webp', // Upravte podľa potreby
+      photo: '/images/hanka.webp',
     },
   ];
 
